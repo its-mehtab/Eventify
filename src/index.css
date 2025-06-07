@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lexend+Deca:wght@100..900&display=swap");
+
+body {
+  font-size: 18px;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.banner-sec {
+  padding: 200px 0 80px;
+  background-image: url(/src/assets/banner-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.common-head h1 {
+  font-size: 94px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.common-head > span {
+  font-size: 25px;
+  font-weight: 600;
+  font-family: "Bricolage Grotesque", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.common-head > span::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-image: url("data:image/svg+xml,%3csvg%20width='26'%20height='26'%20viewBox='0%200%2026%2026'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_3_1086)'%3e%3cpath%20d='M0.5%200.5C0.499143%203.81475%201.81539%206.99408%204.15919%209.33864C6.50299%2011.6832%209.68237%2013.0009%2012.998%2013.002V0.5H0.5ZM12.998%2013.002H25.5V0.5C23.8579%200.499788%2022.2318%200.823041%2020.7147%201.45129C19.1976%202.07954%2017.8191%203.00047%2016.6581%204.16148C15.4971%205.32248%2014.5763%206.70081%2013.9483%208.2177C13.3203%209.73459%2012.9973%2011.3603%2012.998%2013.002ZM12.998%2013.002V25.5H25.5C25.5001%2023.8586%2025.1768%2022.2333%2024.5485%2020.7169C23.9203%2019.2005%2022.9994%2017.8227%2021.8384%2016.6621C20.6775%2015.5015%2019.2992%2014.5809%2017.7824%2013.9529C16.2655%2013.3249%2014.6398%2013.0018%2012.998%2013.002ZM12.998%2013.002H0.5V25.5C3.81503%2025.4994%206.99406%2024.1823%209.33784%2021.8385C11.6816%2019.4947%2012.9982%2016.3162%2012.998%2013.002Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_3_1086'%3e%3crect%20width='25'%20height='26'%20fill='white'%20transform='translate(0.5)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+
+/* .banner-content  */

@@ -1,0 +1,9 @@
+.primary-btn {
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #ff0a54;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
