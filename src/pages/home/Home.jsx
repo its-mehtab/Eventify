@@ -114,7 +114,7 @@ function Home() {
       </section>
       <section className="events-sec sp-tb">
         <div className="container">
-          <div className="row">
+          <div className="row gx-md-5">
             <div className="col-md-4">
               <div className="events-content">
                 <div className="common-head">
@@ -133,6 +133,9 @@ function Home() {
             </div>
             <div className="col-md-8">
               <div className="events-content">
+                <EventCard />
+                <EventCard />
+                <EventCard />
                 <EventCard />
               </div>
             </div>

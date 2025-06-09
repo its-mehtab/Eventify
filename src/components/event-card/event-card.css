@@ -1,11 +1,21 @@
 .concert-card {
-  /* background-color: #fff; */
   padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+.concert-card + .concert-card {
+  margin-top: 32px;
+}
+
+.concert-card > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='818' height='308' viewBox='0 0 818 308' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M405.521 0C411.196 15.1863 425.834 26 443 26C460.166 26 474.804 15.1863 480.479 0H778C800.091 6.31375e-06 818 17.9086 818 40V268C818 290.091 800.091 308 778 308H480.479C474.804 292.814 460.166 282 443 282C425.834 282 411.196 292.814 405.521 308H40C17.9086 308 2.89955e-07 290.091 0 268V40C0 17.9086 17.9086 0 40 0H405.521Z' fill='white'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .concert-title {
@@ -29,7 +39,9 @@
 
 .concert-content img {
   width: 100%;
+  height: 100%;
   border-radius: 20px;
+  object-fit: cover;
 }
 
 .concert-content {
@@ -58,4 +70,16 @@
   background-repeat: repeat;
   background-size: cover;
   z-index: 1;
+}
+
+.concert-details {
+  margin-top: 25px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.concert-details p {
+  font-size: 18px;
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
 }

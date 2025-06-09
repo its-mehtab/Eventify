@@ -74,3 +74,10 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+@media (min-width: 993px) {
+  .events-sec .col-md-4 .events-content {
+    position: sticky;
+    top: 30px;
+  }
+}
