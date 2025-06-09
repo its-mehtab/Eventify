@@ -1,6 +1,9 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
+import "./home.css";
+import { assets } from "../../assets/assets";
+import EventCard from "../../components/event-card/EventCard";
 
 function Home() {
   return (
@@ -12,12 +15,10 @@ function Home() {
             <div className="col-md-10 col-lg-9">
               <div className="banner-content text-center">
                 <div className="common-head">
-                  <span>
-                    <img src="fdb" alt="" />
-                    Will It Rain Tomorrow?
-                  </span>
+                  <span>Will It Rain Tomorrow?</span>
                   <h1>
-                    book your tickets for <span>event</span>
+                    book your <br />
+                    tickets for <span>event</span>
                   </h1>
                 </div>
                 <p className="mt-3 mb-4">
@@ -31,6 +32,108 @@ function Home() {
                     Join Now
                   </a> */}
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="upcoming-event">
+          <div className="row">
+            <div className="col-md-4">
+              <div className="upcoming-event-item">
+                <h3>25th DEC</h3>
+                <p>22:30 - 07:00</p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="upcoming-event-item">
+                <h3>22:30 - 07:00</h3>
+                <p>135 W, 46nd Street, New York</p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="upcoming-event-item d-flex gap-3 align-items-center">
+                <div className="">
+                  <h3>353</h3>
+                  <p>Attending</p>
+                </div>
+                <Button>
+                  <svg
+                    className="me-2"
+                    width="21"
+                    height="21"
+                    viewBox="0 0 21 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.23989 10.644C12.1969 10.6439 13.2609 7.68308 13.5394 5.251C13.8825 2.25493 12.4657 0 9.23989 0C6.01447 0 4.59693 2.25476 4.94031 5.251C5.21911 7.68308 6.28277 10.6443 9.23989 10.644Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M15.7059 11.8765C15.8011 11.8765 15.8956 11.8794 15.9895 11.8846C15.8488 11.6839 15.6859 11.5068 15.4953 11.3645C14.9271 10.9404 14.1912 10.8013 13.5406 10.5456C13.2239 10.4212 12.9404 10.2977 12.6742 10.157C11.7757 11.1423 10.6041 11.6577 9.23967 11.6579C7.87573 11.6579 6.70419 11.1424 5.80582 10.157C5.53962 10.2977 5.25598 10.4212 4.93937 10.5456C4.28881 10.8013 3.55296 10.9404 2.98472 11.3645C2.00205 12.0979 1.74809 13.7479 1.54855 14.8734C1.38388 15.8025 1.27326 16.7506 1.24097 17.6943C1.21595 18.4253 1.57686 18.5278 2.1884 18.7485C2.95411 19.0246 3.74474 19.2296 4.54068 19.3977C6.07783 19.7223 7.6623 19.9717 9.23994 19.9829C10.0044 19.9774 10.7704 19.9158 11.5318 19.8171C10.968 19.0001 10.6373 18.0106 10.6373 16.9452C10.6374 14.1503 12.9111 11.8765 15.7059 11.8765Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M15.706 12.8903C13.4666 12.8903 11.6511 14.7058 11.6511 16.9451C11.6511 19.1845 13.4666 21 15.706 21C17.9454 21 19.7609 19.1845 19.7609 16.9451C19.7609 14.7057 17.9454 12.8903 15.706 12.8903ZM17.48 17.6408H16.4017V18.7191C16.4017 19.1033 16.0903 19.4148 15.706 19.4148C15.3218 19.4148 15.0103 19.1033 15.0103 18.7191V17.6408H13.932C13.5478 17.6408 13.2363 17.3294 13.2363 16.9451C13.2363 16.5608 13.5477 16.2493 13.932 16.2493H15.0103V15.1711C15.0103 14.7868 15.3218 14.4753 15.706 14.4753C16.0903 14.4753 16.4017 14.7868 16.4017 15.1711V16.2493H17.48C17.8643 16.2493 18.1758 16.5608 18.1758 16.9451C18.1757 17.3294 17.8643 17.6408 17.48 17.6408Z"
+                      fill="white"
+                    />
+                  </svg>
+                  Interested
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="about-sec sp-tb">
+        <div className="container">
+          <div className="row align-items-center pt-5">
+            <div className="col-md-5">
+              <div className="about-item">
+                <img src={assets.about_img} alt="" />
+              </div>
+            </div>
+            <div className="col-md-7">
+              <div className="about-item">
+                <div className="common-head">
+                  <span className="inner-head">lorem ipsum</span>
+                  <h1>BOOK YOUR TICKETS FOR event</h1>
+                </div>
+                <p className="mb-4">
+                  Discover events that inspire, educated, and connect. From
+                  engaging webinars the dynamic live and conferences, our events
+                  are carefully. Discover events that inspire, educated, and
+                  connect. From engaging webinars the dynamic live and
+                  conferences, our events are carefully.
+                </p>
+                <Button>Grab Your Ticket</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="events-sec sp-tb">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4">
+              <div className="events-content">
+                <div className="common-head">
+                  <span className="inner-head">lorem ipsum</span>
+                  <h1>BOOK YOUR TICKETS FOR event</h1>
+                </div>
+                <p className="mb-3">
+                  Discover events that inspire, educated, and connect. From
+                  engaging webinars the dynamic live and conferences, our events
+                  are carefully. Discover events that inspire, educated, and
+                  connect. From engaging webinars the dynamic live and
+                  conferences, our events are carefully.
+                </p>
+                <Button>Grab Your Ticket</Button>
+              </div>
+            </div>
+            <div className="col-md-8">
+              <div className="events-content">
+                <EventCard />
               </div>
             </div>
           </div>

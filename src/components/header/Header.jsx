@@ -11,7 +11,7 @@ function Header() {
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
-              <img src={assets.logo} alt="" />
+              <img src={assets.logo} alt="Eventify Logo" width={180} />
             </a>
             <button
               className="navbar-toggler"

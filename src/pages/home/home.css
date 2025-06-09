@@ -1,0 +1,76 @@
+.banner-sec {
+  padding: 200px 0 140px;
+  background-image: url(/src/assets/banner-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.banner-sec .common-head h1 {
+  font-size: 94px;
+}
+
+.banner-sec .common-head h1 span {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid #fff;
+  border-radius: 12px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.banner-sec .common-head h1 span:after {
+  content: "";
+  position: absolute;
+  top: 60px;
+  right: -150px;
+  width: 136px;
+  height: 108px;
+  background-image: url(../../assets/arrow-icon.png);
+}
+
+.upcoming-event {
+  padding: 20px 15px;
+  background-color: #4434ba;
+  border: 1px solid rgb(255 255 255 / 40%);
+  border-radius: 30px;
+  position: absolute;
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1200px;
+  z-index: 99;
+}
+
+.upcoming-event-item {
+  padding: 10px 25px;
+}
+
+.upcoming-event .col-md-4 + .col-md-4 {
+  border-left: 1px solid rgb(255 255 255 / 40%);
+}
+
+.upcoming-event-item h3 {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.about-sec {
+  background-image: url(/src/assets/about-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about-item img {
+  border-radius: 300px 30px 30px 30px;
+  width: 100%;
+}
+
+.events-sec {
+  background-image: url(/src/assets/events-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
