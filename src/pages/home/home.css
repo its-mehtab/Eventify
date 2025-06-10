@@ -70,6 +70,86 @@
 
 .events-sec {
   background-image: url(/src/assets/events-bg.jpg);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.sports-shows {
+  background-color: #390788;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sports-shows li label {
+  width: 100%;
+  margin-right: 7px;
+  color: #fff;
+}
+
+.sports-shows label input {
+  position: absolute;
+  top: -20px;
+}
+
+.sports-shows input:checked + .option-label {
+  background: linear-gradient(90deg, #31067f 0%, #580ae5 100%);
+  color: #f7f7f7;
+}
+
+.sports-shows .option-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 30px;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sports-shows li + li .option-label {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.qty-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-sports-show {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.qty-wrap span {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #390788;
+}
+
+.qty-wrap input {
+  background-color: transparent;
+  width: 40px;
+  text-align: center;
+  color: #fff;
+  outline: none;
+  border: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.stand-up-sec {
+  background-image: url(/src/assets/stand-up-bg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

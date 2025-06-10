@@ -140,6 +140,176 @@ function Home() {
               </div>
             </div>
           </div>
+          <div className="row mt-5">
+            <div className="col-md-6">
+              <form>
+                <ul className="sports-shows">
+                  <li>
+                    <label htmlFor="sport_show1">
+                      <input
+                        defaultChecked
+                        className="d-none"
+                        type="radio"
+                        name="sports-show"
+                        id="sport_show1"
+                        value=""
+                      />
+                      <div className="option-label">
+                        <span>Student Discount</span>
+                        <span>$25.00</span>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <label htmlFor="sport_show2">
+                      <input
+                        className="d-none"
+                        type="radio"
+                        name="sports-show"
+                        id="sport_show2"
+                        value=""
+                      />
+                      <div className="option-label">
+                        <span>Student Discount</span>
+                        <span>$25.00</span>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <label htmlFor="sport_show3">
+                      <input
+                        className="d-none"
+                        type="radio"
+                        name="sports-show"
+                        id="sport_show3"
+                        value=""
+                      />
+                      <div className="option-label">
+                        <span>Student Discount</span>
+                        <span>$25.00</span>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
+                <div className="qty-sports-show">
+                  <div className="qty-wrap">
+                    <span>
+                      <svg
+                        width="20"
+                        height="21"
+                        viewBox="0 0 20 21"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4.16675 10.5H15.8334"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <input type="number" value={1} readOnly />
+                    <span>
+                      <svg
+                        width="20"
+                        height="21"
+                        viewBox="0 0 20 21"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.0001 4.66666V16.3333M4.16675 10.5H15.8334"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <Button>
+                    <svg
+                      className="me-1"
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clipPath="url(#clip0_72_135)">
+                        <mask
+                          id="mask0_72_135"
+                          style={{ maskType: "luminance" }}
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="25"
+                          height="25"
+                        >
+                          <path d="M25 0H0V25H25V0Z" fill="white" />
+                        </mask>
+                        <g mask="url(#mask0_72_135)">
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M8.58643 7.11145C8.18018 6.70519 8.18018 6.04582 8.58643 5.63853L10.7948 3.43019C11.2021 3.0229 11.8625 3.0229 12.2687 3.43019L21.1073 12.2677C21.5135 12.6739 21.5135 13.3344 21.1073 13.7406L18.8989 15.95C18.4916 16.3562 17.8312 16.3562 17.425 15.95C17.0187 15.5437 16.3583 15.5437 15.9521 15.95C15.5458 16.3573 15.5458 17.0177 15.9521 17.4229C16.3583 17.8292 16.3583 18.4885 15.9521 18.8958L13.7416 21.1073C13.3354 21.5135 12.675 21.5146 12.2687 21.1073L3.43018 12.2677C3.02393 11.8614 3.02393 11.2021 3.43018 10.7948L5.64059 8.5854C6.04684 8.17915 6.70726 8.17915 7.11351 8.5854C7.51976 8.99165 8.18018 8.99165 8.58643 8.5854C8.99268 8.17915 8.99268 7.51874 8.58643 7.11145ZM10.6698 6.50103C11.225 7.66249 11.0218 9.09686 10.0593 10.0594C9.09684 11.0198 7.66351 11.2229 6.50309 10.6698L5.63955 11.5323L13.0041 18.8969L13.8677 18.0344C13.3135 16.8739 13.5166 15.4406 14.4781 14.4771C15.4396 13.5156 16.8739 13.3114 18.0354 13.8667L18.8979 13.0042L11.5323 5.63957L10.6698 6.50103Z"
+                            fill="white"
+                          />
+                        </g>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_72_135">
+                          <rect width="25" height="25" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    buy tickets
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="about-sec sp-tb">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-5">
+              <div className="about-item">
+                <img src={assets.about_img} alt="" />
+              </div>
+            </div>
+            <div className="col-md-7">
+              <div className="about-item">
+                <div className="common-head">
+                  <span className="inner-head">lorem ipsum</span>
+                  <h1>BOOK YOUR TICKETS FOR event</h1>
+                </div>
+                <p className="mb-4">
+                  Discover events that inspire, educated, and connect. From
+                  engaging webinars the dynamic live and conferences, our events
+                  are carefully. Discover events that inspire, educated, and
+                  connect. From engaging webinars the dynamic live and
+                  conferences, our events are carefully.
+                </p>
+                <Button>Grab Your Ticket</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="stand-up-sec sp-tb">
+        <div className="container">
+          <div className="common-head text-center">
+            <span className="inner-head">Experience Magic</span>
+            <h1>Unforgettable Nights With Music Legends</h1>
+            <p>
+              Join us for incredible live performances that bring energy,
+              emotion, and unforgettable moments to every audience member.
+            </p>
+          </div>
         </div>
       </section>
     </>
