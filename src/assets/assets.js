@@ -9,6 +9,7 @@ import concert_2 from "./concert-2.jpg";
 import concert_3 from "./concert-3.jpg";
 import concert_4 from "./concert-4.jpg";
 import stand_up_bg from "./stand-up-bg.jpg";
+import stand_up1 from "./stand-up1.jpg";
 
 export const assets = {
   logo,
@@ -22,4 +23,5 @@ export const assets = {
   concert_3,
   concert_4,
   stand_up_bg,
+  stand_up1,
 };

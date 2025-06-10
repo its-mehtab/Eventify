@@ -1,0 +1,23 @@
+.underline-btn {
+  display: inline-block;
+  font-weight: 700;
+  position: relative;
+  color: #fff;
+  z-index: 1;
+  padding-bottom: 4px;
+}
+.underline-btn::after {
+  content: "";
+  width: 100%;
+  height: 1.5px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  transition: all ease-in-out 0.3s;
+}
+.underline-btn:hover:after {
+  width: 0;
+}

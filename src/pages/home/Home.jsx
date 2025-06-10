@@ -4,6 +4,7 @@ import Button from "../../components/button/Button";
 import "./home.css";
 import { assets } from "../../assets/assets";
 import EventCard from "../../components/event-card/EventCard";
+import VerticalCard from "../../components/vertical-card/VerticalCard";
 
 function Home() {
   return (
@@ -309,6 +310,17 @@ function Home() {
               Join us for incredible live performances that bring energy,
               emotion, and unforgettable moments to every audience member.
             </p>
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+              <VerticalCard />
+            </div>
+            <div className="col-md-4">
+              <VerticalCard />
+            </div>
+            <div className="col-md-4">
+              <VerticalCard />
+            </div>
           </div>
         </div>
       </section>
