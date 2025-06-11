@@ -1,4 +1,5 @@
 import logo from "./logo.png";
+import logo_white from "./logo-white.png";
 import banner_bg from "./banner-bg.jpg";
 import favicon from "./favicon.png";
 import about_bg from "./about-bg.jpg";
@@ -24,4 +25,5 @@ export const assets = {
   concert_4,
   stand_up_bg,
   stand_up1,
+  logo_white,
 };

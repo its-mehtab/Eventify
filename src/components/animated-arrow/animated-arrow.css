@@ -1,0 +1,107 @@
+.ico {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: url("#goo");
+  transform: rotate(-145deg);
+}
+.ico .circle {
+  background: #ff0a54;
+  border-radius: 50%;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transform-origin: 0%;
+}
+.ico .circle.circle-top {
+  height: 33.3333333333px;
+  width: 41.6666666667px;
+  -webkit-animation: blob-1-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  animation: blob-1-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  z-index: 0;
+  top: 0;
+}
+.ico .circle.circle-bottom {
+  height: 33.3333333333px;
+  width: 41.6666666667px;
+  -webkit-animation: blob-2-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  animation: blob-2-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  z-index: 9;
+  bottom: 0px;
+}
+.ico .st-arrow {
+  color: #fff;
+  /* -webkit-animation: scrolly 3s cubic-bezier(0.77, 0, 0.175, 1) forwards infinite; */
+  /* animation: scrolly 3s cubic-bezier(0.77, 0, 0.175, 1) forwards infinite; */
+  perspective: 9000px;
+  transform: translateZ(0);
+  transform-origin: bottom;
+}
+
+.ico svg {
+  z-index: 9;
+  position: relative;
+}
+
+.ico:hover .circle {
+  background: #fff;
+}
+.ico:hover .st-arrow {
+  color: #ff0a54;
+}
+
+/* @keyframes blob-1-anim {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  14% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+  24% {
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+@keyframes blob-2-anim {
+  0% {
+    transform: scale(1) translate(-50%, 10px);
+  }
+  30% {
+    transform: scale(1) translate(-50%, 10px);
+  }
+  70% {
+    transform: scale(1) translate(-50%, 10px);
+  }
+  95% {
+    transform: scale(1) translate(-50%, 26px);
+  }
+  100% {
+    transform: scale(1) translate(-50%, 10px);
+  }
+}
+@keyframes scrolly {
+  0% {
+    transform: translate3d(0, -150%, 0) rotateX(90deg) scale(0.5) skewX(3deg);
+  }
+  30% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) scale(1) skewX(0deg);
+  }
+  70% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) scale(1) skewX(0deg);
+  }
+  95% {
+    transform: translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg);
+  }
+  100% {
+    transform: translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg);
+  }
+} */

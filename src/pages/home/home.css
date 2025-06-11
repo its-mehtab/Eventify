@@ -135,6 +135,13 @@
   align-items: center;
   justify-content: center;
   background-color: #390788;
+  transition: all ease-in-out 0.3s;
+  color: #fff;
+}
+
+.qty-wrap span:hover {
+  background-color: #fff;
+  color: #0f0f0f;
 }
 
 .qty-wrap input {

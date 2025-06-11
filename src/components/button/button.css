@@ -2,10 +2,60 @@
   display: inline-block;
   font-size: 18px;
   font-weight: 600;
-  background-color: #ff0a54;
+  /* background-color: #ff0a54; */
   color: #fff;
   padding: 12px 30px;
   border-radius: 8px;
   text-transform: uppercase;
   font-family: "Bricolage Grotesque", sans-serif;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: all ease-in-out 0.3s;
 }
+.primary-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff0a54;
+  z-index: -2;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.primary-btn:hover {
+  color: #fff;
+  border: 1px solid #fff;
+}
+.primary-btn:hover::before {
+  width: 0%;
+}
+/* .primary-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  display: inline-block;
+  background-color: #e90046;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: -1;
+}
+.primary-btn:hover::after {
+  width: 100%;
+}*/
+.primary-btn.btn-white {
+  color: #0f0f0f;
+}
+.primary-btn.btn-white:hover {
+  color: #fff;
+}
+.primary-btn.btn-white::before {
+  background-color: #fff;
+}
+/* .primary-btn.btn-white::after {
+  background-color: #eae0e0;
+} */

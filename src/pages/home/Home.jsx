@@ -5,6 +5,7 @@ import "./home.css";
 import { assets } from "../../assets/assets";
 import EventCard from "../../components/event-card/EventCard";
 import VerticalCard from "../../components/vertical-card/VerticalCard";
+import Footer from "../../components/footer/Footer";
 
 function Home() {
   return (
@@ -28,7 +29,7 @@ function Home() {
                 </p>
                 <div className="d-flex justify-content-center">
                   <Button>Grab Your Ticket</Button>
-                  <Button btnColor={"bg-white text-dark ms-3"}>Join Now</Button>
+                  <Button BtnClass={"btn-white ms-3"}>Join Now</Button>
                   {/* <a href="#" className="primary-btn ">
                     Join Now
                   </a> */}
@@ -204,7 +205,7 @@ function Home() {
                       >
                         <path
                           d="M4.16675 10.5H15.8334"
-                          stroke="white"
+                          stroke="currentColor"
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -222,7 +223,7 @@ function Home() {
                       >
                         <path
                           d="M10.0001 4.66666V16.3333M4.16675 10.5H15.8334"
-                          stroke="white"
+                          stroke="currentColor"
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -324,6 +325,7 @@ function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
