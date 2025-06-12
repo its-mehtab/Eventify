@@ -8,9 +8,7 @@ function Footer() {
     <footer className="sp-t">
       <div className="container">
         <div className="common-head">
-          <span className="inner-head">
-            Let’s Create Something Amazing Together
-          </span>
+          <span className="inner-head">Let’s Make Memories Together</span>
           <h4>
             REGISTER <br />
             <div className="d-flex align-items-center gap-5">
@@ -44,8 +42,8 @@ function Footer() {
                   <img src={assets.logo_white} alt="" />
                 </a>
                 <p>
-                  At Eventify, we're committed then delivering excellence,
-                  innovations, an value in everything we are do.
+                  At Eventify, we bring live entertainment to life—book your
+                  tickets now and join the excitement.
                 </p>
               </div>
             </div>
@@ -86,7 +84,7 @@ function Footer() {
             </div>
           </div>
           <div className="copyright-wrap">
-            <p>© Copyright 2025 Nexus. All Right Reserved</p>
+            <p>© 2025 Eventify. All rights reserved.</p>
           </div>
         </div>
       </div>

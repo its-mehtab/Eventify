@@ -17,15 +17,15 @@ function Home() {
             <div className="col-md-10 col-lg-9">
               <div className="banner-content text-center">
                 <div className="common-head">
-                  <span>Will It Rain Tomorrow?</span>
+                  <span>Live Entertainment Hub</span>
                   <h1>
                     book your <br />
                     tickets for <span>event</span>
                   </h1>
                 </div>
                 <p className="mt-3 mb-4">
-                  Safe, secure, reliable ticketing. Your ticket to live
-                  entertainment!
+                  Experience live entertainment with fast, easy, and secure
+                  ticket booking.
                 </p>
                 <div className="d-flex justify-content-center">
                   <Button>Grab Your Ticket</Button>
@@ -98,8 +98,8 @@ function Home() {
             <div className="col-md-7">
               <div className="about-item">
                 <div className="common-head">
-                  <span className="inner-head">lorem ipsum</span>
-                  <h1>BOOK YOUR TICKETS FOR event</h1>
+                  <span className="inner-head">Our Highlights</span>
+                  <h1>Made for Moments</h1>
                 </div>
                 <p className="mb-4">
                   Discover events that inspire, educated, and connect. From
@@ -120,15 +120,12 @@ function Home() {
             <div className="col-md-4">
               <div className="events-content">
                 <div className="common-head">
-                  <span className="inner-head">lorem ipsum</span>
-                  <h1>BOOK YOUR TICKETS FOR event</h1>
+                  <span className="inner-head">Live Lineup</span>
+                  <h1>UPCOMING EVENTS YOU CAN'T MISS</h1>
                 </div>
                 <p className="mb-3">
-                  Discover events that inspire, educated, and connect. From
-                  engaging webinars the dynamic live and conferences, our events
-                  are carefully. Discover events that inspire, educated, and
-                  connect. From engaging webinars the dynamic live and
-                  conferences, our events are carefully.
+                  Experience unforgettable music with top artists performing
+                  live!
                 </p>
                 <Button>Grab Your Ticket</Button>
               </div>
@@ -286,15 +283,17 @@ function Home() {
             <div className="col-md-7">
               <div className="about-item">
                 <div className="common-head">
-                  <span className="inner-head">lorem ipsum</span>
-                  <h1>BOOK YOUR TICKETS FOR event</h1>
+                  <span className="inner-head">About Us</span>
+                  <h1>Your Gateway to Live Moments</h1>
                 </div>
                 <p className="mb-4">
-                  Discover events that inspire, educated, and connect. From
-                  engaging webinars the dynamic live and conferences, our events
-                  are carefully. Discover events that inspire, educated, and
-                  connect. From engaging webinars the dynamic live and
-                  conferences, our events are carefully.
+                  We aim to redefine how you experience live entertainment.
+                  Whether it’s a concert, sports match, or stand-up show, our
+                  platform ensures easy booking, verified tickets, and
+                  unforgettable memories. With a user-first approach, we focus
+                  on trust, convenience, and joy—making every event feel more
+                  personal, more exciting, and truly worth attending from start
+                  to finish.
                 </p>
                 <Button>Grab Your Ticket</Button>
               </div>
@@ -305,11 +304,11 @@ function Home() {
       <section className="stand-up-sec sp-tb">
         <div className="container">
           <div className="common-head text-center">
-            <span className="inner-head">Experience Magic</span>
-            <h1>Unforgettable Nights With Music Legends</h1>
+            <span className="inner-head">Comedy Nights</span>
+            <h1>Laugh Loud at Live Shows</h1>
             <p>
-              Join us for incredible live performances that bring energy,
-              emotion, and unforgettable moments to every audience member.
+              Catch the funniest comedians live on stage for unforgettable,
+              laugh-out-loud moments and great vibes.
             </p>
           </div>
           <div className="row">

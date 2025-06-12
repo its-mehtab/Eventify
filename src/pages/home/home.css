@@ -165,6 +165,6 @@
 @media (min-width: 993px) {
   .events-sec .col-md-4 .events-content {
     position: sticky;
-    top: 30px;
+    top: 60px;
   }
 }
