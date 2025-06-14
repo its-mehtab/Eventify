@@ -39,7 +39,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
-  max-width: 1200px;
+  max-width: 1320px;
   z-index: 99;
 }
 
@@ -74,6 +74,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+@media (min-width: 993px) {
+  .events-sec .col-md-4 .events-content {
+    position: sticky;
+    top: 180px;
+  }
 }
 
 .sports-shows {
@@ -155,16 +162,119 @@
   font-weight: 700;
 }
 
-.stand-up-sec {
-  background-image: url(/src/assets/stand-up-bg.jpg);
+.sports-details {
+  background: linear-gradient(90deg, #31067f 0%, #580ae5 100%);
+  border-radius: 30px;
+}
+
+.sports-details-item {
+  padding: 40px 30px;
+}
+
+.sports-details-item h4,
+.sports-details-item h5 {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 96px;
+  text-transform: uppercase;
+}
+
+.sports-details-item h5 {
+  font-size: 66px;
+  line-height: 76px;
+  margin-top: 25px;
+}
+
+.sports-details-item span {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: capitalize;
+}
+
+.sports-details-item .progress {
+  padding: 2px;
+  background-color: #fff;
+  border-radius: 50px;
+  width: 100%;
+  height: 58px;
+}
+
+.sports-details-item .progress-bar {
+  background-color: #5e11a3;
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: start;
+  text-transform: capitalize;
+}
+
+.sports-details .swiper-pagination {
+  position: absolute;
+  top: 50px !important;
+  right: 50px !important;
+  left: unset !important;
+  bottom: unset !important;
+  display: flex;
+  justify-content: end;
+}
+
+.sports-details .swiper-pagination .swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff !important;
+  background-color: transparent;
+  opacity: unset;
+}
+.sports-details .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #0f0f0f;
+}
+
+.arrow-btn {
+  min-width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff0a54;
+  border-radius: 50%;
+}
+.features-sec {
+  background-image: url(/src/assets/about-bg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-@media (min-width: 993px) {
-  .events-sec .col-md-4 .events-content {
-    position: sticky;
-    top: 60px;
-  }
+.features-item {
+  background-color: #fff;
+  padding: 40px 32px;
+  margin-top: 40px;
+}
+
+.features-item svg {
+  background-color: #430b9e;
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.features-item h4 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin: 20px 0 10px 0;
+}
+
+.features-item p {
+  color: #666;
+}
+
+.stand-up-sec {
+  background-image: url(/src/assets/stand-up-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

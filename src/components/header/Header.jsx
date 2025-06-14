@@ -1,12 +1,41 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import "./header.css";
 import { assets } from "../../assets/assets";
 
 function Header() {
   const [isPageActive, setIsPageActive] = useState("home");
+  const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
+  const headerRef = useRef(null);
+
+  const handleScroll = () => {
+    if (!headerRef.current) return;
+
+    const header = headerRef.current;
+    const elTopOffset = header.offsetTop;
+    const elHeight = header.offsetHeight;
+
+    if (window.scrollY > elTopOffset + elHeight) {
+      setSticky({ isSticky: true, offset: elHeight });
+    } else {
+      setSticky({ isSticky: false, offset: 0 });
+    }
+  };
+
+  useLayoutEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    // Immediately check position in case user reloads mid-scroll
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header>
+    <header
+      className={`${sticky.isSticky ? "fixed-header" : ""}`}
+      ref={headerRef}
+    >
       <div className="container">
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
