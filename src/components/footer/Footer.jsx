@@ -14,7 +14,7 @@ function Footer() {
             <div className="d-flex align-items-center gap-5">
               <span>TODAY</span>
               <a href="#" className="arrow-sign-up">
-                <svg
+                {/* <svg
                   width="90"
                   height="90"
                   viewBox="0 0 90 90"
@@ -28,9 +28,9 @@ function Footer() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                </svg>
+                </svg> */}
+                <assets.ArrowIcon />
               </a>
-              {/* <AnimatedArrow /> */}
             </div>
           </h4>
         </div>

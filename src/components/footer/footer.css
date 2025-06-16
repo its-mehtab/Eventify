@@ -32,9 +32,14 @@ footer {
   overflow: hidden;
 }
 
+.arrow-sign-up svg {
+  width: 90px;
+  height: 90px;
+}
+
 .arrow-sign-up:hover svg {
-  animation: scrolly 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  /* animation: scrolly 3s cubic-bezier(0.77, 0, 0.175, 1) forwards infinite; */
+  color: #ff0a54;
+  animation: scrolly 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .arrow-sign-up:hover {

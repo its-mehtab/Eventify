@@ -3,7 +3,7 @@ import React from "react";
 const FeaturesIcon1 = ({
   width = 84,
   height = 84,
-  stroke = "white",
+  stroke = "currentColor",
   ...props
 }) => (
   <svg

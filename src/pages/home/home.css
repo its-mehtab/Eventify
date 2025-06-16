@@ -8,7 +8,43 @@
 }
 
 .banner-sec .common-head h1 {
+  position: relative;
   font-size: 94px;
+}
+
+@media (max-width: 1200px) {
+  .banner-sec .common-head h1 {
+    font-size: 78px;
+  }
+}
+
+.banner-sec .common-head h1 img {
+  position: absolute;
+  top: 8px;
+  right: 120px;
+  animation: rotate 5s infinite linear;
+}
+
+@media (max-width: 1200px) {
+  .banner-sec .common-head h1 img {
+    top: 4px;
+    right: 16%;
+  }
+}
+
+@media (max-width: 991px) {
+  .banner-sec .common-head h1 img {
+    right: 6%;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .banner-sec .common-head h1 span {
@@ -27,6 +63,12 @@
   width: 136px;
   height: 108px;
   background-image: url(../../assets/arrow-icon.png);
+}
+
+@media (max-width: 1200px) {
+  .banner-sec .common-head h1 span:after {
+    display: none;
+  }
 }
 
 .upcoming-event {
@@ -239,6 +281,7 @@
   align-items: center;
   background-color: #ff0a54;
   border-radius: 50%;
+  color: #fff;
 }
 .features-sec {
   background-image: url(/src/assets/about-bg.jpg);
@@ -248,9 +291,29 @@
 }
 
 .features-item {
-  background-color: #fff;
   padding: 40px 32px;
   margin-top: 40px;
+  position: relative;
+  z-index: 0;
+  transition: all ease-in-out 0.3s;
+}
+
+.features-item:after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  mask-image: url(../../assets/features-bg.svg);
+  mask-position: right bottom;
+  border-radius: 25px 25px 0 25px;
+}
+
+.features-item:hover {
+  transform: translateY(-10px);
 }
 
 .features-item svg {
@@ -259,8 +322,13 @@
   height: 84px;
   border-radius: 10px;
   padding: 15px;
+  transition: all ease-in-out 0.3s;
 }
 
+.features-item:hover svg {
+  background-color: #d5d4df;
+  color: #430b9e;
+}
 .features-item h4 {
   font-size: 26px;
   font-weight: 700;
@@ -277,4 +345,13 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.stand-up-sec .swiper-button-prev,
+.stand-up-sec .swiper-button-next {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 64px;
+  height: 64px;
 }
