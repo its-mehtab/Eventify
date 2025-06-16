@@ -37,6 +37,37 @@ footer {
   height: 90px;
 }
 
+@media (max-width: 767px) {
+  .common-head h4 {
+    font-size: 80px;
+  }
+  .arrow-sign-up {
+    width: 90px;
+    height: 90px;
+  }
+  .arrow-sign-up svg {
+    width: 50px;
+    height: 50px;
+  }
+  footer {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .common-head h4 {
+    font-size: 60px;
+  }
+  .arrow-sign-up {
+    width: 60px;
+    height: 60px;
+  }
+  .arrow-sign-up svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
 .arrow-sign-up:hover svg {
   color: #ff0a54;
   animation: scrolly 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -94,4 +125,14 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 60px;
   text-align: center;
+}
+
+@media (max-width: 520px) {
+  .footer-main-content {
+    margin-top: 40px;
+    padding: 40px 30px 0;
+  }
+  .footer-main-content .copyright-wrap {
+    margin-top: 40px;
+  }
 }

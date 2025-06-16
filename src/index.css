@@ -62,6 +62,16 @@ input::-webkit-inner-spin-button {
   text-transform: capitalize;
 }
 
+@media (max-width: 767px) {
+  .common-head h1,
+  .common-head h2 {
+    font-size: 48px;
+  }
+  .common-head > span {
+    font-size: 20px;
+  }
+}
+
 .common-head > span.inner-head {
   font-size: 22px;
   display: inline-flex;
@@ -95,5 +105,31 @@ input::-webkit-inner-spin-button {
 @media (max-width: 1200px) {
   .container {
     max-width: 1200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sp-tb {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .sp-t {
+    padding-top: 60px;
+  }
+  .sp-b {
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sp-tb {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .sp-t {
+    padding-top: 40px;
+  }
+  .sp-b {
+    padding-bottom: 40px;
   }
 }

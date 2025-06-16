@@ -1,9 +1,9 @@
 import React from "react";
 import "./button.css";
 
-const Button = ({ BtnClass = "", children }) => {
+const Button = ({ btnClass = "", children }) => {
   return (
-    <a href="#" className={`primary-btn ${BtnClass}`}>
+    <a href="#" className={`primary-btn ${btnClass}`}>
       {children}
     </a>
   );

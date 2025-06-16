@@ -1,0 +1,24 @@
+.about-sec {
+  background-image: url(/src/assets/about-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+}
+
+@media (max-width: 1200px) {
+  .about-sec {
+    padding-top: 220px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-sec {
+    padding-top: 280px;
+  }
+}
+
+.about-item img {
+  border-radius: 300px 30px 30px 30px;
+  width: 100%;
+}

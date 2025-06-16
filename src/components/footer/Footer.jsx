@@ -11,24 +11,9 @@ function Footer() {
           <span className="inner-head">Let’s Make Memories Together</span>
           <h4>
             REGISTER <br />
-            <div className="d-flex align-items-center gap-5">
+            <div className="d-flex align-items-center gap-4 gap-md-5">
               <span>TODAY</span>
               <a href="#" className="arrow-sign-up">
-                {/* <svg
-                  width="90"
-                  height="90"
-                  viewBox="0 0 90 90"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M26.25 63.75L63.75 26.25M63.75 26.25L26.25 26.25M63.75 26.25V63.75"
-                    stroke="currentColor"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg> */}
                 <assets.ArrowIcon />
               </a>
             </div>
@@ -47,7 +32,7 @@ function Footer() {
                 </p>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 mt-4 mt-md-0">
               <div className="footer-item">
                 <h5>Top Links</h5>
                 <ul>
@@ -66,7 +51,7 @@ function Footer() {
                 </ul>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 mt-4 mt-md-0">
               <div className="footer-item">
                 <h5>Book tickets</h5>
                 <ul>

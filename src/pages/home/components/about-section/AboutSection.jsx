@@ -1,18 +1,19 @@
 import React from "react";
-import { assets } from "../../../assets/assets";
-import Button from "../../../components/button/Button";
+import { assets } from "../../../../assets/assets";
+import Button from "../../../../components/button/Button";
+import "./about-section.css";
 
 const AboutSection = () => {
   return (
     <section className="about-sec sp-tb">
       <div className="container">
-        <div className="row align-items-center pt-5">
-          <div className="col-md-5">
+        <div className="row align-items-center">
+          <div className="col-lg-5 col-md-6">
             <div className="about-item">
               <img src={assets.about_img} alt="" />
             </div>
           </div>
-          <div className="col-md-7">
+          <div className="col-lg-7 col-md-6 mt-4 mt-md-0">
             <div className="about-item">
               <div className="common-head">
                 <span className="inner-head">Our Highlights</span>

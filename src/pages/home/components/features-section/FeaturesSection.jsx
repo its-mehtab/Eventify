@@ -1,5 +1,6 @@
 import React from "react";
-import { assets } from "../../../assets/assets";
+import { assets } from "../../../../assets/assets";
+import "./features-section.css";
 
 const FeaturesSection = () => {
   return (
@@ -14,7 +15,7 @@ const FeaturesSection = () => {
           </p>
         </div>
         <div className="row">
-          <div className="col-md-6 col-xl-3 d-flex align-items-stretch">
+          <div className="col-md-6 col-xxl-3 d-flex align-items-stretch">
             <div className="features-item">
               <assets.FeaturesIcon1 />
               <h4>Easy Booking</h4>
@@ -24,7 +25,7 @@ const FeaturesSection = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-6 col-xl-3 d-flex align-items-stretch">
+          <div className="col-md-6 col-xxl-3 d-flex align-items-stretch">
             <div className="features-item">
               <assets.FeaturesIcon2 />
               <h4>Secure Payments</h4>
@@ -35,7 +36,7 @@ const FeaturesSection = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-6 col-xl-3 d-flex align-items-stretch">
+          <div className="col-md-6 col-xxl-3 d-flex align-items-stretch">
             <div className="features-item">
               <assets.FeaturesIcon3 />
               <h4>Instant Tickets</h4>
@@ -45,7 +46,7 @@ const FeaturesSection = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-6 col-xl-3 d-flex align-items-stretch">
+          <div className="col-md-6 col-xxl-3 d-flex align-items-stretch">
             <div className="features-item">
               <assets.FeaturesIcon4 />
               <h4>Event Variety</h4>

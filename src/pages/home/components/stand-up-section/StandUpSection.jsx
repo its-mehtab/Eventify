@@ -1,10 +1,11 @@
 import React from "react";
-import VerticalCard from "../../../components/vertical-card/VerticalCard";
+import VerticalCard from "../../../../components/vertical-card/VerticalCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "./stand-up-section.css";
 
 const StandUpSection = () => {
   return (
@@ -22,8 +23,16 @@ const StandUpSection = () => {
           navigation={true}
           modules={[Navigation]}
           spaceBetween={32}
-          slidesPerView={3}
+          slidesPerView={1}
           loop={true}
+          breakpoints={{
+            580: {
+              slidesPerView: 2,
+            },
+            991: {
+              slidesPerView: 3,
+            },
+          }}
         >
           <SwiperSlide>
             <VerticalCard />

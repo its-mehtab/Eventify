@@ -1,0 +1,46 @@
+.stand-up-sec {
+  background-image: url(/src/assets/stand-up-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.stand-up-sec .swiper-button-prev,
+.stand-up-sec .swiper-button-next {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  width: 50px;
+  height: 50px;
+  transition: all ease-in-out 0.3s;
+  border: 1px solid #fff;
+}
+
+.stand-up-sec .swiper-button-prev:hover,
+.stand-up-sec .swiper-button-next:hover {
+  background-color: #430b9e;
+  color: #fff;
+}
+
+.stand-up-sec .swiper-button-prev {
+  top: 30%;
+  left: 10px;
+}
+
+.stand-up-sec .swiper-button-next {
+  top: 30%;
+  right: 10px;
+}
+
+.stand-up-sec .swiper-button-prev:after,
+.stand-up-sec .swiper-button-next:after {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f0f0f;
+}
+
+.stand-up-sec .swiper-button-prev:hover:after,
+.stand-up-sec .swiper-button-next:hover:after {
+  background-color: transparent;
+  color: #fff;
+}

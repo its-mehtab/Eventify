@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import "./header.css";
 import { assets } from "../../assets/assets";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
   const [isPageActive, setIsPageActive] = useState("home");
@@ -39,9 +40,9 @@ function Header() {
       <div className="container">
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
+            <Link to="/" className="navbar-brand">
               <img src={assets.logo} alt="Eventify Logo" width={180} />
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -59,55 +60,54 @@ function Header() {
             >
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${
-                      isPageActive === "home" ? "active" : ""
-                    }`}
-                    aria-current="page"
-                    href="#"
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
                   >
                     Home
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${
-                      isPageActive === "events" ? "active" : ""
-                    }`}
-                    href="#"
+                  <NavLink
+                    to="concert"
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
                   >
                     Events
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${
-                      isPageActive === "standup" ? "active" : ""
-                    }`}
-                    href="#"
+                  <NavLink
+                    to="standup"
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
                   >
                     Stand up
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${
-                      isPageActive === "sports" ? "active" : ""
-                    }`}
-                    href="#"
+                  <NavLink
+                    to="sports"
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
                   >
                     Sports
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${
-                      isPageActive === "contactus" ? "active" : ""
-                    }`}
-                    href="#"
+                  <NavLink
+                    to="contact"
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
                   >
                     Contact Us
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
               <div className="d-flex" role="search">

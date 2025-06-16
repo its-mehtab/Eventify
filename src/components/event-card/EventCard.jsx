@@ -38,13 +38,13 @@ const EventCard = ({ currConcert }) => {
     <div className="concert-card">
       <img src={assets.concert_box} alt="" />
       <div className="row">
-        <div className="col-md-6 d-flex align-items-stretch">
+        <div className="col-md-6 d-md-flex align-items-stretch">
           <div className="concert-content">
             <img src={assets.concert_1} alt="" />
           </div>
         </div>
         <div className="col-md-6 d-flex align-items-stretch">
-          <div className="concert-content py-3">
+          <div className="concert-content py-3 mt-3 mt-md-0">
             <div className="concert-title">
               <div>
                 <h3>{currConcert.heading}</h3>
