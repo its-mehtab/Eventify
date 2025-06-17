@@ -6,10 +6,33 @@ import AddPersonIcon from "./AddPersonIcon";
 import about_bg from "./about-bg.jpg";
 import about_img from "./about-img.jpg";
 import concert_box from "./concert-box.png";
-import concert_1 from "./concert-1.jpg";
-import concert_2 from "./concert-2.jpg";
-import concert_3 from "./concert-3.jpg";
-import concert_4 from "./concert-4.jpg";
+import concert_1 from "./concerts/arijit.jpg";
+import concert_2 from "./concerts/diljit.jpg";
+import concert_3 from "./concerts/coldplay.jpg";
+import concert_4 from "./concerts/atif.jpg";
+import concert_5 from "./concerts/sonu.jpg";
+import concert_6 from "./concerts/shreya.jpg";
+import concert_7 from "./concerts/arrahman.jpg";
+import concert_8 from "./concerts/neha.jpg";
+import concert_9 from "./concerts/badshah.jpg";
+import comedy_1 from "./comedy/zakir.jpg";
+import comedy_2 from "./comedy/samay.jpg";
+import comedy_3 from "./comedy/munawar.jpg";
+import comedy_4 from "./comedy/abish.jpg";
+import comedy_5 from "./comedy/akash.jpg";
+import comedy_6 from "./comedy/kaneez.jpg";
+import comedy_7 from "./comedy/rahul.jpg";
+import comedy_8 from "./comedy/anish.jpg";
+import comedy_9 from "./comedy/kenny.jpg";
+import sports_1 from "./sports/cricket.jpg";
+import sports_2 from "./sports/football.jpg";
+import sports_3 from "./sports/kabaddi.jpg";
+import sports_4 from "./sports/badminton.jpg";
+import sports_5 from "./sports/tennis.jpg";
+import sports_6 from "./sports/hockey.jpg";
+import sports_7 from "./sports/wrestling.jpg";
+import sports_8 from "./sports/basketball.jpg";
+import sports_9 from "./sports/boxing.jpg";
 import Plus from "./Plus";
 import Minus from "./Minus";
 import TicketIcon from "./TicketIcon";
@@ -41,6 +64,29 @@ export const assets = {
   concert_2,
   concert_3,
   concert_4,
+  concert_5,
+  concert_6,
+  concert_7,
+  concert_8,
+  concert_9,
+  comedy_1,
+  comedy_2,
+  comedy_3,
+  comedy_4,
+  comedy_5,
+  comedy_6,
+  comedy_7,
+  comedy_8,
+  comedy_9,
+  sports_1,
+  sports_2,
+  sports_3,
+  sports_4,
+  sports_5,
+  sports_6,
+  sports_7,
+  sports_8,
+  sports_9,
   Minus,
   Plus,
   TicketIcon,

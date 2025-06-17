@@ -100,3 +100,18 @@
     padding-left: 10px;
   }
 }
+
+.inner-page .concert-card > img {
+  display: none !important;
+}
+.inner-page .events-content {
+  background-color: #fff;
+  border-radius: 30px;
+  width: 100%;
+}
+.inner-page .events-content img {
+  width: 100%;
+}
+.inner-page .concert-card {
+  padding: 20px;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import { assets } from "../../assets/assets";
 import "./event-card.css";
 
-const EventCard = ({ currConcert }) => {
+const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
   console.log(currConcert);
 
   const input = currConcert.date;
@@ -38,12 +38,12 @@ const EventCard = ({ currConcert }) => {
     <div className="concert-card">
       <img src={assets.concert_box} alt="" />
       <div className="row">
-        <div className="col-md-6 d-md-flex align-items-stretch">
+        <div className={`${orientation} d-md-flex align-items-stretch`}>
           <div className="concert-content">
-            <img src={assets.concert_1} alt="" />
+            <img src={currConcert.image} alt="" />
           </div>
         </div>
-        <div className="col-md-6 d-flex align-items-stretch">
+        <div className={`${orientation} d-md-flex align-items-stretch`}>
           <div className="concert-content py-3 mt-3 mt-md-0">
             <div className="concert-title">
               <div>

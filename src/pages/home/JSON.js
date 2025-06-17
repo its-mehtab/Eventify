@@ -1,9 +1,11 @@
+import { assets } from "../../assets/assets";
+
 const data = {
   concerts: [
     {
       id: "c1",
       type: "concert",
-      image: "/images/concerts/arijit.jpg",
+      image: assets.concert_1,
       heading: "Voice of Emotions",
       artist: "Arijit Singh",
       artistType: "Playback Singer",
@@ -27,7 +29,7 @@ const data = {
     {
       id: "c2",
       type: "concert",
-      image: "/images/concerts/diljit.jpg",
+      image: assets.concert_2,
       heading: "Live with Energy",
       artist: "Diljit Dosanjh",
       artistType: "Punjabi Singer/Actor",
@@ -51,7 +53,7 @@ const data = {
     {
       id: "c3",
       type: "concert",
-      image: "/images/concerts/coldplay.jpg",
+      image: assets.concert_3,
       heading: "A Night of Pure Magic",
       artist: "Coldplay",
       artistType: "International Band",
@@ -75,7 +77,7 @@ const data = {
     {
       id: "c4",
       type: "concert",
-      image: "/images/concerts/atif.jpg",
+      image: assets.concert_4,
       heading: "Melodies of the Heart",
       artist: "Atif Aslam",
       artistType: "Singer-Songwriter",
@@ -99,7 +101,7 @@ const data = {
     {
       id: "c5",
       type: "concert",
-      image: "/images/concerts/sonu.jpg",
+      image: assets.concert_5,
       heading: "Golden Hits Tour",
       artist: "Sonu Nigam",
       artistType: "Playback Singer",
@@ -122,7 +124,7 @@ const data = {
     {
       id: "c6",
       type: "concert",
-      image: "/images/concerts/shreya.jpg",
+      image: assets.concert_6,
       heading: "Divine Melodies",
       artist: "Shreya Ghoshal",
       artistType: "Playback Singer",
@@ -145,7 +147,7 @@ const data = {
     {
       id: "c7",
       type: "concert",
-      image: "/images/concerts/arrahman.jpg",
+      image: assets.concert_7,
       heading: "AR Rahman Live",
       artist: "AR Rahman",
       artistType: "Music Composer",
@@ -168,7 +170,7 @@ const data = {
     {
       id: "c8",
       type: "concert",
-      image: "/images/concerts/neha.jpg",
+      image: assets.concert_8,
       heading: "Dance Beats Night",
       artist: "Neha Kakkar",
       artistType: "Playback Singer",
@@ -191,7 +193,7 @@ const data = {
     {
       id: "c9",
       type: "concert",
-      image: "/images/concerts/badshah.jpg",
+      image: assets.concert_9,
       heading: "Hip Hop King Live",
       artist: "Badshah",
       artistType: "Rapper",
@@ -217,7 +219,7 @@ const data = {
     {
       id: "cm1",
       type: "comedy",
-      image: "/images/comedy/zakir.jpg",
+      image: assets.comedy_1,
       heading: "Zakir Khan – Sakht Launda",
       artist: "Zakir Khan",
       artistType: "Stand-up Comedian",
@@ -241,7 +243,7 @@ const data = {
     {
       id: "cm2",
       type: "comedy",
-      image: "/images/comedy/samay.jpg",
+      image: assets.comedy_2,
       heading: "Samay Raina – Cracks You Up",
       artist: "Samay Raina",
       artistType: "Chess Comedian",
@@ -263,7 +265,7 @@ const data = {
     {
       id: "cm3",
       type: "comedy",
-      image: "/images/comedy/munawar.jpg",
+      image: assets.comedy_3,
       heading: "Munawar Faruqui – Live On Stage",
       artist: "Munawar Faruqui",
       artistType: "Stand-up Comedian",
@@ -285,7 +287,7 @@ const data = {
     {
       id: "cm4",
       type: "comedy",
-      image: "/images/comedy/abish.jpg",
+      image: assets.comedy_4,
       heading: "Abish Mathew – Son of Abish",
       artist: "Abish Mathew",
       artistType: "Musical Comedian",
@@ -307,7 +309,7 @@ const data = {
     {
       id: "cm5",
       type: "comedy",
-      image: "/images/comedy/akash.jpg",
+      image: assets.comedy_5,
       heading: "Akash Gupta – Gandu Engineer",
       artist: "Akash Gupta",
       artistType: "Stand-up Comedian",
@@ -331,7 +333,7 @@ const data = {
     {
       id: "cm6",
       type: "comedy",
-      image: "/images/comedy/kaneez.jpg",
+      image: assets.comedy_6,
       heading: "Kaneez Surka – Improv Queen",
       artist: "Kaneez Surka",
       artistType: "Improv Comedian",
@@ -354,7 +356,7 @@ const data = {
     {
       id: "cm7",
       type: "comedy",
-      image: "/images/comedy/rahul.jpg",
+      image: assets.comedy_7,
       heading: "Rahul Subramanian – Kal Main Udega",
       artist: "Rahul Subramanian",
       artistType: "Corporate Comedian",
@@ -376,7 +378,7 @@ const data = {
     {
       id: "cm8",
       type: "comedy",
-      image: "/images/comedy/anish.jpg",
+      image: assets.comedy_8,
       heading: "Anish Joshi – Gujju Gone Wrong",
       artist: "Anish Joshi",
       artistType: "Cultural Comedian",
@@ -398,7 +400,7 @@ const data = {
     {
       id: "cm9",
       type: "comedy",
-      image: "/images/comedy/kenny.jpg",
+      image: assets.comedy_9,
       heading: "Kenny Sebastian – Don't Be That Guy",
       artist: "Kenny Sebastian",
       artistType: "Musical Comedian",
@@ -422,7 +424,7 @@ const data = {
     {
       id: "s1",
       type: "sports",
-      image: "/images/sports/cricket.jpg",
+      image: assets.sports_1,
       heading: "IPL Championship 2025",
       teams: [
         {
@@ -454,7 +456,7 @@ const data = {
     {
       id: "s2",
       type: "sports",
-      image: "/images/sports/football.jpg",
+      image: assets.sports_2,
       heading: "International Football Friendly",
       teams: [
         {
@@ -486,7 +488,7 @@ const data = {
     {
       id: "s3",
       type: "sports",
-      image: "/images/sports/kabaddi.jpg",
+      image: assets.sports_3,
       heading: "Pro Kabaddi League Finals",
       teams: [
         {
@@ -516,7 +518,7 @@ const data = {
     {
       id: "s4",
       type: "sports",
-      image: "/images/sports/badminton.jpg",
+      image: assets.sports_4,
       heading: "India Open Badminton Championship",
       players: [
         {
@@ -547,7 +549,7 @@ const data = {
     {
       id: "s5",
       type: "sports",
-      image: "/images/sports/tennis.jpg",
+      image: assets.sports_5,
       heading: "International Premier Tennis League",
       players: [
         {
@@ -579,7 +581,7 @@ const data = {
     {
       id: "s6",
       type: "sports",
-      image: "/images/sports/hockey.jpg",
+      image: assets.sports_6,
       heading: "Hockey World League Finals",
       teams: [
         {
@@ -611,7 +613,7 @@ const data = {
     {
       id: "s7",
       type: "sports",
-      image: "/images/sports/wrestling.jpg",
+      image: assets.sports_7,
       heading: "Pro Wrestling League Finals",
       teams: [
         {
@@ -643,7 +645,7 @@ const data = {
     {
       id: "s8",
       type: "sports",
-      image: "/images/sports/basketball.jpg",
+      image: assets.sports_8,
       heading: "NBA India Games 2025",
       teams: [
         {
@@ -674,7 +676,7 @@ const data = {
     {
       id: "s9",
       type: "sports",
-      image: "/images/sports/boxing.jpg",
+      image: assets.sports_9,
       heading: "World Boxing Championship",
       players: [
         {

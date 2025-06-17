@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./stand-up-section.css";
 
-const StandUpSection = () => {
+const StandUpSection = ({ children }) => {
   return (
     <section className="stand-up-sec sp-tb">
       <div className="container">
@@ -19,48 +19,7 @@ const StandUpSection = () => {
             laugh-out-loud moments and great vibes.
           </p>
         </div>
-        <Swiper
-          navigation={true}
-          modules={[Navigation]}
-          spaceBetween={32}
-          slidesPerView={1}
-          loop={true}
-          breakpoints={{
-            580: {
-              slidesPerView: 2,
-            },
-            991: {
-              slidesPerView: 3,
-            },
-          }}
-        >
-          <SwiperSlide>
-            <VerticalCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <VerticalCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <VerticalCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <VerticalCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <VerticalCard />
-          </SwiperSlide>
-        </Swiper>
-        {/* <div className="row">
-            <div className="col-md-4">
-              <VerticalCard />
-            </div>
-            <div className="col-md-4">
-              <VerticalCard />
-            </div>
-            <div className="col-md-4">
-              <VerticalCard />
-            </div>
-          </div> */}
+        {children}
       </div>
     </section>
   );

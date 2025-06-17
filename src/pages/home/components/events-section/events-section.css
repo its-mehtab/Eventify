@@ -207,3 +207,11 @@
   border-radius: 50%;
   color: #fff;
 }
+
+.events-sec.inner-page {
+  background-size: cover;
+  background-attachment: unset;
+}
+.events-sec.inner-page .col-xl-4 .events-content {
+  position: static;
+}

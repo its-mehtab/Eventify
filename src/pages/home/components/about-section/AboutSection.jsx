@@ -3,11 +3,11 @@ import { assets } from "../../../../assets/assets";
 import Button from "../../../../components/button/Button";
 import "./about-section.css";
 
-const AboutSection = () => {
+const AboutSection = ({ className = "" }) => {
   return (
-    <section className="about-sec sp-tb">
+    <section className={`about-sec sp-b ${className}`}>
       <div className="container">
-        <div className="row align-items-center">
+        <div className={`row align-items-center`}>
           <div className="col-lg-5 col-md-6">
             <div className="about-item">
               <img src={assets.about_img} alt="" />

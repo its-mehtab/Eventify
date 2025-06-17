@@ -76,7 +76,7 @@ function Header() {
                       `nav-link ${isActive ? "active" : ""}`
                     }
                   >
-                    Events
+                    Concerts
                   </NavLink>
                 </li>
                 <li className="nav-item">

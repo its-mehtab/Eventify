@@ -2,6 +2,7 @@ import React from "react";
 import "./footer.css";
 import AnimatedArrow from "../animated-arrow/AnimatedArrow";
 import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -23,9 +24,9 @@ function Footer() {
           <div className="row">
             <div className="col-md-4">
               <div className="footer-item">
-                <a href="#" className="d-block mb-3">
+                <Link to="/" className="d-block mb-3">
                   <img src={assets.logo_white} alt="" />
-                </a>
+                </Link>
                 <p>
                   At Eventify, we bring live entertainment to life—book your
                   tickets now and join the excitement.
@@ -37,16 +38,16 @@ function Footer() {
                 <h5>Top Links</h5>
                 <ul>
                   <li>
-                    <a href="#">About US</a>
+                    <Link to="/about">About US</Link>
                   </li>
                   <li>
-                    <a href="#">Contact Us</a>
+                    <Link to="/contact">Contact Us</Link>
                   </li>
                   <li>
-                    <a href="#">Privacy Policy</a>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
                   </li>
                   <li>
-                    <a href="#">Terms Of Condition</a>
+                    <Link to="/terms-and-condition">Terms Of Condition</Link>
                   </li>
                 </ul>
               </div>
@@ -56,13 +57,13 @@ function Footer() {
                 <h5>Book tickets</h5>
                 <ul>
                   <li>
-                    <a href="#">Events</a>
+                    <Link to="/concert">Concerts</Link>
                   </li>
                   <li>
-                    <a href="#">Stand up</a>
+                    <Link to="/standup">Stand up</Link>
                   </li>
                   <li>
-                    <a href="#">Sports</a>
+                    <Link to="/sports">Sports</Link>
                   </li>
                 </ul>
               </div>

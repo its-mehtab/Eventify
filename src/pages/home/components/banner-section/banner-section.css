@@ -12,7 +12,8 @@
   font-size: 94px;
 }
 
-.banner-sec .breadcrumb li a {
+.banner-sec .breadcrumb li a,
+.banner-sec .breadcrumb li {
   font-size: 24px;
   color: #fff;
   text-transform: capitalize;
