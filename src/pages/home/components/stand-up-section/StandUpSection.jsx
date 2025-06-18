@@ -10,17 +10,7 @@ import "./stand-up-section.css";
 const StandUpSection = ({ children }) => {
   return (
     <section className="stand-up-sec sp-tb">
-      <div className="container">
-        <div className="common-head text-center">
-          <span className="inner-head">Comedy Nights</span>
-          <h1>Laugh Loud at Live Shows</h1>
-          <p>
-            Catch the funniest comedians live on stage for unforgettable,
-            laugh-out-loud moments and great vibes.
-          </p>
-        </div>
-        {children}
-      </div>
+      <div className="container">{children}</div>
     </section>
   );
 };

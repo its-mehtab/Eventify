@@ -3,8 +3,6 @@ import { assets } from "../../assets/assets";
 import "./event-card.css";
 
 const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
-  console.log(currConcert);
-
   const input = currConcert.date;
   const date = new Date(input);
 

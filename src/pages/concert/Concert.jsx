@@ -41,9 +41,12 @@ const Concert = () => {
         <div className="row">
           {JSON.concerts.map((currConcert) => {
             return (
-              <div className="col-xl-4 col-md-6 d-flex align-items-stretch">
+              <div
+                className="col-xl-4 col-md-6 d-flex align-items-stretch"
+                key={currConcert.id}
+              >
                 <div className="events-content mt-4">
-                  <EventCard currConcert={currConcert} key={currConcert.id} />
+                  <EventCard currConcert={currConcert} />
                 </div>
               </div>
             );

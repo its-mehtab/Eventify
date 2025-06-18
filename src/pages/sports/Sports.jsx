@@ -28,10 +28,18 @@ const Sports = () => {
         </div>
       </BannerSection>
       <StandUpSection>
+        <div className="common-head text-center">
+          <span className="inner-head">Our Sports Highlights</span>
+          <h1>Play Bold, Live the Action</h1>
+          <p>
+            Experience thrilling sports moments built to excite, engage, and
+            energize every fan.
+          </p>
+        </div>
         <div className="row">
           {JSON.sports.map((currData) => {
             return (
-              <div className="col-md-4">
+              <div className="col-md-4" key={currData.id}>
                 <VerticalCard currData={currData} />
               </div>
             );

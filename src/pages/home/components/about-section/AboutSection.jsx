@@ -16,15 +16,17 @@ const AboutSection = ({ className = "" }) => {
           <div className="col-lg-7 col-md-6 mt-4 mt-md-0">
             <div className="about-item">
               <div className="common-head">
-                <span className="inner-head">Our Highlights</span>
-                <h1>Made for Moments</h1>
+                <span className="inner-head">About Us</span>
+                <h1>Your Gateway to Live Moments</h1>
               </div>
               <p className="mb-4">
-                Discover events that inspire, educated, and connect. From
-                engaging webinars the dynamic live and conferences, our events
-                are carefully. Discover events that inspire, educated, and
-                connect. From engaging webinars the dynamic live and
-                conferences, our events are carefully.
+                We aim to redefine how you experience live entertainment.
+                Whether it’s a concert, sports match, or stand-up show, our
+                platform ensures easy booking, verified tickets, and
+                unforgettable memories. With a user-first approach, we focus on
+                trust, convenience, and joy—making every event feel more
+                personal, more exciting, and truly worth attending from start to
+                finish.
               </p>
               <Button>Grab Your Ticket</Button>
             </div>

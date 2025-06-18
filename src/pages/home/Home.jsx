@@ -1,11 +1,9 @@
 import React from "react";
-import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
 import "./home.css";
 import { assets } from "../../assets/assets";
 import EventCard from "../../components/event-card/EventCard";
 import VerticalCard from "../../components/vertical-card/VerticalCard";
-import Footer from "../../components/footer/Footer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -228,6 +226,14 @@ function Home() {
       </EventsSection>
       <FeaturesSection />
       <StandUpSection>
+        <div className="common-head text-center">
+          <span className="inner-head">Comedy Nights</span>
+          <h1>Laugh Loud at Live Shows</h1>
+          <p>
+            Catch the funniest comedians live on stage for unforgettable,
+            laugh-out-loud moments and great vibes.
+          </p>
+        </div>
         <Swiper
           navigation={true}
           modules={[Navigation]}

@@ -28,10 +28,18 @@ const StandUp = () => {
         </div>
       </BannerSection>
       <StandUpSection>
+        <div className="common-head text-center">
+          <span className="inner-head">Comedy Nights</span>
+          <h1>Laugh Loud at Live Shows</h1>
+          <p>
+            Catch the funniest comedians live on stage for unforgettable,
+            laugh-out-loud moments and great vibes.
+          </p>
+        </div>
         <div className="row">
           {JSON.comedy.map((currData) => {
             return (
-              <div className="col-md-4">
+              <div className="col-md-4" key={currData.id}>
                 <VerticalCard currData={currData} />
               </div>
             );
