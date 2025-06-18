@@ -11,6 +11,7 @@ import Sports from "./pages/sports/Sports";
 import AboutUs from "./pages/about-us/AboutUs";
 import ContactUs from "./pages/contact-us/ContactUs";
 import "./index.css";
+import EventDetails from "./pages/event-details/EventDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "sports",
         element: <Sports />,
+      },
+      {
+        path: "event/:eventId",
+        element: <EventDetails />,
       },
       {
         path: "about",

@@ -1,6 +1,7 @@
 import React from "react";
 import { assets } from "../../assets/assets";
 import "./event-card.css";
+import { Link } from "react-router-dom";
 
 const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
   const input = currConcert.date;
@@ -33,7 +34,7 @@ const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
   }
 
   return (
-    <div className="concert-card">
+    <Link to={`/event/${currConcert.id}`} className="concert-card d-block">
       <img src={assets.concert_box} alt="" />
       <div className="row">
         <div className={`${orientation} d-md-flex align-items-stretch`}>
@@ -74,7 +75,7 @@ const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

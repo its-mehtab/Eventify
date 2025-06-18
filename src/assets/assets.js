@@ -47,6 +47,10 @@ import FeaturesIcon4 from "./FeaturesIcon4";
 import PersonIcon from "./PersonIcon";
 import ClockIcon from "./ClockIcon";
 import LocationIcon from "./LocationIcon";
+import CalenderIcon from "./CalenderIcon";
+import DurationIcon from "./DurationIcon";
+import LimitIcon from "./LimitIcon";
+import LanguageIcon from "./LanguageIcon";
 
 export const assets = {
   favicon,
@@ -98,4 +102,8 @@ export const assets = {
   PersonIcon,
   ClockIcon,
   LocationIcon,
+  CalenderIcon,
+  DurationIcon,
+  LimitIcon,
+  LanguageIcon,
 };
