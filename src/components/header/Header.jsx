@@ -71,7 +71,7 @@ function Header() {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    to="event/concert"
+                    to="category/concert"
                     className={({ isActive }) =>
                       `nav-link ${isActive ? "active" : ""}`
                     }
@@ -81,7 +81,7 @@ function Header() {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    to="event/comedy"
+                    to="category/comedy"
                     className={({ isActive }) =>
                       `nav-link ${isActive ? "active" : ""}`
                     }
@@ -91,7 +91,7 @@ function Header() {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    to="event/sports"
+                    to="category/sports"
                     className={({ isActive }) =>
                       `nav-link ${isActive ? "active" : ""}`
                     }

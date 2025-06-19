@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "event/:categoryName",
+        path: "category/:categoryName",
         element: <Category />,
       },
       // {
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       //   element: <Sports />,
       // },
       {
-        path: "event/:eventId",
+        path: "events/:eventId",
         element: <EventDetails />,
       },
       {

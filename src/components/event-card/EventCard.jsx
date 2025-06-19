@@ -34,7 +34,7 @@ const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
   }
 
   return (
-    <Link to={`/event/${currConcert.id}`} className="concert-card d-block">
+    <Link to={`/events/${currConcert.id}`} className="concert-card d-block">
       <img src={assets.concert_box} alt="" />
       <div className="row">
         <div className={`${orientation} d-md-flex align-items-stretch`}>

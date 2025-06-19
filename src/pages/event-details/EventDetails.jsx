@@ -3,6 +3,7 @@ import BannerSection from "../home/components/banner-section/BannerSection";
 import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { useParams } from "react-router-dom";
+import { useEventDetails } from "../../hooks/useEvents";
 import "./event-details.css";
 import Button from "../../components/button/Button";
 
@@ -10,10 +11,13 @@ import JSON from "../home/JSON";
 
 const EventDetails = () => {
   const { eventId } = useParams();
+  console.log(eventId);
 
-  const eventData = JSON.concerts.find((currData) => {
-    return currData.id === eventId;
-  });
+  const { event, loading, error } = useEventDetails(eventId);
+
+  // if (loading) return <LoadingSpinner />;
+  // if (error) return <ErrorMessage message={error} />;
+  console.log(event);
 
   return (
     <>
@@ -23,16 +27,16 @@ const EventDetails = () => {
             <div className="banner-content text-center">
               <div className="common-head">
                 <span>Live Entertainment Hub</span>
-                <h1>{eventData.heading}</h1>
+                <h1>{event.heading}</h1>
               </div>
               <ul className="breadcrumb d-flex justify-content-center text-white">
                 <li>
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to={`/${eventData.type}`}>{eventData.type}</Link>
+                  <Link to={`/${event.type}`}>{event.type}</Link>
                 </li>
-                <li>{eventData.heading}</li>
+                <li>{event.heading}</li>
               </ul>
             </div>
           </div>
@@ -44,15 +48,15 @@ const EventDetails = () => {
             <div className="col-md-6">
               <div className="event-details-item">
                 <div className="event-details-img">
-                  <img src={eventData.image} alt="" width="100%" />
+                  <img src={event.image} alt="" width="100%" />
                 </div>
                 <h4>About The Event</h4>
-                <p>{eventData.description}</p>
+                <p>{event.description}</p>
                 <div className="event-host-details">
-                  <img src={eventData.image} alt="" />
-                  <h5>{eventData.artist}</h5>
-                  <p>{eventData.artistType}</p>
-                  <p>{eventData.artistBio}</p>
+                  <img src={event.image} alt="" />
+                  <h5>{event.artist}</h5>
+                  <p>{event.artistType}</p>
+                  <p>{event.artistBio}</p>
                 </div>
               </div>
             </div>
@@ -60,27 +64,27 @@ const EventDetails = () => {
               <div className="event-details-item event-details-right mt-4 mt-md-0">
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.CalenderIcon />
-                  <p className="ms-1">{eventData.date}</p>
+                  <p className="ms-1">{event.date}</p>
                 </div>
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.ClockIcon color="#fff" />
-                  <p className="ms-1">{`${eventData.timing.start} - ${eventData.timing.end}`}</p>
+                  <p className="ms-1">{`${event.timing.start} - ${event.timing.end}`}</p>
                 </div>
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.DurationIcon />
-                  <p className="ms-1">{eventData.type}</p>
+                  <p className="ms-1">{event.type}</p>
                 </div>
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.LimitIcon />
-                  <p className="ms-1">{eventData.ageLimit}</p>
+                  <p className="ms-1">{event.ageLimit}</p>
                 </div>
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.LanguageIcon />
-                  <p className="ms-1">{eventData.language}</p>
+                  <p className="ms-1">{event.language}</p>
                 </div>
                 <div className="d-flex align-items-start gap-2 mt-2 pt-1">
                   <assets.LocationIcon color="#fff" />
-                  <p className="ms-1">{eventData.location}</p>
+                  <p className="ms-1">{event.location}</p>
                 </div>
                 <div className="price-wrap">
                   <h5>₹799</h5>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const VerticalCard = ({ currData }) => {
   return (
     <Link
-      to={`/event/${currData.id}`}
+      to={`/events/${currData.id}`}
       className="vertical-card-wrap text-center d-block text-white"
     >
       <div className="ver-card-img">
