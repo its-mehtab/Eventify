@@ -3,9 +3,9 @@ import "./underline-button.css";
 
 const UnderlineButton = ({ children }) => {
   return (
-    <a href="#" className="underline-btn">
+    <div href="#" className="underline-btn">
       {children}
-    </a>
+    </div>
   );
 };
 

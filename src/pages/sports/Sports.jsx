@@ -6,7 +6,7 @@ import VerticalCard from "../../components/vertical-card/VerticalCard";
 
 import JSON from "../home/JSON";
 
-const Sports = () => {
+const Sports = ({ eventData }) => {
   return (
     <>
       <BannerSection className="sp-b">
@@ -37,7 +37,7 @@ const Sports = () => {
           </p>
         </div>
         <div className="row">
-          {JSON.sports.map((currData) => {
+          {eventData.map((currData) => {
             return (
               <div className="col-md-4" key={currData.id}>
                 <VerticalCard currData={currData} />

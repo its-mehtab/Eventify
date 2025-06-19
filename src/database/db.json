@@ -3,7 +3,7 @@
     {
       "id": 1,
       "type": "concert",
-      "image": "/assets/concert/arijit.jpg",
+      "image": "/src/assets/concert/arijit.jpg",
       "heading": "Voice of Emotions",
       "artist": "Arijit Singh",
       "artistType": "Playback Singer",
@@ -24,7 +24,7 @@
     {
       "id": 2,
       "type": "concert",
-      "image": "/assets/concert/diljit.jpg",
+      "image": "/src/assets/concert/diljit.jpg",
       "heading": "Live with Energy",
       "artist": "Diljit Dosanjh",
       "artistType": "Punjabi Singer/Actor",
@@ -45,7 +45,7 @@
     {
       "id": 3,
       "type": "concert",
-      "image": "/assets/concert/coldplay.jpg",
+      "image": "/src/assets/concert/coldplay.jpg",
       "heading": "A Night of Pure Magic",
       "artist": "Coldplay",
       "artistType": "International Band",
@@ -66,7 +66,7 @@
     {
       "id": 4,
       "type": "concert",
-      "image": "/assets/concert/atif.jpg",
+      "image": "/src/assets/concert/atif.jpg",
       "heading": "Melodies of the Heart",
       "artist": "Atif Aslam",
       "artistType": "Singer-Songwriter",
@@ -87,7 +87,7 @@
     {
       "id": 5,
       "type": "concert",
-      "image": "/assets/concert/sonu.jpg",
+      "image": "/src/assets/concert/sonu.jpg",
       "heading": "Golden Hits Tour",
       "artist": "Sonu Nigam",
       "artistType": "Playback Singer",
@@ -108,7 +108,7 @@
     {
       "id": 6,
       "type": "concert",
-      "image": "/assets/concert/shreya.jpg",
+      "image": "/src/assets/concert/shreya.jpg",
       "heading": "Divine Melodies",
       "artist": "Shreya Ghoshal",
       "artistType": "Playback Singer",
@@ -129,7 +129,7 @@
     {
       "id": 7,
       "type": "concert",
-      "image": "/assets/concert/arrahman.jpg",
+      "image": "/src/assets/concert/arrahman.jpg",
       "heading": "AR Rahman Live",
       "artist": "AR Rahman",
       "artistType": "Music Composer",
@@ -150,7 +150,7 @@
     {
       "id": 8,
       "type": "concert",
-      "image": "/assets/concert/neha.jpg",
+      "image": "/src/assets/concert/neha.jpg",
       "heading": "Dance Beats Night",
       "artist": "Neha Kakkar",
       "artistType": "Playback Singer",
@@ -171,7 +171,7 @@
     {
       "id": 9,
       "type": "concert",
-      "image": "/assets/concert/badshah.jpg",
+      "image": "/src/assets/concert/badshah.jpg",
       "heading": "Hip Hop King Live",
       "artist": "Badshah",
       "artistType": "Rapper",
@@ -192,7 +192,7 @@
     {
       "id": 10,
       "type": "comedy",
-      "image": "/assets/comedy/zakir.jpg",
+      "image": "/src/assets/comedy/zakir.jpg",
       "heading": "Zakir Khan – Sakht Launda",
       "artist": "Zakir Khan",
       "artistType": "Stand-up Comedian",
@@ -213,7 +213,7 @@
     {
       "id": 11,
       "type": "comedy",
-      "image": "/assets/comedy/samay.jpg",
+      "image": "/src/assets/comedy/samay.jpg",
       "heading": "Samay Raina – Cracks You Up",
       "artist": "Samay Raina",
       "artistType": "Chess Comedian",
@@ -234,7 +234,7 @@
     {
       "id": 12,
       "type": "comedy",
-      "image": "/assets/comedy/munawar.jpg",
+      "image": "/src/assets/comedy/munawar.jpg",
       "heading": "Munawar Faruqui – Live On Stage",
       "artist": "Munawar Faruqui",
       "artistType": "Stand-up Comedian",
@@ -255,7 +255,7 @@
     {
       "id": 13,
       "type": "comedy",
-      "image": "/assets/comedy/abish.jpg",
+      "image": "/src/assets/comedy/abish.jpg",
       "heading": "Abish Mathew – Son of Abish",
       "artist": "Abish Mathew",
       "artistType": "Musical Comedian",
@@ -276,7 +276,7 @@
     {
       "id": 14,
       "type": "comedy",
-      "image": "/assets/comedy/akash.jpg",
+      "image": "/src/assets/comedy/akash.jpg",
       "heading": "Akash Gupta – Gandu Engineer",
       "artist": "Akash Gupta",
       "artistType": "Stand-up Comedian",
@@ -297,7 +297,7 @@
     {
       "id": 15,
       "type": "comedy",
-      "image": "/assets/comedy/kaneez.jpg",
+      "image": "/src/assets/comedy/kaneez.jpg",
       "heading": "Kaneez Surka – Improv Queen",
       "artist": "Kaneez Surka",
       "artistType": "Improv Comedian",
@@ -318,7 +318,7 @@
     {
       "id": 16,
       "type": "comedy",
-      "image": "/assets/comedy/rahul.jpg",
+      "image": "/src/assets/comedy/rahul.jpg",
       "heading": "Rahul Subramanian – Kal Main Udega",
       "artist": "Rahul Subramanian",
       "artistType": "Corporate Comedian",
@@ -339,7 +339,7 @@
     {
       "id": 17,
       "type": "comedy",
-      "image": "/assets/comedy/anish.jpg",
+      "image": "/src/assets/comedy/anish.jpg",
       "heading": "Anish Joshi – Gujju Gone Wrong",
       "artist": "Anish Joshi",
       "artistType": "Cultural Comedian",
@@ -360,7 +360,7 @@
     {
       "id": 18,
       "type": "comedy",
-      "image": "/assets/comedy/kenny.jpg",
+      "image": "/src/assets/comedy/kenny.jpg",
       "heading": "Kenny Sebastian – Don't Be That Guy",
       "artist": "Kenny Sebastian",
       "artistType": "Musical Comedian",
@@ -381,7 +381,7 @@
     {
       "id": 19,
       "type": "sports",
-      "image": "/assets/sports/cricket.jpg",
+      "image": "/src/assets/sports/cricket.jpg",
       "heading": "IPL Championship 2025",
       "teams": [
         {
@@ -411,7 +411,7 @@
     {
       "id": 20,
       "type": "sports",
-      "image": "/assets/sports/football.jpg",
+      "image": "/src/assets/sports/football.jpg",
       "heading": "International Football Friendly",
       "teams": [
         {
@@ -441,7 +441,7 @@
     {
       "id": 21,
       "type": "sports",
-      "image": "/assets/sports/kabaddi.jpg",
+      "image": "/src/assets/sports/kabaddi.jpg",
       "heading": "Pro Kabaddi League Finals",
       "teams": [
         {
@@ -471,7 +471,7 @@
     {
       "id": 22,
       "type": "sports",
-      "image": "/assets/sports/badminton.jpg",
+      "image": "/src/assets/sports/badminton.jpg",
       "heading": "India Open Badminton Championship",
       "players": [
         {
@@ -501,7 +501,7 @@
     {
       "id": 23,
       "type": "sports",
-      "image": "/assets/sports/tennis.jpg",
+      "image": "/src/assets/sports/tennis.jpg",
       "heading": "International Premier Tennis League",
       "players": [
         {
@@ -531,7 +531,7 @@
     {
       "id": 24,
       "type": "sports",
-      "image": "/assets/sports/hockey.jpg",
+      "image": "/src/assets/sports/hockey.jpg",
       "heading": "Hockey World League Finals",
       "teams": [
         {
@@ -561,7 +561,7 @@
     {
       "id": 25,
       "type": "sports",
-      "image": "/assets/sports/wrestling.jpg",
+      "image": "/src/assets/sports/wrestling.jpg",
       "heading": "Pro Wrestling League Finals",
       "teams": [
         {
@@ -591,7 +591,7 @@
     {
       "id": 26,
       "type": "sports",
-      "image": "/assets/sports/basketball.jpg",
+      "image": "/src/assets/sports/basketball.jpg",
       "heading": "NBA India Games 2025",
       "teams": [
         {
@@ -621,7 +621,7 @@
     {
       "id": 27,
       "type": "sports",
-      "image": "/assets/sports/boxing.jpg",
+      "image": "/src/assets/sports/boxing.jpg",
       "heading": "World Boxing Championship",
       "players": [
         {

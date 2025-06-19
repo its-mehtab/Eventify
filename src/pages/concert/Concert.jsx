@@ -7,7 +7,7 @@ import EventsSection from "../home/components/events-section/EventsSection";
 
 import JSON from "../../pages/home/JSON";
 
-const Concert = () => {
+const Concert = ({ eventData }) => {
   return (
     <>
       <BannerSection className="sp-b">
@@ -39,7 +39,7 @@ const Concert = () => {
           </div>
         </div>
         <div className="row">
-          {JSON.concerts.map((currConcert) => {
+          {eventData.map((currConcert) => {
             return (
               <div
                 className="col-xl-4 col-md-6 d-flex align-items-stretch"

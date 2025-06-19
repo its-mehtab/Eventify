@@ -13,13 +13,15 @@ import AboutSection from "./components/about-section/AboutSection";
 import EventsSection from "./components/events-section/EventsSection";
 import FeaturesSection from "./components/features-section/FeaturesSection";
 import StandUpSection from "./components/stand-up-section/StandUpSection";
-import { useEventsByType } from "../../hooks/useEvents";
+import { useEvents } from "../../hooks/useEvents";
 
 import JSON from "../../pages/home/JSON";
+import { useParams } from "react-router-dom";
 
 function Home() {
-  // const { type } = useParams();
-  // const { events, loading, error } = useEventsByType(type);
+  // const { category } = useParams();
+
+  const { events, loading, error } = useEvents("concert");
 
   // if (loading) return <LoadingSpinner />;
   // if (error) return <ErrorMessage message={error} />;
@@ -96,17 +98,20 @@ function Home() {
           </div>
           <div className="col-xl-8 col-lg-9 col-lg-10 mx-auto">
             <div className="events-content">
-              {JSON.concerts.map((currConcert) => {
-                if (JSON.concerts.indexOf(currConcert) < 5) {
+              {events
+                .filter((currEvent) => {
+                  return currEvent.type === "concert";
+                })
+                .slice(0, 5)
+                .map((currData) => {
                   return (
                     <EventCard
                       orientation="col-md-6"
-                      currConcert={currConcert}
-                      key={currConcert.id}
+                      currConcert={currData}
+                      key={currData.id}
                     />
                   );
-                }
-              })}
+                })}
             </div>
           </div>
         </div>
@@ -256,15 +261,20 @@ function Home() {
             },
           }}
         >
-          {JSON.comedy.map((currData) => {
-            if (JSON.comedy.indexOf(currData) < 5) {
+          {events
+            .filter((currEvent) => {
+              return currEvent.type === "comedy";
+            })
+            .slice(0, 5)
+            .map((currData) => {
+              console.log(currData);
+
               return (
                 <SwiperSlide>
                   <VerticalCard currData={currData} />
                 </SwiperSlide>
               );
-            }
-          })}
+            })}
         </Swiper>
       </StandUpSection>
     </>

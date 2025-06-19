@@ -4,7 +4,7 @@ import {
   getEventById,
   getEventsByType,
   searchEvents,
-} from "../api/eventsService";
+} from "../api/eventService";
 
 export const useEvents = () => {
   const [events, setEvents] = useState([]);

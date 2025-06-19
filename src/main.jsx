@@ -10,6 +10,7 @@ import StandUp from "./pages/stand-up/StandUp";
 import Sports from "./pages/sports/Sports";
 import AboutUs from "./pages/about-us/AboutUs";
 import ContactUs from "./pages/contact-us/ContactUs";
+import Category from "./pages/category/Category";
 import "./index.css";
 import EventDetails from "./pages/event-details/EventDetails.jsx";
 
@@ -23,17 +24,21 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "concert",
-        element: <Concert />,
+        path: "event/:categoryName",
+        element: <Category />,
       },
-      {
-        path: "standup",
-        element: <StandUp />,
-      },
-      {
-        path: "sports",
-        element: <Sports />,
-      },
+      // {
+      //   path: "concert",
+      //   element: <Concert />,
+      // },
+      // {
+      //   path: "standup",
+      //   element: <StandUp />,
+      // },
+      // {
+      //   path: "sports",
+      //   element: <Sports />,
+      // },
       {
         path: "event/:eventId",
         element: <EventDetails />,

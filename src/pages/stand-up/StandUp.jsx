@@ -6,7 +6,7 @@ import VerticalCard from "../../components/vertical-card/VerticalCard";
 
 import JSON from "../home/JSON";
 
-const StandUp = () => {
+const StandUp = ({ eventData }) => {
   return (
     <>
       <BannerSection className="sp-b">
@@ -37,7 +37,7 @@ const StandUp = () => {
           </p>
         </div>
         <div className="row">
-          {JSON.comedy.map((currData) => {
+          {eventData.map((currData) => {
             return (
               <div className="col-md-4" key={currData.id}>
                 <VerticalCard currData={currData} />
