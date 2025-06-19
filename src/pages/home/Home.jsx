@@ -13,10 +13,18 @@ import AboutSection from "./components/about-section/AboutSection";
 import EventsSection from "./components/events-section/EventsSection";
 import FeaturesSection from "./components/features-section/FeaturesSection";
 import StandUpSection from "./components/stand-up-section/StandUpSection";
+import { useEventsByType } from "../../hooks/useEvents";
 
 import JSON from "../../pages/home/JSON";
 
 function Home() {
+  // const { type } = useParams();
+  // const { events, loading, error } = useEventsByType(type);
+
+  // if (loading) return <LoadingSpinner />;
+  // if (error) return <ErrorMessage message={error} />;
+  // console.log(events);
+
   return (
     <>
       <BannerSection>
