@@ -133,3 +133,9 @@ input::-webkit-inner-spin-button {
     padding-bottom: 40px;
   }
 }
+
+.main-content h3 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-top: 25px;
+}

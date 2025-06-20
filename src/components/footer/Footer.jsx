@@ -57,13 +57,13 @@ function Footer() {
                 <h5>Book tickets</h5>
                 <ul>
                   <li>
-                    <Link to="/events/concert">Concerts</Link>
+                    <Link to="/category/concert">Concerts</Link>
                   </li>
                   <li>
-                    <Link to="/events/comedy">Comedy</Link>
+                    <Link to="/category/comedy">Comedy</Link>
                   </li>
                   <li>
-                    <Link to="/events/sports">Sports</Link>
+                    <Link to="/category/sports">Sports</Link>
                   </li>
                 </ul>
               </div>

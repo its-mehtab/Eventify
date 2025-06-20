@@ -6,6 +6,11 @@ import { useParams } from "react-router-dom";
 import { useEventDetails } from "../../hooks/useEvents";
 import "./event-details.css";
 import Button from "../../components/button/Button";
+import {
+  convertDate,
+  convertTo12HourFormat,
+  getDurationFromRange,
+} from "../../components/DateTimeFormatter";
 
 const EventDetails = () => {
   const { eventId } = useParams();
@@ -60,6 +65,10 @@ const EventDetails = () => {
       </BannerSection>
     );
 
+  const duration = getDurationFromRange(
+    `${event.timing.start} - ${event.timing.end}`
+  );
+
   return (
     <>
       <BannerSection className="sp-b">
@@ -103,17 +112,24 @@ const EventDetails = () => {
             </div>
             <div className="col-md-6">
               <div className="event-details-item event-details-right mt-4 mt-md-0">
-                <div className="d-flex align-items-center gap-2 mt-2 pt-1">
+                <div className="common-head text-start d-block">
+                  <span className="inner-head mt-2">{event.type}</span>
+                </div>
+                <div className="d-flex align-items-center gap-2 pt-1">
                   <assets.CalenderIcon />
-                  <p className="ms-1">{event.date}</p>
+                  <p className="ms-1">{convertDate(event.date)}</p>
                 </div>
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.ClockIcon color="#fff" />
-                  <p className="ms-1">{`${event.timing.start} - ${event.timing.end}`}</p>
+                  <p className="ms-1">
+                    {convertTo12HourFormat(
+                      `${event.timing.start} - ${event.timing.end}`
+                    )}
+                  </p>
                 </div>
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.DurationIcon />
-                  <p className="ms-1">{event.type}</p>
+                  <p className="ms-1">{`${duration.hours} Hours ${duration.minutes} Minutes`}</p>
                 </div>
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.LimitIcon />

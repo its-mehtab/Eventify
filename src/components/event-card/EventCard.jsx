@@ -2,38 +2,11 @@ import React from "react";
 import { assets } from "../../assets/assets";
 import "./event-card.css";
 import { Link } from "react-router-dom";
+import { convertDate, convertTo12HourFormat } from "../DateTimeFormatter";
 // import PropTypes from "prop-types";
 
 const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
-  const input = currConcert.date;
-  const date = new Date(input);
-
-  const formattedDate = date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
-  function convertTo12HourFormat(timeRange) {
-    // Split the range into start and end times
-    const [startTime, endTime] = timeRange.split(" - ");
-
-    // Helper to format a single time
-    const formatTime = (timeStr) => {
-      const [hour, minute] = timeStr.split(":");
-      const date = new Date();
-      date.setHours(hour, minute);
-
-      return date.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true,
-      });
-    };
-
-    return `${formatTime(startTime)} - ${formatTime(endTime)}`;
-  }
-
+  const formattedDate = convertDate(currConcert.date);
   return (
     <Link to={`/events/${currConcert.id}`} className="concert-card d-block">
       <img src={assets.concert_box} alt="" />
