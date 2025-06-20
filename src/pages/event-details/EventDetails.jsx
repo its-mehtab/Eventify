@@ -7,8 +7,6 @@ import { useEventDetails } from "../../hooks/useEvents";
 import "./event-details.css";
 import Button from "../../components/button/Button";
 
-import JSON from "../home/JSON";
-
 const EventDetails = () => {
   const { eventId } = useParams();
   console.log(eventId);
@@ -17,7 +15,50 @@ const EventDetails = () => {
 
   // if (loading) return <LoadingSpinner />;
   // if (error) return <ErrorMessage message={error} />;
-  console.log(event);
+  // console.log(event);
+
+  if (loading)
+    return (
+      <BannerSection className="sp-b">
+        <div className="row justify-content-center pb-md-4">
+          <div className="col-md-11 col-xxl-9">
+            <div className="banner-content text-center">
+              <div className="common-head">
+                <h1>Loading...</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </BannerSection>
+    );
+  if (error)
+    return (
+      <BannerSection className="sp-b">
+        <div className="row justify-content-center pb-md-4">
+          <div className="col-md-11 col-xxl-9">
+            <div className="banner-content text-center">
+              <div className="common-head">
+                <h1>{error}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </BannerSection>
+    );
+  if (!event)
+    return (
+      <BannerSection className="sp-b">
+        <div className="row justify-content-center pb-md-4">
+          <div className="col-md-11 col-xxl-9">
+            <div className="banner-content text-center">
+              <div className="common-head">
+                <h1>No event data found</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </BannerSection>
+    );
 
   return (
     <>
@@ -87,7 +128,7 @@ const EventDetails = () => {
                   <p className="ms-1">{event.location}</p>
                 </div>
                 <div className="price-wrap">
-                  <h5>₹799</h5>
+                  <h5>₹{event.price}</h5>
                   <Button>buy now</Button>
                 </div>
               </div>

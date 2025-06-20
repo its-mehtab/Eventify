@@ -2,6 +2,7 @@ import React from "react";
 import { assets } from "../../assets/assets";
 import "./event-card.css";
 import { Link } from "react-router-dom";
+// import PropTypes from "prop-types";
 
 const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
   const input = currConcert.date;
@@ -78,5 +79,23 @@ const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
     </Link>
   );
 };
+
+// EventCard.propTypes = {
+//   event: PropTypes.shape({
+//     id: PropTypes.number.isRequired,
+//     type: PropTypes.string.isRequired,
+//     image: PropTypes.string.isRequired,
+//     heading: PropTypes.string.isRequired,
+//     artist: PropTypes.string,
+//     teams: PropTypes.array,
+//     players: PropTypes.array,
+//     date: PropTypes.string.isRequired,
+//     timing: PropTypes.shape({
+//       start: PropTypes.string.isRequired,
+//       end: PropTypes.string.isRequired,
+//     }).isRequired,
+//     price: PropTypes.number.isRequired,
+//   }).isRequired,
+// };
 
 export default EventCard;

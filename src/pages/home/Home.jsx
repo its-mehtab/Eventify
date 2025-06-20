@@ -15,13 +15,8 @@ import FeaturesSection from "./components/features-section/FeaturesSection";
 import StandUpSection from "./components/stand-up-section/StandUpSection";
 import { useEvents } from "../../hooks/useEvents";
 
-import JSON from "../../pages/home/JSON";
-import { useParams } from "react-router-dom";
-
 function Home() {
-  // const { category } = useParams();
-
-  const { events, loading, error } = useEvents("concert");
+  const { events, loading, error } = useEvents();
 
   // if (loading) return <LoadingSpinner />;
   // if (error) return <ErrorMessage message={error} />;

@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "id": 1,
+      "id": "1",
       "type": "concert",
       "image": "/src/assets/concert/arijit.jpg",
       "heading": "Voice of Emotions",
@@ -22,7 +22,7 @@
       "artistBio": "India's most beloved playback singer known for romantic and soulful melodies."
     },
     {
-      "id": 2,
+      "id": "2",
       "type": "concert",
       "image": "/src/assets/concert/diljit.jpg",
       "heading": "Live with Energy",
@@ -43,7 +43,7 @@
       "artistBio": "International Punjabi singer and actor known for his vibrant performances."
     },
     {
-      "id": 3,
+      "id": "3",
       "type": "concert",
       "image": "/src/assets/concert/coldplay.jpg",
       "heading": "A Night of Pure Magic",
@@ -64,7 +64,7 @@
       "artistBio": "Grammy-winning British rock band known for their anthemic hits."
     },
     {
-      "id": 4,
+      "id": "4",
       "type": "concert",
       "image": "/src/assets/concert/atif.jpg",
       "heading": "Melodies of the Heart",
@@ -85,7 +85,7 @@
       "artistBio": "Pakistani singer known for his romantic ballads and powerful vocals."
     },
     {
-      "id": 5,
+      "id": "5",
       "type": "concert",
       "image": "/src/assets/concert/sonu.jpg",
       "heading": "Golden Hits Tour",
@@ -106,7 +106,7 @@
       "artistBio": "Versatile Indian playback singer with a career spanning decades."
     },
     {
-      "id": 6,
+      "id": "6",
       "type": "concert",
       "image": "/src/assets/concert/shreya.jpg",
       "heading": "Divine Melodies",
@@ -127,7 +127,7 @@
       "artistBio": "National Award-winning playback singer with a divine voice."
     },
     {
-      "id": 7,
+      "id": "7",
       "type": "concert",
       "image": "/src/assets/concert/arrahman.jpg",
       "heading": "AR Rahman Live",
@@ -148,7 +148,7 @@
       "artistBio": "Academy Award-winning composer and music producer."
     },
     {
-      "id": 8,
+      "id": "8",
       "type": "concert",
       "image": "/src/assets/concert/neha.jpg",
       "heading": "Dance Beats Night",
@@ -169,7 +169,7 @@
       "artistBio": "Bollywood's most popular female playback singer for dance numbers."
     },
     {
-      "id": 9,
+      "id": "9",
       "type": "concert",
       "image": "/src/assets/concert/badshah.jpg",
       "heading": "Hip Hop King Live",
@@ -190,7 +190,7 @@
       "artistBio": "Rapper, singer and composer known for his chart-topping party tracks."
     },
     {
-      "id": 10,
+      "id": "10",
       "type": "comedy",
       "image": "/src/assets/comedy/zakir.jpg",
       "heading": "Zakir Khan – Sakht Launda",
@@ -211,7 +211,7 @@
       "artistBio": "Stand-up comedian known for his 'sakht launda' persona and relatable humor."
     },
     {
-      "id": 11,
+      "id": "11",
       "type": "comedy",
       "image": "/src/assets/comedy/samay.jpg",
       "heading": "Samay Raina – Cracks You Up",
@@ -232,7 +232,7 @@
       "artistBio": "Chess streamer turned comedian known for his quick wit."
     },
     {
-      "id": 12,
+      "id": "12",
       "type": "comedy",
       "image": "/src/assets/comedy/munawar.jpg",
       "heading": "Munawar Faruqui – Live On Stage",
@@ -253,7 +253,7 @@
       "artistBio": "Comedian known for his intelligent and bold humor."
     },
     {
-      "id": 13,
+      "id": "13",
       "type": "comedy",
       "image": "/src/assets/comedy/abish.jpg",
       "heading": "Abish Mathew – Son of Abish",
@@ -274,7 +274,7 @@
       "artistBio": "Musical comedian and host known for his improv skills."
     },
     {
-      "id": 14,
+      "id": "14",
       "type": "comedy",
       "image": "/src/assets/comedy/akash.jpg",
       "heading": "Akash Gupta – Gandu Engineer",
@@ -295,7 +295,7 @@
       "artistBio": "Engineer-turned-comedian known for his 'Gandu Engineer' persona."
     },
     {
-      "id": 15,
+      "id": "15",
       "type": "comedy",
       "image": "/src/assets/comedy/kaneez.jpg",
       "heading": "Kaneez Surka – Improv Queen",
@@ -316,7 +316,7 @@
       "artistBio": "India's queen of improv comedy and character acts."
     },
     {
-      "id": 16,
+      "id": "16",
       "type": "comedy",
       "image": "/src/assets/comedy/rahul.jpg",
       "heading": "Rahul Subramanian – Kal Main Udega",
@@ -337,7 +337,7 @@
       "artistBio": "Ex-marketer turned comedian known for his corporate humor."
     },
     {
-      "id": 17,
+      "id": "17",
       "type": "comedy",
       "image": "/src/assets/comedy/anish.jpg",
       "heading": "Anish Joshi – Gujju Gone Wrong",
@@ -358,7 +358,7 @@
       "artistBio": "Gujarati comedian known for his NRI and cultural humor."
     },
     {
-      "id": 18,
+      "id": "18",
       "type": "comedy",
       "image": "/src/assets/comedy/kenny.jpg",
       "heading": "Kenny Sebastian – Don't Be That Guy",
@@ -379,7 +379,7 @@
       "artistBio": "Multitalented comedian, musician and filmmaker."
     },
     {
-      "id": 19,
+      "id": "19",
       "type": "sports",
       "image": "/src/assets/sports/cricket.jpg",
       "heading": "IPL Championship 2025",
@@ -409,7 +409,7 @@
       "sportType": "Cricket"
     },
     {
-      "id": 20,
+      "id": "20",
       "type": "sports",
       "image": "/src/assets/sports/football.jpg",
       "heading": "International Football Friendly",
@@ -439,7 +439,7 @@
       "sportType": "Football"
     },
     {
-      "id": 21,
+      "id": "21",
       "type": "sports",
       "image": "/src/assets/sports/kabaddi.jpg",
       "heading": "Pro Kabaddi League Finals",
@@ -469,7 +469,7 @@
       "sportType": "Kabaddi"
     },
     {
-      "id": 22,
+      "id": "22",
       "type": "sports",
       "image": "/src/assets/sports/badminton.jpg",
       "heading": "India Open Badminton Championship",
@@ -499,7 +499,7 @@
       "sportType": "Badminton"
     },
     {
-      "id": 23,
+      "id": "23",
       "type": "sports",
       "image": "/src/assets/sports/tennis.jpg",
       "heading": "International Premier Tennis League",
@@ -529,7 +529,7 @@
       "sportType": "Tennis"
     },
     {
-      "id": 24,
+      "id": "24",
       "type": "sports",
       "image": "/src/assets/sports/hockey.jpg",
       "heading": "Hockey World League Finals",
@@ -559,7 +559,7 @@
       "sportType": "Hockey"
     },
     {
-      "id": 25,
+      "id": "25",
       "type": "sports",
       "image": "/src/assets/sports/wrestling.jpg",
       "heading": "Pro Wrestling League Finals",
@@ -589,7 +589,7 @@
       "sportType": "Wrestling"
     },
     {
-      "id": 26,
+      "id": "26",
       "type": "sports",
       "image": "/src/assets/sports/basketball.jpg",
       "heading": "NBA India Games 2025",
@@ -619,7 +619,7 @@
       "sportType": "Basketball"
     },
     {
-      "id": 27,
+      "id": "27",
       "type": "sports",
       "image": "/src/assets/sports/boxing.jpg",
       "heading": "World Boxing Championship",
