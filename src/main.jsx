@@ -13,6 +13,8 @@ import ContactUs from "./pages/contact-us/ContactUs";
 import Category from "./pages/category/Category";
 import "./index.css";
 import EventDetails from "./pages/event-details/EventDetails.jsx";
+import TermsAndConditions from "./pages/terms-and-condition/TermsAndConditions.jsx";
+import PrivacyPolicy from "./pages/privacy-policy/PrivacyPolicy.jsx";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,14 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactUs />,
+      },
+      {
+        path: "terms",
+        element: <TermsAndConditions />,
+      },
+      {
+        path: "privacy",
+        element: <PrivacyPolicy />,
       },
     ],
   },

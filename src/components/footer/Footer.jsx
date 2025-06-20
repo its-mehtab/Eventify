@@ -44,10 +44,10 @@ function Footer() {
                     <Link to="/contact">Contact Us</Link>
                   </li>
                   <li>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    <Link to="/privacy">Privacy Policy</Link>
                   </li>
                   <li>
-                    <Link to="/terms-and-condition">Terms Of Condition</Link>
+                    <Link to="/terms">Terms Of Condition</Link>
                   </li>
                 </ul>
               </div>
@@ -57,13 +57,13 @@ function Footer() {
                 <h5>Book tickets</h5>
                 <ul>
                   <li>
-                    <Link to="/concert">Concerts</Link>
+                    <Link to="/events/concert">Concerts</Link>
                   </li>
                   <li>
-                    <Link to="/standup">Stand up</Link>
+                    <Link to="/events/comedy">Comedy</Link>
                   </li>
                   <li>
-                    <Link to="/sports">Sports</Link>
+                    <Link to="/events/sports">Sports</Link>
                   </li>
                 </ul>
               </div>
