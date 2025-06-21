@@ -4,7 +4,6 @@ import { assets } from "../../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 
 function Header() {
-  const [isPageActive, setIsPageActive] = useState("home");
   const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
   const headerRef = useRef(null);
 
@@ -24,7 +23,6 @@ function Header() {
 
   useLayoutEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    // Immediately check position in case user reloads mid-scroll
     handleScroll();
 
     return () => {

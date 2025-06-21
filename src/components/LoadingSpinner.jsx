@@ -9,6 +9,9 @@ const LoadingSpinner = () => {
           <div className="banner-content text-center">
             <div className="common-head">
               <h1>Loading...</h1>
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
             </div>
           </div>
         </div>
