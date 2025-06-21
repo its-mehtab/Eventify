@@ -14,13 +14,22 @@ import EventsSection from "./components/events-section/EventsSection";
 import FeaturesSection from "./components/features-section/FeaturesSection";
 import StandUpSection from "./components/stand-up-section/StandUpSection";
 import { useEvents } from "../../hooks/useEvents";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import ErrorMessage from "../../components/ErrorMessage";
+import {
+  convertDate,
+  convertTo12HourFormat,
+} from "../../components/DateTimeFormatter";
 
 function Home() {
   const { events, loading, error } = useEvents();
 
-  // if (loading) return <LoadingSpinner />;
-  // if (error) return <ErrorMessage message={error} />;
-  // console.log(events);
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage message={error} />;
+
+  const upcomingEvent = events
+    .filter((currEvent) => currEvent.type === "concert")
+    .slice(0, 1)[0];
 
   return (
     <>
@@ -51,14 +60,22 @@ function Home() {
           <div className="row">
             <div className="col-lg-4 col-md-6">
               <div className="upcoming-event-item">
-                <h3>25th DEC</h3>
-                <p>22:30 - 07:00</p>
+                <h3>{upcomingEvent.heading}</h3>
+                <p>
+                  {`${upcomingEvent.artist} - ${convertDate(
+                    upcomingEvent.date
+                  )}`}
+                </p>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="upcoming-event-item">
-                <h3>22:30 - 07:00</h3>
-                <p>135 W, 46nd Street, New York</p>
+                <h3>
+                  {convertTo12HourFormat(
+                    `${upcomingEvent.timing.start} - ${upcomingEvent.timing.end}`
+                  )}
+                </h3>
+                <p>{upcomingEvent.location.split(",")[0]}</p>
               </div>
             </div>
             <div className="col-lg-4 col-md-12">
@@ -114,7 +131,34 @@ function Home() {
           <div className="col-lg-6 col-md-10">
             <form>
               <ul className="sports-shows">
-                <li>
+                {events
+                  .filter((currData) => {
+                    return currData.type === "sports";
+                  })
+                  .splice(0, 3)
+                  .map((currData) => {
+                    console.log(currData);
+
+                    return (
+                      <li>
+                        <label htmlFor="sport_show1">
+                          <input
+                            defaultChecked
+                            className="d-none"
+                            type="radio"
+                            name="sports-show"
+                            id="sport_show1"
+                            value=""
+                          />
+                          <div className="option-label">
+                            <span>{currData.heading}</span>
+                            <span>${currData.price}</span>
+                          </div>
+                        </label>
+                      </li>
+                    );
+                  })}
+                {/* <li>
                   <label htmlFor="sport_show1">
                     <input
                       defaultChecked
@@ -159,7 +203,7 @@ function Home() {
                       <span>$25.00</span>
                     </div>
                   </label>
-                </li>
+                </li> */}
               </ul>
               <div className="qty-sports-show">
                 <div className="qty-wrap">
@@ -262,8 +306,6 @@ function Home() {
             })
             .slice(0, 5)
             .map((currData) => {
-              console.log(currData);
-
               return (
                 <SwiperSlide>
                   <VerticalCard currData={currData} />
