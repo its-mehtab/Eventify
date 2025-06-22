@@ -15,6 +15,8 @@ import "./index.css";
 import EventDetails from "./pages/event-details/EventDetails.jsx";
 import TermsAndConditions from "./pages/terms-and-condition/TermsAndConditions.jsx";
 import PrivacyPolicy from "./pages/privacy-policy/PrivacyPolicy.jsx";
+import InterestedEvents from "./pages/interested-events/InterestedEvents.jsx";
+import Bookings from "./pages/bookings/Bookings.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,18 +31,6 @@ const router = createBrowserRouter([
         path: "category/:categoryName",
         element: <Category />,
       },
-      // {
-      //   path: "concert",
-      //   element: <Concert />,
-      // },
-      // {
-      //   path: "standup",
-      //   element: <StandUp />,
-      // },
-      // {
-      //   path: "sports",
-      //   element: <Sports />,
-      // },
       {
         path: "events/:eventId",
         element: <EventDetails />,
@@ -52,6 +42,14 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactUs />,
+      },
+      {
+        path: "interested",
+        element: <InterestedEvents />,
+      },
+      {
+        path: "bookings",
+        element: <Bookings />,
       },
       {
         path: "terms",

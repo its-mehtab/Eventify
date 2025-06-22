@@ -2,7 +2,6 @@
   display: inline-block;
   font-size: 18px;
   font-weight: 600;
-  /* background-color: #ff0a54; */
   color: #fff;
   padding: 12px 30px;
   border-radius: 8px;
@@ -32,21 +31,6 @@
 .primary-btn:hover::before {
   width: 0%;
 }
-/* .primary-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  display: inline-block;
-  background-color: #e90046;
-  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  z-index: -1;
-}
-.primary-btn:hover::after {
-  width: 100%;
-}*/
 .primary-btn.btn-white {
   color: #0f0f0f;
 }
@@ -56,6 +40,10 @@
 .primary-btn.btn-white::before {
   background-color: #fff;
 }
-/* .primary-btn.btn-white::after {
-  background-color: #eae0e0;
-} */
+.primary-btn.btn-dark {
+  color: #fff;
+}
+.primary-btn.btn-dark:hover {
+  color: #ff0a54;
+  border-color: #ff0a54;
+}

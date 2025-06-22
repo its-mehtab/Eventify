@@ -2,6 +2,9 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import "./header.css";
 import { assets } from "../../assets/assets";
 import { Link, NavLink } from "react-router-dom";
+import Button from "../button/Button";
+import WishlistEventIcon from "../../assets/WishlistEventIcon";
+import BookingsIcon from "../../assets/BookingsIcon";
 
 function Header() {
   const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
@@ -41,17 +44,6 @@ function Header() {
             <Link to="/" className="navbar-brand">
               <img src={assets.logo} alt="Eventify Logo" width={180} />
             </Link>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
             <div
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
@@ -107,13 +99,56 @@ function Header() {
                     Contact Us
                   </NavLink>
                 </li>
+                <li className="nav-item d-block d-sm-none">
+                  <NavLink
+                    to="interested"
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
+                  >
+                    interested
+                  </NavLink>
+                </li>
+                <li className="nav-item d-block d-sm-none">
+                  <NavLink
+                    to="bookings"
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
+                  >
+                    bookings
+                  </NavLink>
+                </li>
               </ul>
-              <div className="d-flex" role="search">
-                <a href="#" className="btn btn-outline-success" type="submit">
-                  BUY TICKET NOW
-                </a>
-              </div>
             </div>
+            <div className="d-flex align-items-center ms-auto ms-lg-0 me-4 me-lg-0">
+              <ul className="d-none d-sm-flex align-items-center gap-3 me-4">
+                <li>
+                  <Link to="interested">
+                    <WishlistEventIcon />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="bookings">
+                    <BookingsIcon />
+                  </Link>
+                </li>
+              </ul>
+              <Button href="login" btnClass="btn-dark px-3 py-1">
+                login
+              </Button>
+            </div>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
           </div>
         </nav>
       </div>
