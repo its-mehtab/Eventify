@@ -30,6 +30,14 @@ header .nav-link {
   text-transform: capitalize;
 }
 
+.header-icons li a {
+  color: #333;
+  transition: all ease-in-out 0.3s;
+}
+.header-icons li a:hover {
+  color: #ff0a54;
+}
+
 header.fixed-header {
   position: fixed;
   top: 0;

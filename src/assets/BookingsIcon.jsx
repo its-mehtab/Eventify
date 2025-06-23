@@ -5,9 +5,9 @@ const BookingsIcon = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
-      width="24"
-      height="24"
-      fill="#666"
+      width="22"
+      height="22"
+      fill="currentColor"
     >
       <g id="_31-Delivered" data-name="31-Delivered">
         <path d="M24.29 19.29l-3.29 3.3-1.29-1.3a1 1 0 0 0-1.42 1.42l2 2a1 1 0 0 0 1.42 0l4-4a1 1 0 0 0-1.42-1.42z" />

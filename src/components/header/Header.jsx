@@ -122,7 +122,7 @@ function Header() {
               </ul>
             </div>
             <div className="d-flex align-items-center ms-auto ms-lg-0 me-4 me-lg-0">
-              <ul className="d-none d-sm-flex align-items-center gap-3 me-4">
+              <ul className="header-icons d-none d-sm-flex align-items-center gap-3 me-4">
                 <li>
                   <Link to="interested">
                     <WishlistEventIcon />
