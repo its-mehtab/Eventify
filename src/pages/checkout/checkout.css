@@ -1,0 +1,33 @@
+.form-wrap {
+  color: #0f0f0f;
+}
+
+.checkout-event {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-event img {
+  width: 120px;
+  border-radius: 8px;
+}
+
+.checkout-event p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.payment-wrap .payment-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.payment-wrap input {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+}

@@ -6,6 +6,12 @@
   position: relative;
 }
 
+@media (max-width: 767px) {
+  .bookings-wrap li {
+    padding: 20px;
+  }
+}
+
 .bookings-wrap .remove {
   position: absolute;
   top: 30px;
@@ -13,7 +19,7 @@
   z-index: 99;
   background-color: #ff0a54;
   color: #fff;
-  border-radius: 12px;
+  border-radius: 50%;
   width: 44px;
   height: 44px;
   display: flex;

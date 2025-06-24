@@ -1,0 +1,9 @@
+.form-wrap input,
+.form-wrap textarea {
+  padding: 12px 20px;
+  background: #eff1ff;
+  width: 100%;
+  outline: 0;
+  border: 0;
+  margin-top: 15px;
+}

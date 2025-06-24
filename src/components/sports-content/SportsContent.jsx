@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
 const SportsContent = ({ events }) => {
-  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState("");
 
   useEffect(() => {
     const firstSportEvent = events.find((event) => event.type === "sports");

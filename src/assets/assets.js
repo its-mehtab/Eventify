@@ -51,6 +51,9 @@ import CalenderIcon from "./CalenderIcon";
 import DurationIcon from "./DurationIcon";
 import LimitIcon from "./LimitIcon";
 import LanguageIcon from "./LanguageIcon";
+import EmailIcon from "./EmailIcon";
+import PhoneIcon from "./PhoneIcon";
+import ContactImg from "./contact-img.jpg";
 
 export const assets = {
   favicon,
@@ -106,4 +109,7 @@ export const assets = {
   DurationIcon,
   LimitIcon,
   LanguageIcon,
+  EmailIcon,
+  PhoneIcon,
+  ContactImg,
 };

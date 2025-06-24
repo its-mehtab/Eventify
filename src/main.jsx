@@ -17,6 +17,9 @@ import TermsAndConditions from "./pages/terms-and-condition/TermsAndConditions.j
 import PrivacyPolicy from "./pages/privacy-policy/PrivacyPolicy.jsx";
 import InterestedEvents from "./pages/interested-events/InterestedEvents.jsx";
 import Bookings from "./pages/bookings/Bookings.jsx";
+import { TicketQuantityProvider } from "./context/TicketQuantityContext.jsx";
+import Checkout from "./pages/checkout/Checkout.jsx";
+import ThankYou from "./pages/thank-you/ThankYou.jsx";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +51,14 @@ const router = createBrowserRouter([
         element: <InterestedEvents />,
       },
       {
+        path: "checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "thankyou",
+        element: <ThankYou />,
+      },
+      {
         path: "bookings",
         element: <Bookings />,
       },
@@ -65,6 +76,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <TicketQuantityProvider>
+      <RouterProvider router={router} />
+    </TicketQuantityProvider>
   </StrictMode>
 );

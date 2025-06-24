@@ -11,10 +11,10 @@ import {
   convertTo12HourFormat,
   getDurationFromRange,
 } from "../../components/DateTimeFormatter";
+import TicketsQuantity from "../../components/tickets-quantity/TicketsQuantity";
 
 const EventDetails = () => {
   const { eventId } = useParams();
-  console.log(eventId);
 
   const { event, loading, error } = useEventDetails(eventId);
 
@@ -143,10 +143,15 @@ const EventDetails = () => {
                   <assets.LocationIcon color="#fff" />
                   <p className="ms-1">{event.location}</p>
                 </div>
-                <div className="price-wrap">
-                  <h5>₹{event.price}</h5>
-                  <Button>buy now</Button>
-                </div>
+                <form action="">
+                  <div className="mt-3">
+                    <TicketsQuantity />
+                  </div>
+                  <div className="price-wrap">
+                    <h5>₹{event.price}</h5>
+                    <Button type="submit">buy now</Button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

@@ -64,7 +64,6 @@ export const useEventDetails = (id) => {
       try {
         setLoading(true);
         const data = await getEventById(id);
-        console.log(data);
 
         setEvent(data);
       } catch (err) {

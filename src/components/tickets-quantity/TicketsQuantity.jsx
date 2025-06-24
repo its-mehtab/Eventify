@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { assets } from "../../assets/assets";
+import { useTicketQuantity } from "../../context/TicketQuantityContext";
 
 const TicketsQuantity = () => {
-  const [quantiyInput, setQuantityInput] = useState(1);
+  const { quantity, setQuantity } = useTicketQuantity();
 
   function handleMinus() {
-    if (quantiyInput > 1) {
-      setQuantityInput((prev) => prev - 1);
+    if (quantity > 1) {
+      setQuantity((prev) => prev - 1);
     }
   }
   function handlePlus() {
-    if (quantiyInput < 10) {
-      setQuantityInput((prev) => prev + 1);
+    if (quantity < 10) {
+      setQuantity((prev) => prev + 1);
     }
   }
 
@@ -20,7 +21,7 @@ const TicketsQuantity = () => {
       <span onClick={handleMinus}>
         <assets.Minus />
       </span>
-      <input type="number" value={quantiyInput} readOnly />
+      <input type="number" value={quantity} readOnly />
       <span onClick={handlePlus}>
         <assets.Plus />
       </span>
