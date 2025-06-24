@@ -44,7 +44,7 @@ const Checkout = () => {
                       <img src="/src/assets/concert/arijit.jpg" alt="" />
                       <div>
                         <p>Voice of Emotions</p>
-                        <p>Quantity: 2</p>
+                        <p>Qty: 2</p>
                       </div>
                     </div>
                     <p>$24.99</p>

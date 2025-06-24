@@ -1,29 +1,77 @@
+import axios from "axios";
+
 const API_BASE_URL = "http://localhost:3000";
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: 5000, // 5 seconds timeout
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 // Get all events
 export const getAllEvents = async () => {
-  const response = await fetch(`${API_BASE_URL}/events`);
-  if (!response.ok) throw new Error("Network response was not ok");
-  return response.json();
+  try {
+    const response = await api.get("/events");
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || "Failed to fetch events");
+  }
 };
 
 // Get event by ID
 export const getEventById = async (id) => {
-  const response = await fetch(`${API_BASE_URL}/events/${id}`);
-  if (!response.ok) throw new Error("Event not found");
-  return response.json();
+  try {
+    const response = await api.get(`/events/${id}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || "Event not found");
+  }
 };
 
-// Get events by type (concert, comedy, sports)
+// Get events by type
 export const getEventsByType = async (type) => {
-  const response = await fetch(`${API_BASE_URL}/events?type=${type}`);
-  if (!response.ok) throw new Error("Network response was not ok");
-  return response.json();
+  try {
+    const response = await api.get("/events", { params: { type } });
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || "Failed to fetch events by type"
+    );
+  }
 };
 
-// Search events by query (searches heading, artist, description)
+// Search events
 export const searchEvents = async (query) => {
-  const response = await fetch(`${API_BASE_URL}/events?q=${query}`);
-  if (!response.ok) throw new Error("Network response was not ok");
-  return response.json();
+  try {
+    const response = await api.get("/events", { params: { q: query } });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || "Search failed");
+  }
+};
+
+// Get all Interested events
+export const getAllInterestedEvents = async () => {
+  try {
+    const response = await api.get("/interested");
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || "Failed to fetch interested events"
+    );
+  }
+};
+
+// Delete Interested event
+export const deleteInterestedEvent = async (id) => {
+  try {
+    const response = await api.delete(`/interested/${id}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || "Failed to delete interested event"
+    );
+  }
 };

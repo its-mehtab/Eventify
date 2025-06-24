@@ -3,9 +3,23 @@ import BannerSection from "../home/components/banner-section/BannerSection";
 import { Link } from "react-router-dom";
 import "../bookings/bookings.css";
 import StandUpSection from "../home/components/stand-up-section/StandUpSection";
-import Button from "../../components/button/Button";
+import {
+  useDeleteInterestedEvent,
+  useInterestedEvents,
+} from "../../hooks/useInterestedEvents";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import ErrorMessage from "../../components/ErrorMessage";
+import {
+  convertDate,
+  convertTo12HourFormat,
+} from "../../components/DateTimeFormatter";
 
 const InterestedEvents = () => {
+  const { events, loading, error, deleteEvent } = useInterestedEvents();
+
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage message={error} />;
+
   return (
     <>
       <BannerSection className="sp-b">
@@ -32,170 +46,56 @@ const InterestedEvents = () => {
           <h1>Interested Events</h1>
         </div>
         <ul className="bookings-wrap">
-          <li>
-            <div className="remove">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </div>
-            <div className="row">
-              <div className="col-md-5">
-                <div className="booking-item">
-                  <div className="booking-img-wrap">
-                    <img
-                      src="/src/assets/concert/arijit.jpg"
-                      alt=""
-                      width="100%"
-                    />
+          {events.map((currData) => {
+            return (
+              <li key={currData.id}>
+                <div
+                  className="remove"
+                  onClick={() => {
+                    deleteEvent(currData.id);
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </div>
+                <div className="row">
+                  <div className="col-md-5">
+                    <div className="booking-item">
+                      <div className="booking-img-wrap">
+                        <img src={currData.image} alt="" width="100%" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-7">
+                    <div className="booking-item pt-3">
+                      <h3>{currData.heading}</h3>
+                      <p>{currData.location.split(",")[0]}</p>
+                      <p>{convertDate(currData.date)}</p>
+                      <p>
+                        {convertTo12HourFormat(
+                          `${currData.timing.start} - ${currData.timing.end}`
+                        )}
+                      </p>
+                      <p>{currData.artist}</p>
+                      <p>Amount: ₹{currData.price}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-7">
-                <div className="booking-item pt-3">
-                  <h3>Voice of Emotions</h3>
-                  <p>Netaji Indoor Stadium - 1</p>
-                  <p>September 15, 2025</p>
-                  <p>7:00 PM - 10:30 PM</p>
-                  <p>Artist: Arijit Singh</p>
-                  <p>Amount: ₹799</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="remove">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </div>
-            <div className="row">
-              <div className="col-md-5">
-                <div className="booking-item">
-                  <div className="booking-img-wrap">
-                    <img
-                      src="/src/assets/concert/arijit.jpg"
-                      alt=""
-                      width="100%"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-7">
-                <div className="booking-item pt-3">
-                  <h3>Voice of Emotions</h3>
-                  <p>Netaji Indoor Stadium - 1</p>
-                  <p>September 15, 2025</p>
-                  <p>7:00 PM - 10:30 PM</p>
-                  <p>Artist: Arijit Singh</p>
-                  <p>Amount: ₹799</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="remove">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </div>
-            <div className="row">
-              <div className="col-md-5">
-                <div className="booking-item">
-                  <div className="booking-img-wrap">
-                    <img
-                      src="/src/assets/concert/arijit.jpg"
-                      alt=""
-                      width="100%"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-7">
-                <div className="booking-item pt-3">
-                  <h3>Voice of Emotions</h3>
-                  <p>Netaji Indoor Stadium - 1</p>
-                  <p>September 15, 2025</p>
-                  <p>7:00 PM - 10:30 PM</p>
-                  <p>Artist: Arijit Singh</p>
-                  <p>Amount: ₹799</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="remove">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </div>
-            <div className="row">
-              <div className="col-md-5">
-                <div className="booking-item">
-                  <div className="booking-img-wrap">
-                    <img
-                      src="/src/assets/concert/arijit.jpg"
-                      alt=""
-                      width="100%"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-7">
-                <div className="booking-item pt-3">
-                  <h3>Voice of Emotions</h3>
-                  <p>Netaji Indoor Stadium - 1</p>
-                  <p>September 15, 2025</p>
-                  <p>7:00 PM - 10:30 PM</p>
-                  <p>Artist: Arijit Singh</p>
-                  <p>Amount: ₹799</p>
-                </div>
-              </div>
-            </div>
-          </li>
+              </li>
+            );
+          })}
         </ul>
       </StandUpSection>
     </>
