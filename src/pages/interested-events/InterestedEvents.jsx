@@ -8,7 +8,7 @@ import StandUpSection from "../home/components/stand-up-section/StandUpSection";
 //   useInterestedEvents,
 // } from "../../hooks/useInterestedEvents";
 import { useEventInterest } from "../../hooks/useInterestedEvents";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 import {
   convertDate,

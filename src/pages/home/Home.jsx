@@ -14,7 +14,7 @@ import EventsSection from "./components/events-section/EventsSection";
 import FeaturesSection from "./components/features-section/FeaturesSection";
 import StandUpSection from "./components/stand-up-section/StandUpSection";
 import { useEvents } from "../../hooks/useEvents";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 import {
   convertDate,
@@ -31,6 +31,7 @@ function Home() {
   const upcomingEvent = events
     .filter((currEvent) => currEvent.type === "concert")
     .slice(0, 1)[0];
+  // return <LoadingSpinner />;
 
   return (
     <>

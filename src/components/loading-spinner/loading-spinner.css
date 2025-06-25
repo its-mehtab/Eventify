@@ -1,0 +1,29 @@
+.main-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background-color: blue;
+  width: 100%;
+  height: 100dvw;
+  max-height: 100%;
+  animation: slide 0.5s ease-in-out;
+}
+
+.main-loader .loader-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  max-height: 100%;
+  text-align: center;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

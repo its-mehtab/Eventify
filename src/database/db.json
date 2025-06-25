@@ -656,39 +656,39 @@
       "userId": "guest"
     },
     {
-      "id": "3",
-      "eventId": "8",
+      "id": "4",
+      "eventId": "12",
+      "userId": "guest"
+    },
+    {
+      "id": "5",
+      "eventId": "15",
       "userId": "guest"
     }
   ],
   "carts": [
     {
-      "id": "cart_1", // Unique cart item ID
-      "eventId": "5", // References events.id
-      "userId": "guest", // Will replace with real user ID later
-      "quantity": 2, // Number of tickets
-      "price": 2999 // Price per ticket (in cents/paisa)
+      "id": "cart_1",
+      "eventId": "5",
+      "userId": "guest",
+      "quantity": 2
     }
   ],
   "bookings": [
     {
-      "id": "book_123", // Booking ID
-      "userId": "guest", // Or real user ID
-      "eventId": "8", // References events.id
+      "id": "book_123",
+      "eventId": "8",
+      "userId": "guest",
       "tickets": [
-        // Array for multiple tickets
         {
           "ticketId": "tkt_1",
-          "type": "VIP",
-          "price": 4999,
-          "seat": "A12"
+          "price": 4999
         }
       ],
-      "totalAmount": 4999, // In cents/paisa
-      "paymentStatus": "pending", // pending/paid/failed
-      "paymentMethod": "card", // card/upi/netbanking
-      "createdAt": "2025-06-25T10:30:00Z",
-      "sessionId": "xyz456" // For guest users
+      "totalAmount": 4999,
+      "paymentStatus": "pending",
+      "paymentMethod": "card",
+      "createdAt": "2025-06-25T10:30:00Z"
     }
   ]
 }
