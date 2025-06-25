@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BannerSection from "../home/components/banner-section/BannerSection";
 import { Link } from "react-router-dom";
 import "../bookings/bookings.css";
 import StandUpSection from "../home/components/stand-up-section/StandUpSection";
-import {
-  useDeleteInterestedEvent,
-  useInterestedEvents,
-} from "../../hooks/useInterestedEvents";
+// import {
+//   useDeleteInterestedEvent,
+//   useInterestedEvents,
+// } from "../../hooks/useInterestedEvents";
+import { useEventInterest } from "../../hooks/useInterestedEvents";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 import {
@@ -15,7 +16,15 @@ import {
 } from "../../components/DateTimeFormatter";
 
 const InterestedEvents = () => {
-  const { events, loading, error, deleteEvent } = useInterestedEvents();
+  const {
+    interestedEvents,
+    loading,
+    error,
+    toggleInterest,
+    actionLoading,
+    actionError,
+    removeInterest,
+  } = useEventInterest();
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
@@ -46,13 +55,13 @@ const InterestedEvents = () => {
           <h1>Interested Events</h1>
         </div>
         <ul className="bookings-wrap">
-          {events.map((currData) => {
+          {interestedEvents.map((currData) => {
             return (
               <li key={currData.id}>
                 <div
                   className="remove"
                   onClick={() => {
-                    deleteEvent(currData.id);
+                    removeInterest(currData.interestId);
                   }}
                 >
                   <svg

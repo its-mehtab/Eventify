@@ -4,7 +4,7 @@ import AnimatedArrow from "../animated-arrow/AnimatedArrow";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="sp-t">
       <div className="container">
@@ -76,6 +76,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

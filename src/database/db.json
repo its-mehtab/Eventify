@@ -651,46 +651,44 @@
   ],
   "interested": [
     {
-      "id": "4",
-      "type": "concert",
-      "image": "/src/assets/concert/atif.jpg",
-      "heading": "Melodies of the Heart",
-      "artist": "Atif Aslam",
-      "artistType": "Singer-Songwriter",
-      "date": "2025-10-28",
-      "timing": {
-        "start": "19:30",
-        "end": "22:15"
-      },
-      "location": "Indira Gandhi Athletic Stadium, Sarusajai, Guwahati, Assam 781025",
-      "totalSeats": 6000,
-      "price": 2199,
-      "ageLimit": "10+",
-      "language": "Urdu/Hindi",
-      "description": "An evening of soulful melodies with Atif Aslam's magical voice.",
-      "artistImage": "/assets/artists/atif-profile.jpg",
-      "artistBio": "Pakistani singer known for his romantic ballads and powerful vocals."
+      "id": "2",
+      "eventId": "5",
+      "userId": "guest"
     },
     {
-      "id": "11",
-      "type": "comedy",
-      "image": "/src/assets/comedy/samay.jpg",
-      "heading": "Samay Raina – Cracks You Up",
-      "artist": "Samay Raina",
-      "artistType": "Chess Comedian",
-      "date": "2025-10-10",
-      "timing": {
-        "start": "20:00",
-        "end": "22:30"
-      },
-      "location": "Ravindra Bharathi, Saifabad, Hyderabad, Telangana 500004",
-      "totalSeats": 1200,
-      "price": 1199,
-      "ageLimit": "16+",
-      "language": "Hindi/English",
-      "description": "Chess comedian Samay Raina with his unique blend of chess and comedy.",
-      "artistImage": "/assets/artists/samay-profile.jpg",
-      "artistBio": "Chess streamer turned comedian known for his quick wit."
+      "id": "3",
+      "eventId": "8",
+      "userId": "guest"
+    }
+  ],
+  "carts": [
+    {
+      "id": "cart_1", // Unique cart item ID
+      "eventId": "5", // References events.id
+      "userId": "guest", // Will replace with real user ID later
+      "quantity": 2, // Number of tickets
+      "price": 2999 // Price per ticket (in cents/paisa)
+    }
+  ],
+  "bookings": [
+    {
+      "id": "book_123", // Booking ID
+      "userId": "guest", // Or real user ID
+      "eventId": "8", // References events.id
+      "tickets": [
+        // Array for multiple tickets
+        {
+          "ticketId": "tkt_1",
+          "type": "VIP",
+          "price": 4999,
+          "seat": "A12"
+        }
+      ],
+      "totalAmount": 4999, // In cents/paisa
+      "paymentStatus": "pending", // pending/paid/failed
+      "paymentMethod": "card", // card/upi/netbanking
+      "createdAt": "2025-06-25T10:30:00Z",
+      "sessionId": "xyz456" // For guest users
     }
   ]
 }

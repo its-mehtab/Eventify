@@ -33,7 +33,7 @@ const ContactUs = () => {
           <h2>Your Gateway to Live Moments</h2>
         </div>
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-lg-4 col-md-6">
             <div className="contact-details-item">
               <assets.EmailIcon color="#fff" />
               <div>
@@ -42,7 +42,7 @@ const ContactUs = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-lg-4 col-md-6">
             <div className="contact-details-item">
               <assets.PhoneIcon color="#fff" />
               <div>
@@ -51,7 +51,7 @@ const ContactUs = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-lg-4 col-md-6">
             <div className="contact-details-item">
               <assets.LocationIcon color="#fff" />
               <div>
@@ -68,7 +68,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="contact-item">
+            <div className="contact-item mt-4 mt-md-0">
               <ContactForm />
             </div>
           </div>

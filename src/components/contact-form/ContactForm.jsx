@@ -26,7 +26,7 @@ const ContactForm = () => {
     <form className="form-wrap" action="">
       <h3>GET IN TOUCH NOW</h3>
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-lg-6">
           <CustomInput
             name="firstName"
             value={formData.firstName}
@@ -35,7 +35,7 @@ const ContactForm = () => {
             required
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-lg-6">
           <CustomInput
             name="lastName"
             value={formData.lastName}

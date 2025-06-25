@@ -9,6 +9,7 @@
 
 .contact-details-item svg {
   width: 66px;
+  min-width: 66px;
   height: 66px;
   border-radius: 8px;
   background-color: #ff0a54;
