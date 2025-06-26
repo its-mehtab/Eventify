@@ -17,6 +17,7 @@ import Bookings from "./pages/bookings/Bookings.jsx";
 import { TicketQuantityProvider } from "./context/TicketQuantityContext.jsx";
 import Checkout from "./pages/checkout/Checkout.jsx";
 import ThankYou from "./pages/thank-you/ThankYou.jsx";
+import Cart from "./pages/cart/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "thankyou",
         element: <ThankYou />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
       {
         path: "bookings",

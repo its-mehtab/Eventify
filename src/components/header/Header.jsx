@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import Button from "../button/Button";
 import WishlistEventIcon from "../../assets/WishlistEventIcon";
 import BookingsIcon from "../../assets/BookingsIcon";
+import CartIcon from "../../assets/CartIcon";
 
 function Header() {
   const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
@@ -126,6 +127,11 @@ function Header() {
                 <li>
                   <Link to="interested">
                     <WishlistEventIcon />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="cart">
+                    <CartIcon /> 
                   </Link>
                 </li>
                 <li>

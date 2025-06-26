@@ -668,10 +668,22 @@
   ],
   "carts": [
     {
-      "id": "cart_1",
+      "id": "1",
+      "eventId": "1",
+      "userId": "guest",
+      "quantity": "2"
+    },
+    {
+      "id": "2",
       "eventId": "5",
       "userId": "guest",
-      "quantity": 2
+      "quantity": "2"
+    },
+    {
+      "id": "3",
+      "eventId": "8",
+      "userId": "guest",
+      "quantity": "2"
     }
   ],
   "bookings": [

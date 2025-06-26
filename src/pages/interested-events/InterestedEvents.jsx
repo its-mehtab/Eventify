@@ -58,50 +58,52 @@ const InterestedEvents = () => {
           {interestedEvents.map((currData) => {
             return (
               <li key={currData.id}>
-                <div
-                  className="remove"
-                  onClick={() => {
-                    removeInterest(currData.interestId);
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <div
+                    className="remove"
+                    onClick={() => {
+                      removeInterest(currData.interestId);
+                    }}
                   >
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                </div>
-                <div className="row">
-                  <div className="col-md-5">
-                    <div className="booking-item">
-                      <div className="booking-img-wrap">
-                        <img src={currData.image} alt="" width="100%" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </div>
+                <Link className="text-white" to={`/events/${currData.id}`}>
+                  <div className="row">
+                    <div className="col-md-5">
+                      <div className="booking-item">
+                        <div className="booking-img-wrap">
+                          <img src={currData.image} alt="" width="100%" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-md-7">
+                      <div className="booking-item pt-3">
+                        <h3>{currData.heading}</h3>
+                        <p>{currData.location.split(",")[0]}</p>
+                        <p>{convertDate(currData.date)}</p>
+                        <p>
+                          {convertTo12HourFormat(
+                            `${currData.timing.start} - ${currData.timing.end}`
+                          )}
+                        </p>
+                        <p>{currData.artist}</p>
+                        <p>Amount: ₹{currData.price}</p>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-7">
-                    <div className="booking-item pt-3">
-                      <h3>{currData.heading}</h3>
-                      <p>{currData.location.split(",")[0]}</p>
-                      <p>{convertDate(currData.date)}</p>
-                      <p>
-                        {convertTo12HourFormat(
-                          `${currData.timing.start} - ${currData.timing.end}`
-                        )}
-                      </p>
-                      <p>{currData.artist}</p>
-                      <p>Amount: ₹{currData.price}</p>
-                    </div>
-                  </div>
-                </div>
+                </Link>
               </li>
             );
           })}
