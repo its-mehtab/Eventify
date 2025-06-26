@@ -4,8 +4,7 @@ import EventCard from "../../components/event-card/EventCard";
 import { Link } from "react-router-dom";
 import BannerSection from "../home/components/banner-section/BannerSection";
 import EventsSection from "../home/components/events-section/EventsSection";
-
-import JSON from "../../pages/home/JSON";
+import "./concert.css";
 
 const Concert = ({ eventData }) => {
   return (

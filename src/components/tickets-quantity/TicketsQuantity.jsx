@@ -3,7 +3,7 @@ import { assets } from "../../assets/assets";
 import { useTicketQuantity } from "../../context/TicketQuantityContext";
 
 const TicketsQuantity = ({ color = "" }) => {
-  const { quantity, setQuantity } = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
   function handleMinus() {
     if (quantity > 1) {
@@ -18,13 +18,13 @@ const TicketsQuantity = ({ color = "" }) => {
 
   return (
     <div className="qty-wrap">
-      <span onClick={handleMinus}>
+      <button onClick={handleMinus}>
         <assets.Minus />
-      </span>
+      </button>
       <input className={color} type="number" value={quantity} readOnly />
-      <span onClick={handlePlus}>
+      <button onClick={handlePlus}>
         <assets.Plus />
-      </span>
+      </button>
     </div>
   );
 };

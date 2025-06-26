@@ -9,19 +9,16 @@ import ErrorMessage from "../../components/ErrorMessage";
 import { assets } from "../../assets/assets";
 import "./cart.css";
 import TicketsQuantity from "../../components/tickets-quantity/TicketsQuantity";
+import RemoveIcon from "../../assets/RemoveIcon";
 
 const Cart = () => {
-  const {
-    cartEvents,
-    loading,
-    error,
-    actionLoading,
-    actionError,
-    removeInterest,
-  } = useCartEvent();
+  const { cartEvents, loading, error, actionLoading, actionError, removeCart } =
+    useCartEvent();
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
+  if (actionLoading) return <LoadingSpinner />;
+  if (actionError) return <ErrorMessage message={error} />;
 
   return (
     <>
@@ -47,6 +44,7 @@ const Cart = () => {
         <div className="row">
           {cartEvents.map((currData) => {
             const formattedDate = convertDate(currData.date);
+            // const handleRemove = removeCart(currData);
             return (
               <div
                 className="col-xl-4 col-md-6 d-flex align-items-stretch"
@@ -80,11 +78,21 @@ const Cart = () => {
                             </div>
                           </div>
                           <div className="concert-details pt-3">
-                            <TicketsQuantity color="text-dark" />
-                            <h3 className="price mt-3">₹{currData.price}</h3>
-                            <p className="mt-2 mb-4">
+                            <div className="flex justify-content-between mb-4">
+                              <TicketsQuantity color="text-dark" />
+                              <button
+                                className="remove-btn"
+                                onClick={() => {
+                                  removeCart(currData.id);
+                                }}
+                              >
+                                <RemoveIcon />
+                              </button>
+                            </div>
+                            <h3 className="price">₹{currData.price}</h3>
+                            {/* <p className="mt-2 mb-4">
                               Qty: {currData.quantity}
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>

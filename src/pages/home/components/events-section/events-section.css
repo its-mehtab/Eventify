@@ -77,7 +77,7 @@
   flex-wrap: wrap;
 }
 
-.qty-wrap span {
+.qty-wrap button {
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   cursor: pointer;
@@ -91,9 +91,10 @@
   color: #fff;
 }
 
-.qty-wrap span:hover {
+.qty-wrap button:hover {
   background-color: #fff;
   color: #0f0f0f;
+  border: 1px solid #390788;
 }
 
 .qty-wrap input {
