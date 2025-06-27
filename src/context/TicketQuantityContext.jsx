@@ -3,9 +3,11 @@ import { createContext, useState, useContext } from "react";
 const TicketQuantityContext = createContext();
 
 export const TicketQuantityProvider = ({ children }) => {
-  const [quantity, setQuantity] = useState(1);
+  const [ticketQuantity, setTicketQuantity] = useState(1);
   return (
-    <TicketQuantityContext.Provider value={{ quantity, setQuantity }}>
+    <TicketQuantityContext.Provider
+      value={{ ticketQuantity, setTicketQuantity }}
+    >
       {children}
     </TicketQuantityContext.Provider>
   );

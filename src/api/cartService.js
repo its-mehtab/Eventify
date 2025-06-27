@@ -34,11 +34,12 @@ export const deleteCartEvent = async (id) => {
   }
 };
 
-export const addToCart = async (eventId) => {
+export const addToCart = async (eventId, quantity) => {
   try {
     const response = await api.post("/carts", {
       eventId,
       userId: "guest", // Temporary until auth
+      quantity,
     });
     return response.data;
   } catch (error) {

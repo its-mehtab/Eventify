@@ -3,9 +3,6 @@ import "./header.css";
 import { assets } from "../../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import Button from "../button/Button";
-import WishlistEventIcon from "../../assets/WishlistEventIcon";
-import BookingsIcon from "../../assets/BookingsIcon";
-import CartIcon from "../../assets/CartIcon";
 
 function Header() {
   const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
@@ -126,17 +123,17 @@ function Header() {
               <ul className="header-icons d-none d-sm-flex align-items-center gap-3 me-4">
                 <li>
                   <Link to="interested">
-                    <WishlistEventIcon />
+                    <assets.WishlistEventIcon />
                   </Link>
                 </li>
                 <li>
                   <Link to="cart">
-                    <CartIcon /> 
+                    <assets.CartIcon />
                   </Link>
                 </li>
                 <li>
                   <Link to="bookings">
-                    <BookingsIcon />
+                    <assets.BookingsIcon />
                   </Link>
                 </li>
               </ul>

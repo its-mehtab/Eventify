@@ -44,13 +44,13 @@ export const useCartEvent = () => {
   };
 
   // Add to Cart list
-  const addCart = async (eventId) => {
+  const addCart = async (eventId, quantity) => {
     try {
       setActionLoading(true);
       setActionError(null);
       setActionSuccess(false);
 
-      await addToCart(eventId);
+      await addToCart(eventId, quantity);
       setActionSuccess(true);
       await fetchCartEvents(); // Refresh the list
       return true;

@@ -78,7 +78,7 @@ const Cart = () => {
                             </div>
                           </div>
                           <div className="concert-details pt-3">
-                            <div className="flex justify-content-between mb-4">
+                            <div className="d-flex align-items-center justify-content-between mb-4">
                               <TicketsQuantity color="text-dark" />
                               <button
                                 className="remove-btn"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BannerSection from "../home/components/banner-section/BannerSection";
 import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
@@ -12,44 +12,31 @@ import {
   getDurationFromRange,
 } from "../../components/DateTimeFormatter";
 import TicketsQuantity from "../../components/tickets-quantity/TicketsQuantity";
+import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
+import ErrorMessage from "../../components/ErrorMessage";
+import { useTicketQuantity } from "../../context/TicketQuantityContext";
+import { useCartEvent } from "../../hooks/useCart";
 
 const EventDetails = () => {
   const { eventId } = useParams();
+  const { ticketQuantity, setTicketQuantity } = useTicketQuantity();
+  const { checkCartStatus, addCart } = useCartEvent();
 
+  const [isInCart, setIsInCart] = useState(false);
   const { event, loading, error } = useEventDetails(eventId);
 
-  // if (loading) return <LoadingSpinner />;
-  // if (error) return <ErrorMessage message={error} />;
-  // console.log(event);
+  useEffect(() => {
+    if (eventId) {
+      const checkStatus = async () => {
+        const result = await checkCartStatus(eventId);
+        setIsInCart(result);
+      };
+      checkStatus();
+    }
+  }, [eventId]);
 
-  if (loading)
-    return (
-      <BannerSection className="sp-b">
-        <div className="row justify-content-center pb-md-4">
-          <div className="col-md-11 col-xxl-9">
-            <div className="banner-content text-center">
-              <div className="common-head">
-                <h1>Loading...</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </BannerSection>
-    );
-  if (error)
-    return (
-      <BannerSection className="sp-b">
-        <div className="row justify-content-center pb-md-4">
-          <div className="col-md-11 col-xxl-9">
-            <div className="banner-content text-center">
-              <div className="common-head">
-                <h1>{error}</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </BannerSection>
-    );
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage message={error} />;
   if (!event)
     return (
       <BannerSection className="sp-b">
@@ -68,6 +55,17 @@ const EventDetails = () => {
   const duration = getDurationFromRange(
     `${event.timing.start} - ${event.timing.end}`
   );
+
+  const handleAddToCart = async (e) => {
+    e.preventDefault();
+    console.log(ticketQuantity);
+
+    if (!isInCart) {
+      await addCart(eventId, ticketQuantity);
+    }
+
+    // setTicketQuantity(ticketQuantity + 1);
+  };
 
   return (
     <>
@@ -143,13 +141,27 @@ const EventDetails = () => {
                   <assets.LocationIcon color="#fff" />
                   <p className="ms-1">{event.location}</p>
                 </div>
-                <form action="">
-                  <div className="mt-3">
-                    <TicketsQuantity />
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    // Add logic to handle ticket purchase
+                  }}
+                >
+                  <div className="d-flex gap-3 mt-3">
+                    <TicketsQuantity onChange={setTicketQuantity} />
+                    <Button
+                      onClick={handleAddToCart}
+                      href="/cart"
+                      btnClass="btn-white"
+                    >
+                      <assets.CartIcon />
+                    </Button>
                   </div>
                   <div className="price-wrap">
                     <h5>₹{event.price}</h5>
-                    <Button type="submit">buy now</Button>
+                    <Button href="/checkout" type="submit">
+                      buy now
+                    </Button>
                   </div>
                 </form>
               </div>

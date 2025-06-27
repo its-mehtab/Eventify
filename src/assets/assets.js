@@ -54,6 +54,9 @@ import LanguageIcon from "./LanguageIcon";
 import EmailIcon from "./EmailIcon";
 import PhoneIcon from "./PhoneIcon";
 import ContactImg from "./contact-img.jpg";
+import WishlistEventIcon from "./WishlistEventIcon";
+import BookingsIcon from "./BookingsIcon";
+import CartIcon from "./CartIcon";
 
 export const assets = {
   favicon,
@@ -112,4 +115,7 @@ export const assets = {
   EmailIcon,
   PhoneIcon,
   ContactImg,
+  WishlistEventIcon,
+  BookingsIcon,
+  CartIcon,
 };
