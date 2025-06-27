@@ -12,8 +12,15 @@ import TicketsQuantity from "../../components/tickets-quantity/TicketsQuantity";
 import RemoveIcon from "../../assets/RemoveIcon";
 
 const Cart = () => {
-  const { cartEvents, loading, error, actionLoading, actionError, removeCart } =
-    useCartEvent();
+  const {
+    cartEvents,
+    checkCartStatus,
+    loading,
+    error,
+    actionLoading,
+    actionError,
+    removeCart,
+  } = useCartEvent();
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
@@ -82,8 +89,11 @@ const Cart = () => {
                               <TicketsQuantity color="text-dark" />
                               <button
                                 className="remove-btn"
-                                onClick={() => {
-                                  removeCart(currData.id);
+                                onClick={async () => {
+                                  const isInCart = await checkCartStatus(
+                                    currData.id
+                                  );
+                                  removeCart(isInCart.id);
                                 }}
                               >
                                 <RemoveIcon />

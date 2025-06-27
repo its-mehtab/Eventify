@@ -46,19 +46,14 @@ const EventDetails = () => {
     `${event.timing.start} - ${event.timing.end}`
   );
 
-  const handleAddToCart = async (e) => {
-    e.preventDefault();
-    console.log(ticketQuantity);
-
+  const handleAddToCart = async () => {
     const isInCart = await checkCartStatus(eventId);
     if (!isInCart) {
       await addCart(eventId, ticketQuantity);
     } else {
       console.log("item is already in the cart");
-      updateCartQuantity(eventId, ticketQuantity);
+      updateCartQuantity(isInCart.id, ticketQuantity);
     }
-
-    // setTicketQuantity(ticketQuantity + 1);
   };
 
   return (

@@ -60,23 +60,13 @@ export const checkIfCart = async (eventId) => {
   }
 };
 
-export const toggleCart = async (eventId) => {
-  const existingCart = await checkIfCart(eventId);
-  if (existingCart) {
-    return await deleteCartEvent(existingCart.id);
-  } else {
-    return await addToCart(eventId);
-  }
-};
-
 export const updateCartQuantity = async (cartId, newQuantity) => {
   try {
     const currentCartResponse = await api.get(`/carts/${cartId}`);
     const existingQuantity = currentCartResponse.data.quantity;
-    console.log(existingQuantity);
 
     const response = await api.patch(`/carts/${cartId}`, {
-      quantity: existingQuantity + newQuantity,
+      quantity: parseInt(existingQuantity) + parseInt(newQuantity),
     });
 
     return response.data;

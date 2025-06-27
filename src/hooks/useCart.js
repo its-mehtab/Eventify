@@ -3,7 +3,6 @@ import {
   getUserCartEvents,
   addToCart,
   deleteCartEvent,
-  toggleCart,
   checkIfCart,
   updateCartQuantity,
 } from "../api/cartService.js";
@@ -37,7 +36,8 @@ export const useCartEvent = () => {
   const checkCartStatus = async (eventId) => {
     try {
       const result = await checkIfCart(eventId);
-      return !!result;
+
+      return result;
     } catch (err) {
       setError(err.message);
       return false;
@@ -82,25 +82,10 @@ export const useCartEvent = () => {
     }
   };
 
-  // Toggle Cart status
-  const handleToggleCart = async (eventId) => {
+  const updateCart = async (cartId, newQuantity) => {
     try {
       setActionLoading(true);
-      await toggleCart(eventId);
-      await fetchCartEvents(); // Refresh the list
-      return true;
-    } catch (err) {
-      setActionError(err.message);
-      return false;
-    } finally {
-      setActionLoading(false);
-    }
-  };
-
-  const updateCart = async (eventId, newQuantity) => {
-    try {
-      setActionLoading(true);
-      await updateCartQuantity(eventId, newQuantity);
+      await updateCartQuantity(cartId, newQuantity);
       await fetchCartEvents();
       return true;
     } catch (err) {
@@ -126,7 +111,6 @@ export const useCartEvent = () => {
     // Individual action related
     addCart,
     removeCart,
-    toggleCart: handleToggleCart,
     updateCart,
     checkCartStatus,
     actionLoading,
