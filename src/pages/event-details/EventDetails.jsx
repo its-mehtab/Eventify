@@ -16,24 +16,14 @@ import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useTicketQuantity } from "../../context/TicketQuantityContext";
 import { useCartEvent } from "../../hooks/useCart";
+import { updateCartQuantity } from "../../api/cartService";
 
 const EventDetails = () => {
   const { eventId } = useParams();
   const { ticketQuantity, setTicketQuantity } = useTicketQuantity();
   const { checkCartStatus, addCart } = useCartEvent();
 
-  const [isInCart, setIsInCart] = useState(false);
   const { event, loading, error } = useEventDetails(eventId);
-
-  useEffect(() => {
-    if (eventId) {
-      const checkStatus = async () => {
-        const result = await checkCartStatus(eventId);
-        setIsInCart(result);
-      };
-      checkStatus();
-    }
-  }, [eventId]);
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
@@ -60,8 +50,12 @@ const EventDetails = () => {
     e.preventDefault();
     console.log(ticketQuantity);
 
+    const isInCart = await checkCartStatus(eventId);
     if (!isInCart) {
       await addCart(eventId, ticketQuantity);
+    } else {
+      console.log("item is already in the cart");
+      updateCartQuantity(eventId, ticketQuantity);
     }
 
     // setTicketQuantity(ticketQuantity + 1);

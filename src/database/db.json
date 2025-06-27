@@ -684,6 +684,12 @@
       "eventId": "8",
       "userId": "guest",
       "quantity": "2"
+    },
+    {
+      "id": "bd2f",
+      "eventId": "4",
+      "userId": "guest",
+      "quantity": 2
     }
   ],
   "bookings": [

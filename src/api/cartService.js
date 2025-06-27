@@ -71,9 +71,14 @@ export const toggleCart = async (eventId) => {
 
 export const updateCartQuantity = async (cartId, newQuantity) => {
   try {
+    const currentCartResponse = await api.get(`/carts/${cartId}`);
+    const existingQuantity = currentCartResponse.data.quantity;
+    console.log(existingQuantity);
+
     const response = await api.patch(`/carts/${cartId}`, {
-      quantity: newQuantity,
+      quantity: existingQuantity + newQuantity,
     });
+
     return response.data;
   } catch (error) {
     throw new Error(

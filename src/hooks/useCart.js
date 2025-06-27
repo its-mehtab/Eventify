@@ -5,6 +5,7 @@ import {
   deleteCartEvent,
   toggleCart,
   checkIfCart,
+  updateCartQuantity,
 } from "../api/cartService.js";
 
 export const useCartEvent = () => {
@@ -96,6 +97,20 @@ export const useCartEvent = () => {
     }
   };
 
+  const updateCart = async (eventId, newQuantity) => {
+    try {
+      setActionLoading(true);
+      await updateCartQuantity(eventId, newQuantity);
+      await fetchCartEvents();
+      return true;
+    } catch (err) {
+      setActionError(err.message);
+      return false;
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
   // Initialize with Cart events
   useEffect(() => {
     fetchCartEvents();
@@ -112,6 +127,7 @@ export const useCartEvent = () => {
     addCart,
     removeCart,
     toggleCart: handleToggleCart,
+    updateCart,
     checkCartStatus,
     actionLoading,
     actionError,
