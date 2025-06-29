@@ -5,6 +5,7 @@ import {
   deleteCartEvent,
   checkIfCart,
   updateCartQuantity,
+  getCart,
 } from "../api/cartService.js";
 
 export const useCartEvent = () => {
@@ -36,6 +37,18 @@ export const useCartEvent = () => {
   const checkCartStatus = async (eventId) => {
     try {
       const result = await checkIfCart(eventId);
+
+      return result;
+    } catch (err) {
+      setError(err.message);
+      return false;
+    }
+  };
+
+  // Get a specific event is Cart
+  const getCartById = async (eventId, quantity) => {
+    try {
+      const result = await getCart(eventId, quantity);
 
       return result;
     } catch (err) {
@@ -113,6 +126,7 @@ export const useCartEvent = () => {
     removeCart,
     updateCart,
     checkCartStatus,
+    getCartById,
     actionLoading,
     actionError,
     actionSuccess,

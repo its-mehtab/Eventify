@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BannerSection from "../home/components/banner-section/BannerSection";
-import { Link } from "react-router-dom";
+import { href, Link, Navigate } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { useParams } from "react-router-dom";
 import { useEventDetails } from "../../hooks/useEvents";
@@ -18,6 +18,7 @@ import { useTicketQuantity } from "../../context/TicketQuantityContext";
 import { useEventInterest } from "../../hooks/useInterestedEvents";
 import { useCartEvent } from "../../hooks/useCart";
 import { updateCartQuantity } from "../../api/cartService";
+import { useNavigate } from "react-router-dom";
 
 const EventDetails = () => {
   const { eventId } = useParams();
@@ -28,6 +29,8 @@ const EventDetails = () => {
     toggleInterest,
     checkInterestStatus,
   } = useEventInterest();
+
+  const navigate = useNavigate();
 
   const { checkCartStatus, addCart } = useCartEvent();
 
@@ -114,9 +117,14 @@ const EventDetails = () => {
                 <div className="interested-wrap">
                   <Button
                     href={null}
-                    btnClass="py-1 px-2"
+                    btnClass="py-1 px-2 d-flex gap-2 align-items-center"
                     onClick={handleIsInterested}
                   >
+                    {isInterested ? (
+                      <assets.MinusPersonIcon />
+                    ) : (
+                      <assets.AddPersonIcon />
+                    )}
                     {isInterested ? "Not Interested" : "Interested"}
                   </Button>
                   <p>868 People are interested</p>
@@ -182,7 +190,21 @@ const EventDetails = () => {
                   </div>
                   <div className="price-wrap">
                     <h5>₹{event.price}</h5>
-                    <Button href="/checkout" type="submit">
+                    <Button
+                      tag="button"
+                      type="button"
+                      onClick={() => {
+                        navigate("/checkout", {
+                          state: {
+                            directCheckout: true,
+                            item: {
+                              eventId: eventId,
+                              quantity: ticketQuantity,
+                            },
+                          },
+                        });
+                      }}
+                    >
                       buy now
                     </Button>
                   </div>

@@ -3,6 +3,7 @@ import logo_white from "./logo-white.png";
 import banner_bg from "./banner-bg.jpg";
 import favicon from "./favicon.png";
 import AddPersonIcon from "./AddPersonIcon";
+import MinusPersonIcon from "./MinusPersonIcon";
 import about_bg from "./about-bg.jpg";
 import about_img from "./about-img.jpg";
 import concert_box from "./concert-box.png";
@@ -63,6 +64,7 @@ export const assets = {
   logo,
   banner_bg,
   AddPersonIcon,
+  MinusPersonIcon,
   FeaturesIcon1,
   FeaturesIcon2,
   FeaturesIcon3,

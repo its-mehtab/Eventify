@@ -666,11 +666,6 @@
       "userId": "guest"
     },
     {
-      "id": "9f9b",
-      "eventId": "1",
-      "userId": "guest"
-    },
-    {
       "id": "a211",
       "eventId": "4",
       "userId": "guest"
@@ -681,7 +676,7 @@
       "id": "1",
       "eventId": "1",
       "userId": "guest",
-      "quantity": 2
+      "quantity": 3
     },
     {
       "id": "2",

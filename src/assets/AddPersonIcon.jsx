@@ -3,7 +3,6 @@ import React from "react";
 const AddPersonIcon = () => {
   return (
     <svg
-      className="me-2"
       width="21"
       height="21"
       viewBox="0 0 21 21"

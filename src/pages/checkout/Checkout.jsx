@@ -1,12 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./checkout.css";
 import BannerSection from "../home/components/banner-section/BannerSection";
 import StandUpSection from "../home/components/stand-up-section/StandUpSection";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import CheckoutForm from "../../components/checkout-form/CheckoutForm";
+import { useCartEvent } from "../../hooks/useCart";
+import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const Checkout = () => {
+  const { cartEvents, loading, error, getCartById } = useCartEvent();
+  const { state } = useLocation();
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (state?.directCheckout) {
+        const item = await getCartById(state.item.eventId, state.item.quantity);
+        setEvents(item);
+      } else {
+        setEvents(cartEvents);
+      }
+    };
+    fetchData();
+  }, [state, cartEvents]);
+
+  const subTotal = cartEvents.reduce(
+    (acc, currEvent) => {
+      return parseInt(currEvent.price) + parseInt(acc);
+    },
+    [0]
+  );
+  const vatCharge = 99;
+
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage message={error} />;
+
   return (
     <>
       <BannerSection className="sp-b">
@@ -39,28 +69,36 @@ const Checkout = () => {
               <div className="form-wrap">
                 <h3>Cart Total</h3>
                 <ul>
-                  <li className="checkout-event">
-                    <div className="d-flex gap-3 align-items-center">
-                      <img src="/src/assets/concert/arijit.jpg" alt="" />
-                      <div>
-                        <p>Voice of Emotions</p>
-                        <p>Qty: 2</p>
-                      </div>
-                    </div>
-                    <p>$24.99</p>
-                  </li>
+                  {events.map((currEvent) => {
+                    return (
+                      <li className="checkout-event" key={currEvent.id}>
+                        <div className="d-flex gap-3 align-items-center">
+                          <img src={currEvent.image} alt="" />
+                          <div>
+                            <p>{currEvent.heading}</p>
+                            <p>Qty: {currEvent.quantity}</p>
+                          </div>
+                        </div>
+                        <p>₹{currEvent.price}</p>
+                      </li>
+                    );
+                  })}
                 </ul>
                 <div className="d-flex justify-content-between gap-3 mt-3 pt-3 border-top">
                   <p>Subtotal</p>
-                  <p>$49.00</p>
+                  <p>₹{subTotal}</p>
                 </div>
                 <div className="d-flex justify-content-between gap-3 mt-2">
                   <p>Incl. Vat</p>
-                  <p>$49.00</p>
+                  <p>₹{vatCharge}</p>
+                </div>
+                <div className="d-flex justify-content-between gap-3 mt-2">
+                  <p>Discount</p>
+                  <p>₹{0}</p>
                 </div>
                 <div className="d-flex justify-content-between gap-3 mt-3 pt-3 border-top fw-semibold">
                   <p>Total Value</p>
-                  <p>$149.00</p>
+                  <p>₹{subTotal + vatCharge}</p>
                 </div>
                 <div className="payment-wrap border-top mt-3 pt-2">
                   <div className="payment-item">

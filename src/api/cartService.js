@@ -60,6 +60,24 @@ export const checkIfCart = async (eventId) => {
   }
 };
 
+export const getCart = async (eventId, quantity) => {
+  try {
+    const event = await getEventById(eventId);
+
+    return [
+      {
+        ...event,
+        cartId: eventId,
+        quantity: quantity,
+      },
+    ];
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || "Failed to get Cart events"
+    );
+  }
+};
+
 export const updateCartQuantity = async (cartId, newQuantity) => {
   try {
     const currentCartResponse = await api.get(`/carts/${cartId}`);
