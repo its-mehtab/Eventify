@@ -15,15 +15,33 @@ import TicketsQuantity from "../../components/tickets-quantity/TicketsQuantity";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useTicketQuantity } from "../../context/TicketQuantityContext";
+import { useEventInterest } from "../../hooks/useInterestedEvents";
 import { useCartEvent } from "../../hooks/useCart";
 import { updateCartQuantity } from "../../api/cartService";
 
 const EventDetails = () => {
   const { eventId } = useParams();
   const { ticketQuantity, setTicketQuantity } = useTicketQuantity();
+  const {
+    setActionLoading,
+    setActionError,
+    toggleInterest,
+    checkInterestStatus,
+  } = useEventInterest();
+
   const { checkCartStatus, addCart } = useCartEvent();
 
   const { event, loading, error } = useEventDetails(eventId);
+
+  const [isInterested, setIsInterested] = useState(null);
+
+  useEffect(() => {
+    const fetchIsInterested = async () => {
+      const checkStatus = await checkInterestStatus(eventId);
+      setIsInterested(checkStatus);
+    };
+    fetchIsInterested();
+  }, [checkInterestStatus, eventId]);
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
@@ -46,12 +64,18 @@ const EventDetails = () => {
     `${event.timing.start} - ${event.timing.end}`
   );
 
+  const handleIsInterested = async () => {
+    toggleInterest(event.id);
+    const checkStatus = await checkInterestStatus(eventId);
+
+    setIsInterested(checkStatus);
+  };
+
   const handleAddToCart = async () => {
     const isInCart = await checkCartStatus(eventId);
     if (!isInCart) {
       await addCart(eventId, ticketQuantity);
     } else {
-      console.log("item is already in the cart");
       updateCartQuantity(isInCart.id, ticketQuantity);
     }
   };
@@ -86,6 +110,16 @@ const EventDetails = () => {
               <div className="event-details-item">
                 <div className="event-details-img">
                   <img src={event.image} alt="" width="100%" />
+                </div>
+                <div className="interested-wrap">
+                  <Button
+                    href={null}
+                    btnClass="py-1 px-2"
+                    onClick={handleIsInterested}
+                  >
+                    {isInterested ? "Not Interested" : "Interested"}
+                  </Button>
+                  <p>868 People are interested</p>
                 </div>
                 <h4>About The Event</h4>
                 <p>{event.description}</p>
