@@ -12,6 +12,7 @@
   overflow: hidden;
   border: 1px solid transparent;
   transition: all ease-in-out 0.3s;
+  background-color: transparent;
 }
 .primary-btn::before {
   content: "";

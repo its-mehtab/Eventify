@@ -172,12 +172,7 @@ const EventDetails = () => {
                   <assets.LocationIcon color="#fff" />
                   <p className="ms-1">{event.location}</p>
                 </div>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    // Add logic to handle ticket purchase
-                  }}
-                >
+                <form>
                   <div className="d-flex gap-3 mt-3">
                     <TicketsQuantity onChange={setTicketQuantity} />
                     <Button

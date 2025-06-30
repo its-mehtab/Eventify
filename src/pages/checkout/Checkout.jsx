@@ -26,7 +26,7 @@ const Checkout = () => {
     fetchData();
   }, [state, cartEvents]);
 
-  const subTotal = cartEvents.reduce(
+  const subTotal = events.reduce(
     (acc, currEvent) => {
       return parseInt(currEvent.price) + parseInt(acc);
     },
