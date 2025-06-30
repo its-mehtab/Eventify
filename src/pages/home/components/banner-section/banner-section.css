@@ -128,6 +128,12 @@
   z-index: 99;
 }
 
+@media (max-width: 1200px) {
+  .upcoming-event {
+    bottom: -120px;
+  }
+}
+
 @media (max-width: 991px) {
   .upcoming-event {
     bottom: -165px;

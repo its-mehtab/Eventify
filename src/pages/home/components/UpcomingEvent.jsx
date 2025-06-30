@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   convertDate,
   convertTo12HourFormat,
 } from "../../../components/DateTimeFormatter";
 import { assets } from "../../../assets/assets";
 import Button from "../../../components/button/Button";
+import { useEventInterest } from "../../../hooks/useInterestedEvents";
 
 const UpcomingEvent = ({ upcomingEvent }) => {
+  const [isInterested, setIsInterested] = useState(null);
+
+  const { checkInterestStatus, toggleInterest } = useEventInterest();
+
+  useEffect(() => {
+    const fetchIsInterested = async () => {
+      const checkStatus = await checkInterestStatus(upcomingEvent.id);
+      setIsInterested(checkStatus);
+    };
+    fetchIsInterested();
+  }, [checkInterestStatus, upcomingEvent.id]);
+
+  const handleIsInterested = async () => {
+    toggleInterest(upcomingEvent.id);
+    const checkStatus = await checkInterestStatus(upcomingEvent.id);
+
+    setIsInterested(checkStatus);
+  };
+
   return (
     <div className="upcoming-event">
       <div className="row">
@@ -34,9 +54,18 @@ const UpcomingEvent = ({ upcomingEvent }) => {
               <h3>353</h3>
               <p>Attending</p>
             </div>
-            <Button href={null}>
-              <assets.AddPersonIcon />
-              Interested
+            <Button
+              btnClass="d-flex align-items-center gap-2"
+              href={null}
+              onClick={handleIsInterested}
+            >
+              {isInterested ? (
+                <assets.MinusPersonIcon />
+              ) : (
+                <assets.AddPersonIcon />
+              )}
+
+              {isInterested ? "Not Interested" : "Interested"}
             </Button>
           </div>
         </div>
