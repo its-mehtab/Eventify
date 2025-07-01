@@ -689,23 +689,52 @@
       "eventId": "8",
       "userId": "guest",
       "quantity": 13
+    },
+    {
+      "id": "cb53",
+      "eventId": "19",
+      "userId": "guest",
+      "quantity": 3
     }
   ],
   "bookings": [
     {
-      "id": "book_123",
-      "eventId": "8",
+      "id": "1",
       "userId": "guest",
       "tickets": [
-        {
-          "ticketId": "tkt_1",
-          "price": 4999
-        }
+        { "ticketId": "1", "eventId": "8", "price": 4999, "quantity": 3 },
+        { "ticketId": "2", "eventId": "9", "price": 3499, "quantity": 3 }
       ],
-      "totalAmount": 4999,
+      "totalAmount": 8498,
       "paymentStatus": "pending",
       "paymentMethod": "card",
-      "createdAt": "2025-06-25T10:30:00Z"
+      "createdAt": "2025-06-25T10:30:00Z",
+      "cancelled": false
+    },
+    {
+      "id": "2",
+      "userId": "guest",
+      "tickets": [
+        { "ticketId": "3", "eventId": "5", "price": 4999, "quantity": 3 }
+      ],
+      "totalAmount": 4999,
+      "paymentStatus": "success",
+      "paymentMethod": "upi",
+      "createdAt": "2025-06-26T11:00:00Z",
+      "cancelled": false
+    },
+    {
+      "id": "3",
+      "userId": "guest",
+      "tickets": [
+        { "ticketId": "4", "eventId": "10", "price": 1999, "quantity": 3 },
+        { "ticketId": "5", "eventId": "11", "price": 2999, "quantity": 3 }
+      ],
+      "totalAmount": 4998,
+      "paymentStatus": "cancelled",
+      "paymentMethod": "card",
+      "createdAt": "2025-06-27T15:15:00Z",
+      "cancelled": true
     }
   ]
 }

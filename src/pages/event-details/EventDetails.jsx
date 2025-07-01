@@ -185,8 +185,8 @@ const EventDetails = () => {
                   </div>
                   <div className="price-wrap">
                     <h5>₹{event.price}</h5>
-                    <Button
-                      tag="button"
+                    <button
+                      className="primary-btn"
                       type="button"
                       onClick={() => {
                         navigate("/checkout", {
@@ -201,7 +201,7 @@ const EventDetails = () => {
                       }}
                     >
                       buy now
-                    </Button>
+                    </button>
                   </div>
                 </form>
               </div>

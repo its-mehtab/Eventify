@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 import StandUpSection from "../home/components/stand-up-section/StandUpSection";
 import "./bookings.css";
 import Button from "../../components/button/Button";
+import { useBookings } from "../../hooks/useBooking";
+import { convertDate } from "../../components/DateTimeFormatter";
 
 const Bookings = () => {
+  const { bookings, loading, error } = useBookings();
+
+  if (loading) return <p>Loading bookings...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <>
       <BannerSection className="sp-b">
@@ -32,45 +39,62 @@ const Bookings = () => {
           <h1>Recent Bookings</h1>
         </div>
         <ul className="bookings-wrap">
-          <li>
-            <div className="row">
-              <div className="col-md-5">
-                <div className="booking-item">
-                  <div className="booking-img-wrap">
-                    <img
-                      src="/src/assets/concert/arijit.jpg"
-                      alt=""
-                      width="100%"
-                    />
+          {bookings.map((currBooking) => {
+            const isCancelled = currBooking.cancelled;
+
+            return (
+              <li key={currBooking.id}>
+                <div className="row justify-content-between">
+                  <div className="col-md-7">
+                    {currBooking.tickets.map((currTicket) => {
+                      return (
+                        <div
+                          key={currTicket.ticketId}
+                          className="booking-event-item d-flex gap-4"
+                        >
+                          <div className="left-side">
+                            <div className="booking-img-wrap">
+                              <img
+                                src={currTicket.event.image}
+                                alt=""
+                                width="100%"
+                              />
+                            </div>
+                          </div>
+                          <div className="booking-item booking-details">
+                            <h3>{currTicket.event.heading}</h3>
+                            <p>Amount: ₹{currTicket.event.price}</p>
+                            <p>Guests: {currTicket.quantity}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                </div>
-              </div>
-              <div className="col-md-7">
-                <div className="booking-item pt-3">
-                  <div className="row">
-                    <div className="col-sm-6">
-                      <h3>Voice of Emotions</h3>
-                      <p>Netaji Indoor Stadium - 1</p>
-                      <p>September 15, 2025</p>
-                      <p>7:00 PM - 10:30 PM</p>
-                    </div>
-                    <div className="col-sm-6 text-sm-end mt-3 mt-sm-0">
+                  <div className="col-md-5">
+                    <div className="booking-details text-end">
                       <div className="common-head">
-                        <span className="inner-head mb-2">Fully Paid</span>
+                        <span className="inner-head mb-2">
+                          {currBooking.paymentStatus}
+                        </span>
                       </div>
                       <p>Invoice No: 7863478236</p>
-                      <p>Amount: ₹799</p>
-                      <p>Guests: 1</p>
+                      <p>Total Amount: ₹{currBooking.totalAmount}</p>
+                      <p>Payment Method: {currBooking.paymentMethod}</p>
+                      <p>Date: {currBooking.createdAt}</p>
+                      <div className="d-flex flex-wrap justify-content-end">
+                        <Button btnClass="mt-4">Download</Button>
+                        {isCancelled || (
+                          <Button btnClass={"btn-white ms-3  mt-4"}>
+                            Cancel
+                          </Button>
+                        )}
+                      </div>
                     </div>
                   </div>
-                  <div className="d-flex flex-wrap">
-                    <Button btnClass="mt-4">Download</Button>
-                    <Button btnClass={"btn-white ms-3  mt-4"}>Cancel</Button>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
+            );
+          })}
         </ul>
       </StandUpSection>
     </>

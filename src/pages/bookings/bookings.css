@@ -35,7 +35,8 @@
 }
 
 .booking-img-wrap {
-  border-radius: 20px;
+  width: 200px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -44,6 +45,12 @@
   font-weight: 700;
 }
 
-.bookings-wrap .booking-item p {
+.booking-details p {
   margin-top: 10px;
+}
+
+.booking-event-item + .booking-event-item {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ffffff20;
 }

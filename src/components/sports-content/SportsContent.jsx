@@ -4,16 +4,14 @@ import Button from "../button/Button";
 import { assets } from "../../assets/assets";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { useTicketQuantity } from "../../context/TicketQuantityContext";
+import { useNavigate } from "react-router-dom";
 
 const SportsContent = ({ events }) => {
-  const [selectedEvent, setSelectedEvent] = useState("");
+  const [selectedEvent, setSelectedEvent] = useState("19");
+  const { ticketQuantity, setTicketQuantity } = useTicketQuantity();
 
-  useEffect(() => {
-    const firstSportEvent = events.find((event) => event.type === "sports");
-    if (firstSportEvent) {
-      setSelectedEvent(`sport_show${firstSportEvent.id}`);
-    }
-  }, [events]);
+  const navigate = useNavigate();
 
   return (
     <div className="row mt-5 justify-content-center">
@@ -28,17 +26,15 @@ const SportsContent = ({ events }) => {
               .map((currData) => {
                 return (
                   <li key={currData.id}>
-                    <label htmlFor={`sport_show${currData.id}`}>
+                    <label htmlFor={`${currData.id}`}>
                       <input
                         className="d-none"
                         type="radio"
                         name="sports-show"
-                        id={`sport_show${currData.id}`}
+                        id={`${currData.id}`}
                         value={selectedEvent}
-                        checked={selectedEvent === `sport_show${currData.id}`}
-                        onChange={() =>
-                          setSelectedEvent(`sport_show${currData.id}`)
-                        }
+                        checked={selectedEvent === `${currData.id}`}
+                        onChange={() => setSelectedEvent(`${currData.id}`)}
                       />
                       <div className="option-label">
                         <span>{currData.heading}</span>
@@ -48,59 +44,27 @@ const SportsContent = ({ events }) => {
                   </li>
                 );
               })}
-            {/* <li>
-                  <label htmlFor="sport_show1">
-                    <input
-                      defaultChecked
-                      className="d-none"
-                      type="radio"
-                      name="sports-show"
-                      id="sport_show1"
-                      value=""
-                    />
-                    <div className="option-label">
-                      <span>Student Discount</span>
-                      <span>$25.00</span>
-                    </div>
-                  </label>
-                </li>
-                <li>
-                  <label htmlFor="sport_show2">
-                    <input
-                      className="d-none"
-                      type="radio"
-                      name="sports-show"
-                      id="sport_show2"
-                      value=""
-                    />
-                    <div className="option-label">
-                      <span>Student Discount</span>
-                      <span>$25.00</span>
-                    </div>
-                  </label>
-                </li>
-                <li>
-                  <label htmlFor="sport_show3">
-                    <input
-                      className="d-none"
-                      type="radio"
-                      name="sports-show"
-                      id="sport_show3"
-                      value=""
-                    />
-                    <div className="option-label">
-                      <span>Student Discount</span>
-                      <span>$25.00</span>
-                    </div>
-                  </label>
-                </li> */}
           </ul>
           <div className="qty-sports-show">
-            <TicketsQuantity />
-            <Button>
+            <TicketsQuantity onChange={setTicketQuantity} />
+            <button
+              className="primary-btn"
+              type="button"
+              onClick={() => {
+                navigate("/checkout", {
+                  state: {
+                    directCheckout: true,
+                    item: {
+                      eventId: selectedEvent,
+                      quantity: ticketQuantity,
+                    },
+                  },
+                });
+              }}
+            >
               <assets.TicketIcon />
               buy tickets
-            </Button>
+            </button>
           </div>
         </form>
       </div>

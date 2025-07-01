@@ -1,25 +1,13 @@
 import React, { useState } from "react";
 import CustomInput from "../../components/custom-input/CustomInput";
 
-const CheckoutForm = () => {
-  const [formData, setFormData] = useState({
-    heading: "",
-    date: "",
-    artist: "",
-  });
-
+const CheckoutForm = ({ formData, setFormData }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    // Post to API here
   };
 
   return (

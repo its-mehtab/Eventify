@@ -13,6 +13,8 @@ const Checkout = () => {
   const { cartEvents, loading, error, getCartById } = useCartEvent();
   const { state } = useLocation();
   const [events, setEvents] = useState([]);
+  const [formData, setFormData] = useState({});
+  const [paymentMethod, setPaymentMethod] = useState("cod");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +35,30 @@ const Checkout = () => {
     [0]
   );
   const vatCharge = 99;
+
+  const handlePaymentMethod = (e) => {
+    setPaymentMethod(e.target.value);
+  };
+
+  const handleCheckout = (e) => {
+    e.preventDefault();
+    const checkoutData = {
+      ...formData,
+      events,
+      tickets: {
+        ticketId: "tkt_1",
+        eventId: events[0]?.id,
+        price: 4999,
+      },
+      userId: "guest",
+      totalAmount: 4999,
+      paymentStatus: "pending",
+      paymentMethod,
+    };
+
+    console.log("Checkout Data:", checkoutData);
+    // Post to API here
+  };
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
@@ -58,11 +84,11 @@ const Checkout = () => {
         </div>
       </BannerSection>
       <StandUpSection>
-        <form action="">
+        <form action="" onSubmit={handleCheckout}>
           <div className="row">
             <div className="col-md-6">
               <div className="form-wrap">
-                <CheckoutForm />
+                <CheckoutForm formData={formData} setFormData={setFormData} />
               </div>
             </div>
             <div className="col-md-6">
@@ -107,6 +133,8 @@ const Checkout = () => {
                       id="cod"
                       name="paymentMethod"
                       value="cod"
+                      checked={paymentMethod === "cod"}
+                      onChange={handlePaymentMethod}
                     />
                     <label htmlFor="cod">Cash on Delivery</label>
                   </div>
@@ -116,6 +144,8 @@ const Checkout = () => {
                       id="upi"
                       name="paymentMethod"
                       value="upi"
+                      checked={paymentMethod === "upi"}
+                      onChange={handlePaymentMethod}
                     />
                     <label htmlFor="upi">UPI</label>
                   </div>
@@ -125,6 +155,8 @@ const Checkout = () => {
                       id="card"
                       name="paymentMethod"
                       value="card"
+                      checked={paymentMethod === "card"}
+                      onChange={handlePaymentMethod}
                     />
                     <label htmlFor="card">Debit / Credit Card</label>
                   </div>
