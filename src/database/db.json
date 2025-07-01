@@ -702,8 +702,18 @@
       "id": "1",
       "userId": "guest",
       "tickets": [
-        { "ticketId": "1", "eventId": "8", "price": 4999, "quantity": 3 },
-        { "ticketId": "2", "eventId": "9", "price": 3499, "quantity": 3 }
+        {
+          "id": "1",
+          "eventId": "8",
+          "price": 4999,
+          "quantity": 3
+        },
+        {
+          "id": "2",
+          "eventId": "9",
+          "price": 3499,
+          "quantity": 3
+        }
       ],
       "totalAmount": 8498,
       "paymentStatus": "pending",
@@ -715,7 +725,12 @@
       "id": "2",
       "userId": "guest",
       "tickets": [
-        { "ticketId": "3", "eventId": "5", "price": 4999, "quantity": 3 }
+        {
+          "id": "3",
+          "eventId": "5",
+          "price": 4999,
+          "quantity": 3
+        }
       ],
       "totalAmount": 4999,
       "paymentStatus": "success",
@@ -727,14 +742,77 @@
       "id": "3",
       "userId": "guest",
       "tickets": [
-        { "ticketId": "4", "eventId": "10", "price": 1999, "quantity": 3 },
-        { "ticketId": "5", "eventId": "11", "price": 2999, "quantity": 3 }
+        {
+          "id": "4",
+          "eventId": "10",
+          "price": 1999,
+          "quantity": 3
+        },
+        {
+          "id": "5",
+          "eventId": "11",
+          "price": 2999,
+          "quantity": 3
+        }
       ],
       "totalAmount": 4998,
       "paymentStatus": "cancelled",
       "paymentMethod": "card",
       "createdAt": "2025-06-27T15:15:00Z",
       "cancelled": true
+    },
+    {
+      "id": "db76",
+      "userId": "guest",
+      "events": [
+        {
+          "id": "3",
+          "type": "concert",
+          "image": "/src/assets/concert/coldplay.jpg",
+          "heading": "A Night of Pure Magic",
+          "artist": "Coldplay",
+          "artistType": "International Band",
+          "date": "2025-12-12",
+          "timing": {
+            "start": "18:00",
+            "end": "21:30"
+          },
+          "location": "DY Patil Stadium, Sector 7, Nerul, Navi Mumbai, Maharashtra 400706",
+          "totalSeats": 35000,
+          "price": 4999,
+          "ageLimit": "All Ages",
+          "language": "English",
+          "description": "Experience Coldplay's spectacular light show and greatest hits live.",
+          "artistImage": "/assets/artists/coldplay-profile.jpg",
+          "artistBio": "Grammy-winning British rock band known for their anthemic hits.",
+          "cartId": "3",
+          "quantity": 1
+        }
+      ],
+      "tickets": [
+        {
+          "id": 5705,
+          "eventId": "3",
+          "price": 4999,
+          "quantity": 3
+        }
+      ],
+      "billingDetails": {
+        "firstName": "test",
+        "lastName": "test",
+        "email": "test@gmail.com",
+        "address": "test",
+        "country": "India",
+        "state": "test",
+        "city": "test",
+        "zipCode": "123456",
+        "phoneNumber": "1234567890"
+      },
+      "totalAmount": 4999,
+      "paymentStatus": "pending",
+      "paymentMethod": "cod",
+      "cancelled": false,
+      "createdAt": "2025-07-01T17:54:37.632Z"
     }
   ]
 }

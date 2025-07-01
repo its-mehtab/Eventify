@@ -8,6 +8,7 @@ import CheckoutForm from "../../components/checkout-form/CheckoutForm";
 import { useCartEvent } from "../../hooks/useCart";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
+import { useBookings } from "../../hooks/useBooking";
 
 const Checkout = () => {
   const { cartEvents, loading, error, getCartById } = useCartEvent();
@@ -15,6 +16,7 @@ const Checkout = () => {
   const [events, setEvents] = useState([]);
   const [formData, setFormData] = useState({});
   const [paymentMethod, setPaymentMethod] = useState("cod");
+  const { createBooking } = useBookings();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +28,7 @@ const Checkout = () => {
       }
     };
     fetchData();
-  }, [state, cartEvents]);
+  }, [state, cartEvents, getCartById]);
 
   const subTotal = events.reduce(
     (acc, currEvent) => {
@@ -42,21 +44,43 @@ const Checkout = () => {
 
   const handleCheckout = (e) => {
     e.preventDefault();
+    //   const checkoutData = {
+    //     ...formData,
+    //     events,
+    //     tickets: {
+    //       ticketId: "tkt_1",
+    //       eventId: events[0]?.id,
+    //       price: 4999,
+    //     },
+    //     userId: "guest",
+    //     totalAmount: 4999,
+    //     paymentStatus: "pending",
+    //     paymentMethod,
+    //   };
+
     const checkoutData = {
-      ...formData,
-      events,
-      tickets: {
-        ticketId: "tkt_1",
-        eventId: events[0]?.id,
-        price: 4999,
-      },
       userId: "guest",
+      events,
+      tickets: [
+        {
+          id: Math.floor(Math.random() * 10000),
+          eventId: events[0]?.id,
+          price: 4999,
+          quantity: 3,
+        },
+      ],
+      billingDetails: {
+        ...formData,
+      },
       totalAmount: 4999,
       paymentStatus: "pending",
       paymentMethod,
+      cancelled: false,
     };
 
-    console.log("Checkout Data:", checkoutData);
+    createBooking(checkoutData);
+
+    // console.log("Checkout Data:", checkoutData);
     // Post to API here
   };
 
