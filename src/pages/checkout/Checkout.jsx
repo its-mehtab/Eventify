@@ -60,7 +60,6 @@ const Checkout = () => {
 
     const checkoutData = {
       userId: "guest",
-      events,
       tickets: [
         {
           id: Math.floor(Math.random() * 10000),
