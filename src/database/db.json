@@ -762,57 +762,32 @@
       "cancelled": true
     },
     {
-      "id": "db76",
+      "id": "9257",
       "userId": "guest",
-      "events": [
-        {
-          "id": "3",
-          "type": "concert",
-          "image": "/src/assets/concert/coldplay.jpg",
-          "heading": "A Night of Pure Magic",
-          "artist": "Coldplay",
-          "artistType": "International Band",
-          "date": "2025-12-12",
-          "timing": {
-            "start": "18:00",
-            "end": "21:30"
-          },
-          "location": "DY Patil Stadium, Sector 7, Nerul, Navi Mumbai, Maharashtra 400706",
-          "totalSeats": 35000,
-          "price": 4999,
-          "ageLimit": "All Ages",
-          "language": "English",
-          "description": "Experience Coldplay's spectacular light show and greatest hits live.",
-          "artistImage": "/assets/artists/coldplay-profile.jpg",
-          "artistBio": "Grammy-winning British rock band known for their anthemic hits.",
-          "cartId": "3",
-          "quantity": 1
-        }
-      ],
       "tickets": [
         {
-          "id": 5705,
-          "eventId": "3",
+          "id": 1234,
+          "eventId": "1",
           "price": 4999,
           "quantity": 3
         }
       ],
       "billingDetails": {
-        "firstName": "test",
         "lastName": "test",
+        "firstName": "test",
+        "phoneNumber": "01234567890",
         "email": "test@gmail.com",
         "address": "test",
         "country": "India",
         "state": "test",
         "city": "test",
-        "zipCode": "123456",
-        "phoneNumber": "1234567890"
+        "zipCode": "123456"
       },
       "totalAmount": 4999,
       "paymentStatus": "pending",
       "paymentMethod": "cod",
       "cancelled": false,
-      "createdAt": "2025-07-01T17:54:37.632Z"
+      "createdAt": "2025-07-02T14:33:59.054Z"
     }
   ]
 }
