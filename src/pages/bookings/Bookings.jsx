@@ -49,7 +49,7 @@ const Bookings = () => {
                     {currBooking.tickets.map((currTicket) => {
                       return (
                         <div
-                          key={currTicket.ticketId}
+                          key={currTicket.id}
                           className="booking-event-item d-flex gap-4"
                         >
                           <div className="left-side">
@@ -77,7 +77,7 @@ const Bookings = () => {
                           {currBooking.paymentStatus}
                         </span>
                       </div>
-                      <p>Invoice No: 7863478236</p>
+                      <p>Order Id: 7863478236</p>
                       <p>Total Amount: ₹{currBooking.totalAmount}</p>
                       <p>Payment Method: {currBooking.paymentMethod}</p>
                       <p>Date: {currBooking.createdAt}</p>

@@ -9,6 +9,7 @@ import { useCartEvent } from "../../hooks/useCart";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useBookings } from "../../hooks/useBooking";
+import { v4 as uuidv4 } from "uuid";
 
 const Checkout = () => {
   const { cartEvents, loading, error, getCartById } = useCartEvent();
@@ -44,35 +45,22 @@ const Checkout = () => {
 
   const handleCheckout = (e) => {
     e.preventDefault();
-    //   const checkoutData = {
-    //     ...formData,
-    //     events,
-    //     tickets: {
-    //       ticketId: "tkt_1",
-    //       eventId: events[0]?.id,
-    //       price: 4999,
-    //     },
-    //     userId: "guest",
-    //     totalAmount: 4999,
-    //     paymentStatus: "pending",
-    //     paymentMethod,
-    //   };
 
     const checkoutData = {
       userId: "guest",
       events,
-      tickets: [
-        {
-          id: Math.floor(Math.random() * 10000),
-          eventId: events[0]?.id,
-          price: 4999,
-          quantity: 3,
-        },
-      ],
+      tickets: events.map((currCart) => {
+        return {
+          id: uuidv4(),
+          eventId: currCart.id,
+          price: currCart.price,
+          quantity: currCart.quantity,
+        };
+      }),
       billingDetails: {
         ...formData,
       },
-      totalAmount: 4999,
+      totalAmount: subTotal + vatCharge,
       paymentStatus: "pending",
       paymentMethod,
       cancelled: false,
@@ -81,7 +69,6 @@ const Checkout = () => {
     createBooking(checkoutData);
 
     // console.log("Checkout Data:", checkoutData);
-    // Post to API here
   };
 
   if (loading) return <LoadingSpinner />;
