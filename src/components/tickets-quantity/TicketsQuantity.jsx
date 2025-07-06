@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../../assets/assets";
-import { useTicketQuantity } from "../../context/TicketQuantityContext";
 
-const TicketsQuantity = ({ color = "", onChange }) => {
-  const [quantity, setQuantity] = useState(1);
+const TicketsQuantity = ({ initialQuantity = 1, color = "", onChange }) => {
+  const [quantity, setQuantity] = useState(initialQuantity);
+
+  useEffect(() => {
+    setQuantity(initialQuantity);
+  }, [initialQuantity]);
 
   useEffect(() => {
     if (onChange) onChange(quantity);
-  }, [quantity]);
+  }, [quantity, onChange]);
 
   function handleMinus() {
     if (quantity > 1) {

@@ -1,10 +1,17 @@
+.cart-list {
+  border: 1px solid #ffffff61;
+  padding: 35px 30px;
+  border-radius: 20px;
+}
+
 .cart-list-item {
   display: flex;
   gap: 30px;
   align-items: center;
-  border: 1px solid #ffffff61;
-  padding: 24px 30px;
-  border-radius: 20px;
+}
+
+.cart-list-item + .cart-list-item {
+  margin-top: 30px;
 }
 
 .cart-list-item .cart-img {
@@ -19,5 +26,22 @@
 
 .cart-list-item h3 {
   font-size: 34px;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.total-details {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  border: 1px solid #ffffff61;
+  padding: 35px 30px;
+  border-radius: 20px;
+}
+
+.total-details h4 {
+  font-size: 34px;
+  font-weight: 700;
   font-family: "Lexend Deca", sans-serif;
 }

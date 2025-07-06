@@ -49,7 +49,7 @@ const Checkout = () => {
 
     const checkoutData = {
       userId: "guest",
-      events,
+      // events,
       tickets: events.map((currCart) => {
         return {
           id: uuidv4(),
