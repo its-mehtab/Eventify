@@ -1,8 +1,8 @@
 .bookings-wrap li {
-  padding: 30px;
-  border-radius: 30px;
+  padding: 24px 20px;
+  border-radius: 14px;
   border: 1px solid #ffffff40;
-  margin-top: 25px;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -12,14 +12,14 @@
   }
 }
 
-.bookings-wrap .remove {
-  position: absolute;
+.remove-btn {
+  /* position: absolute;
   top: 30px;
   right: 30px;
-  z-index: 99;
+  z-index: 99; */
   background-color: #ff0a54;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 10px;
   width: 44px;
   height: 44px;
   display: flex;
@@ -27,17 +27,21 @@
   justify-content: center;
   cursor: pointer;
   transition: all ease-in-out 0.3s;
+  outline: none;
+  border: 0;
 }
 
-.bookings-wrap .remove:hover {
+.remove-btn:hover {
   background-color: #fff;
   color: #ff0a54;
 }
 
 .booking-img-wrap {
-  width: 200px;
+  min-width: 180px;
+  width: 180px;
   border-radius: 10px;
   overflow: hidden;
+  margin-right: 20px;
 }
 
 .bookings-wrap .booking-item h3 {

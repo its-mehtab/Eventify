@@ -1,26 +1,23 @@
-.concert-details h3 {
-  font-size: 40px;
-  font-family: "Lexend Deca", sans-serif;
-}
-.concert-details .qty-wrap button {
-  background-color: #ff0a54;
-}
-
-.concert-details .qty-wrap button:hover {
-  background-color: #ff0a53ba;
-  color: #fff;
-  border: transparent;
-}
-
-.concert-details .remove-btn {
-  background-color: #ff0a54;
-  color: #fff;
-  border: 0;
-  outline: 0;
-  width: 44px;
-  height: 44px;
+.cart-list-item {
   display: flex;
+  gap: 30px;
   align-items: center;
-  justify-content: center;
-  border-radius: 6px;
+  border: 1px solid #ffffff61;
+  padding: 24px 30px;
+  border-radius: 20px;
+}
+
+.cart-list-item .cart-img {
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cart-list-item .cart-img img {
+  width: 100%;
+}
+
+.cart-list-item h3 {
+  font-size: 34px;
+  font-family: "Lexend Deca", sans-serif;
 }

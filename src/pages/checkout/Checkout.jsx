@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./checkout.css";
 import BannerSection from "../home/components/banner-section/BannerSection";
 import StandUpSection from "../home/components/stand-up-section/StandUpSection";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import CheckoutForm from "../../components/checkout-form/CheckoutForm";
 import { useCartEvent } from "../../hooks/useCart";
@@ -12,12 +12,13 @@ import { useBookings } from "../../hooks/useBooking";
 import { v4 as uuidv4 } from "uuid";
 
 const Checkout = () => {
-  const { cartEvents, loading, error, getCartById } = useCartEvent();
+  const { cartEvents, loading, error: cartError, getCartById } = useCartEvent();
   const { state } = useLocation();
   const [events, setEvents] = useState([]);
   const [formData, setFormData] = useState({});
   const [paymentMethod, setPaymentMethod] = useState("cod");
-  const { createBooking } = useBookings();
+  const { createBooking, error } = useBookings();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,11 +69,14 @@ const Checkout = () => {
 
     createBooking(checkoutData);
 
-    // console.log("Checkout Data:", checkoutData);
+    navigate("/thankyou", {
+      newOrder: checkoutData,
+      isSuccess: error ? false : true,
+    });
   };
 
   if (loading) return <LoadingSpinner />;
-  if (error) return <ErrorMessage message={error} />;
+  if (cartError) return <ErrorMessage message={error} />;
 
   return (
     <>

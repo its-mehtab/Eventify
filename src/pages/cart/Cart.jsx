@@ -48,71 +48,52 @@ const Cart = () => {
         </div>
       </BannerSection>
       <EventsSection className="inner-page">
-        <div className="row">
+        {/* <ul className="cart-list-item">
+          <li>
+            <div className="cart-img-wrap">
+              <img src="" alt="" />
+            </div>
+            <div className="cart-item-content">
+              <div>
+                <h3>dsg</h3>
+                <p>dsvd</p>
+              </div>
+              <TicketsQuantity />
+              <div>rs432</div>
+            </div>
+          </li>
+        </ul> */}
+        <ul>
           {cartEvents.map((currData) => {
             const formattedDate = convertDate(currData.date);
-            // const handleRemove = removeCart(currData);
             return (
-              <div
-                className="col-xl-4 col-md-6 d-flex align-items-stretch"
-                key={currData.id}
-              >
-                <div className="events-content mt-4">
-                  <div
-                    to={`/events/${currData.id}`}
-                    className="concert-card d-block"
-                  >
-                    <img src={assets.concert_box} alt="" />
-
-                    <div className="row">
-                      <div
-                        className={`col-md-12 d-md-flex align-items-stretch`}
-                      >
-                        <div className="concert-content">
-                          <Link to={`/events/${currData.id}`}>
-                            <img src={currData.image} alt="" />
-                          </Link>
-                        </div>
-                      </div>
-                      <div
-                        className={`col-md-12 d-md-flex align-items-stretch`}
-                      >
-                        <div className="concert-content py-3 mt-3 mt-md-0">
-                          <div className="concert-title">
-                            <div>
-                              <h3>{currData.heading}</h3>
-                              <p>{formattedDate}</p>
-                            </div>
-                          </div>
-                          <div className="concert-details pt-3">
-                            <div className="d-flex align-items-center justify-content-between mb-4">
-                              <TicketsQuantity color="text-dark" />
-                              <button
-                                className="remove-btn"
-                                onClick={async () => {
-                                  const isInCart = await checkCartStatus(
-                                    currData.id
-                                  );
-                                  removeCart(isInCart.id);
-                                }}
-                              >
-                                <RemoveIcon />
-                              </button>
-                            </div>
-                            <h3 className="price">₹{currData.price}</h3>
-                            {/* <p className="mt-2 mb-4">
-                              Qty: {currData.quantity}
-                            </p> */}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <li className="cart-list-item mt-4" key={currData.id}>
+                <Link className="cart-img" to={`/events/${currData.id}`}>
+                  <img src={currData.image} alt="" />
+                </Link>
+                <div className="concert-content mt-3 mt-md-0">
+                  <Link to={`/events/${currData.id}`} className="text-white">
+                    <h3>{currData.heading}</h3>
+                    <p>{formattedDate}</p>
+                  </Link>
+                  <h3 className="price mt-3 text-white">₹{currData.price}</h3>
                 </div>
-              </div>
+                <div className="d-flex gap-5 ms-auto">
+                  <TicketsQuantity />
+                  <button
+                    className="remove-btn"
+                    onClick={async () => {
+                      const isInCart = await checkCartStatus(currData.id);
+                      removeCart(isInCart.id);
+                    }}
+                  >
+                    <RemoveIcon />
+                  </button>
+                </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </EventsSection>
     </>
   );

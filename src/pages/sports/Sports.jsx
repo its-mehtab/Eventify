@@ -4,8 +4,6 @@ import StandUpSection from "../home/components/stand-up-section/StandUpSection";
 import { Link } from "react-router-dom";
 import VerticalCard from "../../components/vertical-card/VerticalCard";
 
-import JSON from "../home/JSON";
-
 const Sports = ({ eventData }) => {
   return (
     <>

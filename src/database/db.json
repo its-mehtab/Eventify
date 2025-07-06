@@ -659,16 +659,6 @@
       "id": "4",
       "eventId": "12",
       "userId": "guest"
-    },
-    {
-      "id": "5",
-      "eventId": "15",
-      "userId": "guest"
-    },
-    {
-      "id": "a211",
-      "eventId": "4",
-      "userId": "guest"
     }
   ],
   "carts": [
@@ -788,6 +778,155 @@
       "paymentMethod": "cod",
       "cancelled": false,
       "createdAt": "2025-07-02T14:33:59.054Z"
+    },
+    {
+      "id": "65b2",
+      "userId": "guest",
+      "events": [
+        {
+          "id": "1",
+          "type": "concert",
+          "image": "/src/assets/concert/arijit.jpg",
+          "heading": "Voice of Emotions",
+          "artist": "Arijit Singh",
+          "artistType": "Playback Singer",
+          "date": "2025-09-15",
+          "timing": {
+            "start": "19:00",
+            "end": "22:30"
+          },
+          "location": "Netaji Indoor Stadium - 1, Stadium House, D.L. Khan Road, B.B.D. Bagh, Kolkata, West Bengal 700021",
+          "totalSeats": 5000,
+          "price": 2499,
+          "ageLimit": "10+",
+          "language": "Hindi",
+          "description": "Experience the magical voice of Arijit Singh in this unforgettable evening of melodies and emotions.",
+          "artistImage": "/assets/artists/arijit-profile.jpg",
+          "artistBio": "India's most beloved playback singer known for romantic and soulful melodies.",
+          "cartId": "1",
+          "quantity": 3
+        },
+        {
+          "id": "5",
+          "type": "concert",
+          "image": "/src/assets/concert/sonu.jpg",
+          "heading": "Golden Hits Tour",
+          "artist": "Sonu Nigam",
+          "artistType": "Playback Singer",
+          "date": "2025-11-05",
+          "timing": {
+            "start": "20:00",
+            "end": "23:00"
+          },
+          "location": "Shree Shiv Chhatrapati Sports Complex, Balewadi, Pune, Maharashtra 411045",
+          "totalSeats": 7000,
+          "price": 2799,
+          "ageLimit": "All Ages",
+          "language": "Hindi",
+          "description": "Relive the golden era of Bollywood music with Sonu Nigam.",
+          "artistImage": "/assets/artists/sonu-profile.jpg",
+          "artistBio": "Versatile Indian playback singer with a career spanning decades.",
+          "cartId": "2",
+          "quantity": 5
+        },
+        {
+          "id": "8",
+          "type": "concert",
+          "image": "/src/assets/concert/neha.jpg",
+          "heading": "Dance Beats Night",
+          "artist": "Neha Kakkar",
+          "artistType": "Playback Singer",
+          "date": "2025-11-15",
+          "timing": {
+            "start": "21:00",
+            "end": "23:30"
+          },
+          "location": "Thyagaraj Sports Complex, INA Colony, New Delhi, Delhi 110023",
+          "totalSeats": 5000,
+          "price": 1999,
+          "ageLimit": "16+",
+          "language": "Hindi",
+          "description": "High-energy dance party with Neha Kakkar's chartbuster hits.",
+          "artistImage": "/assets/artists/neha-profile.jpg",
+          "artistBio": "Bollywood's most popular female playback singer for dance numbers.",
+          "cartId": "3",
+          "quantity": 13
+        },
+        {
+          "id": "19",
+          "type": "sports",
+          "image": "/src/assets/sports/cricket.jpg",
+          "heading": "IPL Championship 2025",
+          "teams": [
+            {
+              "name": "Mumbai Indians",
+              "logo": "/assets/teams/mi-logo.png",
+              "playerType": "Cricket Team"
+            },
+            {
+              "name": "Chennai Super Kings",
+              "logo": "/assets/teams/csk-logo.png",
+              "playerType": "Cricket Team"
+            }
+          ],
+          "date": "2025-09-14",
+          "timing": {
+            "start": "19:30",
+            "end": "23:00"
+          },
+          "location": "Wankhede Stadium, 'D' Road, Churchgate, Mumbai, Maharashtra 400020",
+          "totalSeats": 35000,
+          "price": 1999,
+          "ageLimit": "All Ages",
+          "language": "N/A",
+          "description": "Witness the clash of titans in this year's IPL championship finals.",
+          "sportType": "Cricket",
+          "cartId": "cb53",
+          "quantity": 3
+        }
+      ],
+      "tickets": [
+        {
+          "id": "1f0b505b-159a-4007-9067-2748da9059bf",
+          "eventId": "1",
+          "price": 2499,
+          "quantity": 3
+        },
+        {
+          "id": "b88b3f27-4cce-4e45-87b9-f42d4340a325",
+          "eventId": "5",
+          "price": 2799,
+          "quantity": 5
+        },
+        {
+          "id": "9d59b3f2-8660-47ef-8e4a-ca5ccb021661",
+          "eventId": "8",
+          "price": 1999,
+          "quantity": 13
+        },
+        {
+          "id": "ba8ba5e0-0fa9-454c-b3d4-ed23742b2ffd",
+          "eventId": "19",
+          "price": 1999,
+          "quantity": 3
+        }
+      ],
+      "billingDetails": {
+        "lastName": "test",
+        "firstName": "test",
+        "phoneNumber": "01234567890",
+        "email": "test@gmail.com",
+        "address": "test",
+        "country": "India",
+        "state": "test",
+        "city": "test",
+        "zipCode": "123456"
+      },
+      "totalAmount": 9395,
+      "paymentStatus": "pending",
+      "paymentMethod": "cod",
+      "cancelled": false,
+      "createdAt": "2025-07-06T10:39:44.567Z"
     }
   ]
 }

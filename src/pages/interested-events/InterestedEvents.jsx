@@ -59,39 +59,41 @@ const InterestedEvents = () => {
           {interestedEvents.map((currData) => {
             return (
               <li key={currData.id}>
-                <div
-                  className="remove"
-                  onClick={() => {
-                    removeInterest(currData.interestId);
-                  }}
-                >
-                  <RemoveIcon />
-                </div>
-                <Link className="text-white" to={`/events/${currData.id}`}>
-                  <div className="row">
-                    <div className="col-md-5">
-                      <div className="booking-item">
-                        <div className="booking-img-wrap">
-                          <img src={currData.image} alt="" width="100%" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-7">
-                      <div className="booking-item pt-3">
+                <div className="text-white">
+                  <div className="d-md-flex align-items-center">
+                    <Link
+                      to={`/events/${currData.id}`}
+                      className="booking-img-wrap"
+                    >
+                      <img src={currData.image} alt="" width="100%" />
+                    </Link>
+                    <div className="booking-item mt-3 mt-md-0">
+                      <Link
+                        to={`/events/${currData.id}`}
+                        className="text-white"
+                      >
                         <h3>{currData.heading}</h3>
-                        <p>{currData.location.split(",")[0]}</p>
+                      </Link>
+                      {/* <p>{currData.location.split(",")[0]}</p>
                         <p>{convertDate(currData.date)}</p>
                         <p>
                           {convertTo12HourFormat(
                             `${currData.timing.start} - ${currData.timing.end}`
                           )}
-                        </p>
-                        <p>{currData.artist}</p>
-                        <p>Amount: ₹{currData.price}</p>
-                      </div>
+                        </p> */}
+                      {/* <p>{currData.artist}</p> */}
+                      <p>Amount: ₹{currData.price}</p>
+                    </div>
+                    <div
+                      className="remove-btn ms-auto"
+                      onClick={() => {
+                        removeInterest(currData.interestId);
+                      }}
+                    >
+                      <RemoveIcon />
                     </div>
                   </div>
-                </Link>
+                </div>
               </li>
             );
           })}

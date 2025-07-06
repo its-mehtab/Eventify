@@ -5,13 +5,14 @@ import StandUpSection from "../home/components/stand-up-section/StandUpSection";
 import "./bookings.css";
 import Button from "../../components/button/Button";
 import { useBookings } from "../../hooks/useBooking";
-import { convertDate } from "../../components/DateTimeFormatter";
+import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const Bookings = () => {
   const { bookings, loading, error } = useBookings();
 
-  if (loading) return <p>Loading bookings...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage message={error} />;
 
   return (
     <>
