@@ -700,10 +700,10 @@
         }
       ],
       "totalAmount": 8498,
-      "paymentStatus": "pending",
+      "paymentStatus": "cancelled",
       "paymentMethod": "card",
       "createdAt": "2025-06-25T10:30:00Z",
-      "cancelled": false
+      "cancelled": true
     },
     {
       "id": "2",

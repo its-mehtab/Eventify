@@ -1,0 +1,31 @@
+.booking-item {
+  /* margin-top: 25px; */
+}
+
+.booking-item li {
+  /* display: flex;
+  gap: 20px; */
+}
+
+.booking-item li + li {
+  margin-top: 25px;
+}
+
+.booking-item li .booking-details-img {
+  width: 300px;
+  max-width: 300px;
+  min-width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.booking-item li h3 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.booking-item li p {
+  font-size: 20px;
+  margin-bottom: 8px;
+}

@@ -19,6 +19,7 @@ import Checkout from "./pages/checkout/Checkout.jsx";
 import ThankYou from "./pages/thank-you/ThankYou.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 import { CartTotalProvider } from "./context/cartTotal.jsx";
+import BookingDetails from "./pages/booking-details/BookingDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "bookings",
         element: <Bookings />,
+      },
+      {
+        path: "booking/:bookingId",
+        element: <BookingDetails />,
       },
       {
         path: "terms",
