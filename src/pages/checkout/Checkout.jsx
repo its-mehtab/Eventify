@@ -31,13 +31,16 @@ const Checkout = () => {
         const item = await getCartById(state.item.eventId, state.item.quantity);
 
         setEvents(item);
+
         setCartTotal(parseInt(item[0].price) * parseInt(item[0].quantity));
       } else {
+        console.log(cartEvents);
+
         setEvents(cartEvents);
       }
     };
     fetchData();
-  }, []);
+  }, [cartEvents]);
 
   const vatCharge = 99;
 
