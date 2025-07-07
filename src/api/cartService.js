@@ -80,11 +80,8 @@ export const getCart = async (eventId, quantity) => {
 
 export const updateCartQuantity = async (cartId, newQuantity) => {
   try {
-    const currentCartResponse = await api.get(`/carts/${cartId}`);
-    const existingQuantity = currentCartResponse.data.quantity;
-
     const response = await api.patch(`/carts/${cartId}`, {
-      quantity: parseInt(existingQuantity) + parseInt(newQuantity),
+      quantity: newQuantity,
     });
 
     return response.data;

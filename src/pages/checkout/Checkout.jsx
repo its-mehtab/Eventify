@@ -10,6 +10,7 @@ import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useBookings } from "../../hooks/useBooking";
 import { v4 as uuidv4 } from "uuid";
+import { useCartTotal } from "../../context/cartTotal";
 
 const Checkout = () => {
   const { cartEvents, loading, error: cartError, getCartById } = useCartEvent();
@@ -20,31 +21,31 @@ const Checkout = () => {
   const { createBooking, error } = useBookings();
   const navigate = useNavigate();
 
+  const { cartTotal, setCartTotal } = useCartTotal();
+
+  console.log(events);
+
   useEffect(() => {
     const fetchData = async () => {
       if (state?.directCheckout) {
         const item = await getCartById(state.item.eventId, state.item.quantity);
+
         setEvents(item);
+        setCartTotal(parseInt(item[0].price) * parseInt(item[0].quantity));
       } else {
         setEvents(cartEvents);
       }
     };
     fetchData();
-  }, [state, cartEvents, getCartById]);
+  }, []);
 
-  const subTotal = events.reduce(
-    (acc, currEvent) => {
-      return parseInt(currEvent.price) + parseInt(acc);
-    },
-    [0]
-  );
   const vatCharge = 99;
 
   const handlePaymentMethod = (e) => {
     setPaymentMethod(e.target.value);
   };
 
-  const handleCheckout = (e) => {
+  const handleCheckout = async (e) => {
     e.preventDefault();
 
     const checkoutData = {
@@ -61,17 +62,20 @@ const Checkout = () => {
       billingDetails: {
         ...formData,
       },
-      totalAmount: subTotal + vatCharge,
+      orderId: uuidv4(),
+      totalAmount: cartTotal + vatCharge,
       paymentStatus: "pending",
       paymentMethod,
       cancelled: false,
     };
 
-    createBooking(checkoutData);
+    const success = await createBooking(checkoutData);
 
     navigate("/thankyou", {
-      newOrder: checkoutData,
-      isSuccess: error ? false : true,
+      state: {
+        isSuccess: success ? true : false,
+        newOrder: checkoutData,
+      },
     });
   };
 
@@ -120,14 +124,18 @@ const Checkout = () => {
                             <p>Qty: {currEvent.quantity}</p>
                           </div>
                         </div>
-                        <p>₹{currEvent.price}</p>
+                        <p>
+                          ₹
+                          {parseInt(currEvent.price) *
+                            parseInt(currEvent.quantity)}
+                        </p>
                       </li>
                     );
                   })}
                 </ul>
                 <div className="d-flex justify-content-between gap-3 mt-3 pt-3 border-top">
                   <p>Subtotal</p>
-                  <p>₹{subTotal}</p>
+                  <p>₹{cartTotal}</p>
                 </div>
                 <div className="d-flex justify-content-between gap-3 mt-2">
                   <p>Incl. Vat</p>
@@ -139,7 +147,7 @@ const Checkout = () => {
                 </div>
                 <div className="d-flex justify-content-between gap-3 mt-3 pt-3 border-top fw-semibold">
                   <p>Total Value</p>
-                  <p>₹{subTotal + vatCharge}</p>
+                  <p>₹{cartTotal + vatCharge}</p>
                 </div>
                 <div className="payment-wrap border-top mt-3 pt-2">
                   <div className="payment-item">

@@ -18,6 +18,7 @@ import { TicketQuantityProvider } from "./context/TicketQuantityContext.jsx";
 import Checkout from "./pages/checkout/Checkout.jsx";
 import ThankYou from "./pages/thank-you/ThankYou.jsx";
 import Cart from "./pages/cart/Cart.jsx";
+import { CartTotalProvider } from "./context/cartTotal.jsx";
 
 const router = createBrowserRouter([
   {
@@ -78,8 +79,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <TicketQuantityProvider>
-      <RouterProvider router={router} />
-    </TicketQuantityProvider>
+    <CartTotalProvider>
+      <TicketQuantityProvider>
+        <RouterProvider router={router} />
+      </TicketQuantityProvider>
+    </CartTotalProvider>
   </StrictMode>
 );

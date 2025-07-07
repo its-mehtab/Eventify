@@ -663,28 +663,22 @@
   ],
   "carts": [
     {
-      "id": "1",
-      "eventId": "1",
-      "userId": "guest",
-      "quantity": 5
-    },
-    {
-      "id": "2",
-      "eventId": "5",
-      "userId": "guest",
-      "quantity": 8
-    },
-    {
-      "id": "3",
-      "eventId": "8",
-      "userId": "guest",
-      "quantity": 4
-    },
-    {
       "id": "cb53",
       "eventId": "19",
       "userId": "guest",
       "quantity": 1
+    },
+    {
+      "id": "639d",
+      "eventId": "11",
+      "userId": "guest",
+      "quantity": 6
+    },
+    {
+      "id": "7213",
+      "eventId": "1",
+      "userId": "guest",
+      "quantity": 3
     }
   ],
   "bookings": [
@@ -727,57 +721,6 @@
       "paymentMethod": "upi",
       "createdAt": "2025-06-26T11:00:00Z",
       "cancelled": false
-    },
-    {
-      "id": "3",
-      "userId": "guest",
-      "tickets": [
-        {
-          "id": "4",
-          "eventId": "10",
-          "price": 1999,
-          "quantity": 3
-        },
-        {
-          "id": "5",
-          "eventId": "11",
-          "price": 2999,
-          "quantity": 3
-        }
-      ],
-      "totalAmount": 4998,
-      "paymentStatus": "cancelled",
-      "paymentMethod": "card",
-      "createdAt": "2025-06-27T15:15:00Z",
-      "cancelled": true
-    },
-    {
-      "id": "9257",
-      "userId": "guest",
-      "tickets": [
-        {
-          "id": 1234,
-          "eventId": "1",
-          "price": 4999,
-          "quantity": 3
-        }
-      ],
-      "billingDetails": {
-        "lastName": "test",
-        "firstName": "test",
-        "phoneNumber": "01234567890",
-        "email": "test@gmail.com",
-        "address": "test",
-        "country": "India",
-        "state": "test",
-        "city": "test",
-        "zipCode": "123456"
-      },
-      "totalAmount": 4999,
-      "paymentStatus": "pending",
-      "paymentMethod": "cod",
-      "cancelled": false,
-      "createdAt": "2025-07-02T14:33:59.054Z"
     }
   ]
 }

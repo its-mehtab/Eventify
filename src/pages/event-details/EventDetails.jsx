@@ -79,7 +79,10 @@ const EventDetails = () => {
     if (!isInCart) {
       await addCart(eventId, ticketQuantity);
     } else {
-      updateCartQuantity(isInCart.id, ticketQuantity);
+      const currentCartResponse = isInCart.quantity;
+      const newQty = parseInt(currentCartResponse) + parseInt(ticketQuantity);
+
+      updateCartQuantity(isInCart.id, newQty);
     }
   };
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import BannerSection from "../home/components/banner-section/BannerSection";
 import { Link } from "react-router-dom";
 import EventsSection from "../home/components/events-section/EventsSection";
@@ -11,11 +11,12 @@ import "./cart.css";
 import TicketsQuantity from "../../components/tickets-quantity/TicketsQuantity";
 import RemoveIcon from "../../assets/RemoveIcon";
 import Button from "../../components/button/Button";
-import { useTicketQuantity } from "../../context/TicketQuantityContext";
+import { useCartTotal } from "../../context/cartTotal";
 
 const Cart = () => {
   const {
     cartEvents,
+    setCartEvents,
     checkCartStatus,
     loading,
     error,
@@ -25,30 +26,22 @@ const Cart = () => {
     updateCart,
   } = useCartEvent();
 
-  const { ticketQuantity, setTicketQuantity } = useTicketQuantity();
+  const { cartTotal, setCartTotal } = useCartTotal();
 
-  // useEffect(() => {
-  //   const updateCartHandle = async function () {
-  //     const isInCart = await checkCartStatus(currData.id);
-  //     updateCart(isInCart.id, ticketQuantity);
-  //   };
-
-  //   updateCartHandle();
-  // }, [ticketQuantity, checkCartStatus, updateCart]);
-
-  const cartTotal = cartEvents.reduce(
-    (acc, currCart) => {
+  useEffect(() => {
+    const cartAllPrice = cartEvents.reduce((acc, currCart) => {
       const cartFullPrice =
         parseInt(currCart.price) * parseInt(currCart.quantity);
       return parseInt(acc) + cartFullPrice;
-    },
-    [0]
-  );
+    }, 0);
+
+    setCartTotal(cartAllPrice);
+  }, [cartEvents]);
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
-  if (actionLoading) return <LoadingSpinner />;
-  if (actionError) return <ErrorMessage message={error} />;
+  // if (actionLoading) return <LoadingSpinner />;
+  // if (actionError) return <ErrorMessage message={error} />;
 
   return (
     <>
@@ -75,12 +68,18 @@ const Cart = () => {
           {cartEvents.map((currData) => {
             const formattedDate = convertDate(currData.date);
 
-            const updateCartHandle = async function () {
+            const updateCartHandle = async function (newQty) {
               const isInCart = await checkCartStatus(currData.id);
-              updateCart(isInCart.id, ticketQuantity);
+
+              updateCart(isInCart.id, newQty);
+
+              setCartEvents((prev) =>
+                prev.map((item) =>
+                  item.id === currData.id ? { ...item, quantity: newQty } : item
+                )
+              );
             };
 
-            // updateCartHandle();
             return (
               <li className="cart-list-item" key={currData.id}>
                 <Link className="cart-img" to={`/events/${currData.id}`}>
@@ -98,7 +97,8 @@ const Cart = () => {
                 <div className="d-flex gap-5 ms-auto">
                   <TicketsQuantity
                     initialQuantity={currData.quantity}
-                    onChange={setTicketQuantity}
+                    // onChange={setTicketQuantity}
+                    handleUpdateQuantity={updateCartHandle}
                   />
                   <button
                     className="remove-btn"

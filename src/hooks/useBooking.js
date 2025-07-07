@@ -42,7 +42,7 @@ export const useBookings = (userId = "guest") => {
   const cancelUserBooking = async (bookingId) => {
     try {
       const updated = await cancelBooking(bookingId);
-      await fetchBookings(); // refresh bookings after cancelling
+      await fetchBookings();
       return updated;
     } catch (err) {
       setError(err.message);

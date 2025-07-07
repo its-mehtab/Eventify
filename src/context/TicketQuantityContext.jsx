@@ -4,6 +4,7 @@ const TicketQuantityContext = createContext();
 
 export const TicketQuantityProvider = ({ children }) => {
   const [ticketQuantity, setTicketQuantity] = useState(1);
+
   return (
     <TicketQuantityContext.Provider
       value={{ ticketQuantity, setTicketQuantity }}

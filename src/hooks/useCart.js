@@ -99,7 +99,7 @@ export const useCartEvent = () => {
     try {
       setActionLoading(true);
       await updateCartQuantity(cartId, newQuantity);
-      await fetchCartEvents();
+      // await fetchCartEvents();
       return true;
     } catch (err) {
       setActionError(err.message);
@@ -117,6 +117,7 @@ export const useCartEvent = () => {
   return {
     // List related
     cartEvents,
+    setCartEvents,
     loading,
     error,
     fetchCartEvents,

@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../../assets/assets";
 
-const TicketsQuantity = ({ initialQuantity = 1, color = "", onChange }) => {
+const TicketsQuantity = ({
+  initialQuantity = 1,
+  color = "",
+  onChange,
+  handleUpdateQuantity = () => {},
+}) => {
   const [quantity, setQuantity] = useState(initialQuantity);
 
   useEffect(() => {
@@ -14,13 +19,23 @@ const TicketsQuantity = ({ initialQuantity = 1, color = "", onChange }) => {
 
   function handleMinus() {
     if (quantity > 1) {
-      setQuantity((prev) => prev - 1);
+      setQuantity((prev) => {
+        const newQty = prev - 1;
+        handleUpdateQuantity(newQty);
+
+        return newQty;
+      });
     }
   }
 
   function handlePlus() {
     if (quantity < 10) {
-      setQuantity((prev) => prev + 1);
+      setQuantity((prev) => {
+        const newQty = prev + 1;
+        handleUpdateQuantity(newQty);
+
+        return newQty;
+      });
     }
   }
 
@@ -29,7 +44,7 @@ const TicketsQuantity = ({ initialQuantity = 1, color = "", onChange }) => {
       <button
         onClick={(e) => {
           e.preventDefault();
-          handleMinus(e);
+          handleMinus();
         }}
       >
         <assets.Minus />

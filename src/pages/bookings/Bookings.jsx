@@ -9,7 +9,7 @@ import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 
 const Bookings = () => {
-  const { bookings, loading, error } = useBookings();
+  const { bookings, loading, error, cancelUserBooking } = useBookings();
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
@@ -78,14 +78,23 @@ const Bookings = () => {
                           {currBooking.paymentStatus}
                         </span>
                       </div>
-                      <p>Order Id: 7863478236</p>
+                      <p>Order Id: {currBooking.orderId}</p>
                       <p>Total Amount: ₹{currBooking.totalAmount}</p>
-                      <p>Payment Method: {currBooking.paymentMethod}</p>
+                      <p>
+                        Payment Method:{" "}
+                        {currBooking.paymentMethod.toUpperCase()}
+                      </p>
                       <p>Date: {currBooking.createdAt}</p>
                       <div className="d-flex flex-wrap justify-content-end">
-                        <Button btnClass="mt-4">Download</Button>
+                        <Button btnClass="mt-4">View Details</Button>
                         {isCancelled || (
-                          <Button btnClass={"btn-white ms-3  mt-4"}>
+                          <Button
+                            href=""
+                            onClick={() => {
+                              cancelUserBooking(currBooking.id);
+                            }}
+                            btnClass={"btn-white ms-3  mt-4"}
+                          >
                             Cancel
                           </Button>
                         )}

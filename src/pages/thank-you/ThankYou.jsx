@@ -1,9 +1,12 @@
 import React from "react";
 import BannerSection from "../home/components/banner-section/BannerSection";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import StatusAnimation from "./StatusAnimation";
 
-const ThankYou = ({ isSuccess = true }) => {
+const ThankYou = () => {
+  const { state } = useLocation();
+  const isSuccess = state?.isSuccess;
+
   return (
     <BannerSection className="sp-b pt-5">
       <div className="row justify-content-center pb-md-4 pt-5 mt-4">
@@ -14,7 +17,9 @@ const ThankYou = ({ isSuccess = true }) => {
               <h1>{isSuccess ? "Thank You" : "Something Went Wrong"}</h1>
             </div>
             <p className="fs-4 mt-3">
-              {isSuccess ? "Your Order Id: 3908649" : "Please try again!"}
+              {isSuccess
+                ? `Your Order Id: ${state.newOrder.orderId}`
+                : "Please try again!"}
             </p>
             <p className="fs-4 mt-3">
               If you have questions or queries feel free to{" "}

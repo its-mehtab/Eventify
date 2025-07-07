@@ -53,6 +53,7 @@ export const getBookingById = async (bookingId) => {
 export const cancelBooking = async (bookingId) => {
   try {
     const response = await api.patch(`/bookings/${bookingId}`, {
+      paymentStatus: "cancelled",
       cancelled: true,
     });
     return response.data;
