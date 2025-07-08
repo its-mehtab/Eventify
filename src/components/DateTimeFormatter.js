@@ -51,3 +51,7 @@ export function getDurationFromRange(timeRange) {
 
   return { hours, minutes };
 }
+
+export function formatNumber(num) {
+  return Number(num).toLocaleString("en-IN");
+}

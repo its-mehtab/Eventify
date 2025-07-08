@@ -13,6 +13,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 import {
   convertDate,
   convertTo12HourFormat,
+  formatNumber,
 } from "../../components/DateTimeFormatter";
 import RemoveIcon from "../../assets/RemoveIcon";
 
@@ -82,7 +83,7 @@ const InterestedEvents = () => {
                           )}
                         </p> */}
                       {/* <p>{currData.artist}</p> */}
-                      <p>Amount: ₹{currData.price}</p>
+                      <p>Amount: ₹{formatNumber(currData.price)}</p>
                     </div>
                     <div
                       className="remove-btn ms-auto"

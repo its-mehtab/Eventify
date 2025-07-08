@@ -44,7 +44,18 @@ export const addBooking = async (booking) => {
 export const getBookingById = async (bookingId) => {
   try {
     const response = await api.get(`/bookings/${bookingId}`);
-    return response.data;
+
+    const booking = response.data;
+
+    const tickets = await Promise.all(
+      booking.tickets.map(async (ticket) => {
+        const event = await getEventById(ticket.eventId);
+
+        return { ...ticket, event };
+      })
+    );
+
+    return { ...booking, tickets };
   } catch (error) {
     throw new Error(error.response?.data?.message || "Failed to get booking");
   }

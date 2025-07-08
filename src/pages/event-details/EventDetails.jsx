@@ -9,6 +9,7 @@ import Button from "../../components/button/Button";
 import {
   convertDate,
   convertTo12HourFormat,
+  formatNumber,
   getDurationFromRange,
 } from "../../components/DateTimeFormatter";
 import TicketsQuantity from "../../components/tickets-quantity/TicketsQuantity";
@@ -187,7 +188,7 @@ const EventDetails = () => {
                     </Button>
                   </div>
                   <div className="price-wrap">
-                    <h5>₹{event.price}</h5>
+                    <h5>₹{formatNumber(event.price)}</h5>
                     <button
                       className="primary-btn"
                       type="button"

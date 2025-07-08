@@ -1,31 +1,51 @@
-.booking-item {
+.booking-summery,
+.ticket-item {
+  border-radius: 20px;
+  padding: 40px 30px;
+  margin-bottom: 25px;
+  background-color: #ffffff28;
+}
+
+.booking-summery h3 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.summery-item h4 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.summery-item p {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.booking-items {
   /* margin-top: 25px; */
 }
 
-.booking-item li {
-  /* display: flex;
-  gap: 20px; */
-}
-
-.booking-item li + li {
-  margin-top: 25px;
-}
-
-.booking-item li .booking-details-img {
-  width: 300px;
-  max-width: 300px;
-  min-width: 300px;
-  border-radius: 10px;
+.ticket-item .booking-details-img {
+  width: 220px;
+  min-width: 220px;
+  border-radius: 15px;
   overflow: hidden;
 }
 
-.booking-item li h3 {
-  font-size: 38px;
+.booking-items .ticket-item h3 {
+  font-size: 34px;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
-.booking-item li p {
+.booking-items .ticket-item p {
   font-size: 20px;
   margin-bottom: 8px;
+}
+
+.ship-details p {
+  font-size: 22px;
+  margin-bottom: 10px;
 }

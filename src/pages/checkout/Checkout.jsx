@@ -11,6 +11,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 import { useBookings } from "../../hooks/useBooking";
 import { v4 as uuidv4 } from "uuid";
 import { useCartTotal } from "../../context/cartTotal";
+import { formatNumber } from "../../components/DateTimeFormatter";
 
 const Checkout = () => {
   const { cartEvents, loading, error: cartError, getCartById } = useCartEvent();
@@ -129,8 +130,10 @@ const Checkout = () => {
                         </div>
                         <p>
                           ₹
-                          {parseInt(currEvent.price) *
-                            parseInt(currEvent.quantity)}
+                          {formatNumber(
+                            parseInt(currEvent.price) *
+                              parseInt(currEvent.quantity)
+                          )}
                         </p>
                       </li>
                     );
@@ -138,11 +141,11 @@ const Checkout = () => {
                 </ul>
                 <div className="d-flex justify-content-between gap-3 mt-3 pt-3 border-top">
                   <p>Subtotal</p>
-                  <p>₹{cartTotal}</p>
+                  <p>₹{formatNumber(cartTotal)}</p>
                 </div>
                 <div className="d-flex justify-content-between gap-3 mt-2">
                   <p>Incl. Vat</p>
-                  <p>₹{vatCharge}</p>
+                  <p>₹{formatNumber(vatCharge)}</p>
                 </div>
                 <div className="d-flex justify-content-between gap-3 mt-2">
                   <p>Discount</p>
@@ -150,7 +153,7 @@ const Checkout = () => {
                 </div>
                 <div className="d-flex justify-content-between gap-3 mt-3 pt-3 border-top fw-semibold">
                   <p>Total Value</p>
-                  <p>₹{cartTotal + vatCharge}</p>
+                  <p>₹{formatNumber(cartTotal + vatCharge)}</p>
                 </div>
                 <div className="payment-wrap border-top mt-3 pt-2">
                   <div className="payment-item">

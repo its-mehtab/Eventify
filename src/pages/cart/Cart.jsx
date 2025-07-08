@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BannerSection from "../home/components/banner-section/BannerSection";
 import { Link } from "react-router-dom";
 import EventsSection from "../home/components/events-section/EventsSection";
-import { convertDate } from "../../components/DateTimeFormatter";
+import { convertDate, formatNumber } from "../../components/DateTimeFormatter";
 import { useCartEvent } from "../../hooks/useCart";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
@@ -91,7 +91,10 @@ const Cart = () => {
                     <p>{formattedDate}</p>
                   </Link>
                   <h3 className="price mt-3 text-white">
-                    ₹{parseInt(currData.price) * parseInt(currData.quantity)}
+                    ₹
+                    {formatNumber(
+                      parseInt(currData.price) * parseInt(currData.quantity)
+                    )}
                   </h3>
                 </div>
                 <div className="d-flex gap-5 ms-auto">
@@ -117,7 +120,7 @@ const Cart = () => {
         <div className="total-details">
           <div className="d-flex gap-4 align-items-center">
             <h4>Total Cart:</h4>
-            <h4>₹{cartTotal}</h4>
+            <h4>₹{formatNumber(cartTotal)}</h4>
           </div>
           <Button href="/checkout">Proceed to checkout</Button>
         </div>

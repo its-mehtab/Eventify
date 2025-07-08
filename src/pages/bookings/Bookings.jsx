@@ -7,6 +7,7 @@ import Button from "../../components/button/Button";
 import { useBookings } from "../../hooks/useBooking";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
+import { formatNumber } from "../../components/DateTimeFormatter";
 
 const Bookings = () => {
   const { bookings, loading, error, cancelUserBooking } = useBookings();
@@ -64,7 +65,9 @@ const Bookings = () => {
                           </div>
                           <div className="booking-item booking-details">
                             <h3>{currTicket.event.heading}</h3>
-                            <p>Amount: ₹{currTicket.event.price}</p>
+                            <p>
+                              Amount: ₹{formatNumber(currTicket.event.price)}
+                            </p>
                             <p>Guests: {currTicket.quantity}</p>
                           </div>
                         </div>
@@ -79,14 +82,21 @@ const Bookings = () => {
                         </span>
                       </div>
                       <p>Order Id: {currBooking.orderId}</p>
-                      <p>Total Amount: ₹{currBooking.totalAmount}</p>
+                      <p>
+                        Total Amount: ₹{formatNumber(currBooking.totalAmount)}
+                      </p>
                       <p>
                         Payment Method:{" "}
                         {currBooking.paymentMethod.toUpperCase()}
                       </p>
                       <p>Date: {currBooking.createdAt}</p>
                       <div className="d-flex flex-wrap justify-content-end">
-                        <Button btnClass="mt-4">View Details</Button>
+                        <Button
+                          href={`/booking/${currBooking.id}`}
+                          btnClass="mt-4"
+                        >
+                          View Details
+                        </Button>
                         {isCancelled || (
                           <Button
                             href=""

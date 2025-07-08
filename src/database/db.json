@@ -666,7 +666,7 @@
       "id": "cb53",
       "eventId": "19",
       "userId": "guest",
-      "quantity": 1
+      "quantity": 6
     },
     {
       "id": "639d",
@@ -679,6 +679,18 @@
       "eventId": "1",
       "userId": "guest",
       "quantity": 3
+    },
+    {
+      "id": "328f",
+      "eventId": "15",
+      "userId": "guest",
+      "quantity": 2
+    },
+    {
+      "id": "effe",
+      "eventId": "14",
+      "userId": "guest",
+      "quantity": 2
     }
   ],
   "bookings": [
@@ -762,6 +774,59 @@
       "paymentMethod": "cod",
       "cancelled": false,
       "createdAt": "2025-07-07T14:39:39.852Z"
+    },
+    {
+      "id": "7c9b",
+      "userId": "guest",
+      "tickets": [
+        {
+          "id": "c1579839-d856-456b-8a33-4b854f374ed6",
+          "eventId": "19",
+          "price": 1999,
+          "quantity": 6
+        },
+        {
+          "id": "93557544-ca32-404c-b070-bde3d2eb0e03",
+          "eventId": "11",
+          "price": 1199,
+          "quantity": 6
+        },
+        {
+          "id": "13d3974b-004c-4998-b5ba-dd175b859895",
+          "eventId": "1",
+          "price": 2499,
+          "quantity": 3
+        },
+        {
+          "id": "60ce3c1a-dedb-4e8b-9549-32fa4c2d2f74",
+          "eventId": "15",
+          "price": 1499,
+          "quantity": 2
+        },
+        {
+          "id": "a0a7b1a8-9242-435c-8557-3d210bda438b",
+          "eventId": "14",
+          "price": 1399,
+          "quantity": 2
+        }
+      ],
+      "billingDetails": {
+        "lastName": "test",
+        "firstName": "test",
+        "phoneNumber": "01234567890",
+        "email": "test@gmail.com",
+        "address": "test",
+        "country": "India",
+        "state": "test",
+        "city": "test",
+        "zipCode": "123456"
+      },
+      "orderId": "5f60efed-53c0-405a-9199-4ed5c36c2c99",
+      "totalAmount": 32580,
+      "paymentStatus": "pending",
+      "paymentMethod": "cod",
+      "cancelled": false,
+      "createdAt": "2025-07-08T13:03:56.494Z"
     }
   ]
 }

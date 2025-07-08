@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { useTicketQuantity } from "../../context/TicketQuantityContext";
 import { useNavigate } from "react-router-dom";
+import { formatNumber } from "../DateTimeFormatter";
 
 const SportsContent = ({ events }) => {
   const [selectedEvent, setSelectedEvent] = useState("19");
@@ -38,7 +39,7 @@ const SportsContent = ({ events }) => {
                       />
                       <div className="option-label">
                         <span>{currData.heading}</span>
-                        <span>₹{currData.price}</span>
+                        <span>₹{formatNumber(currData.price)}</span>
                       </div>
                     </label>
                   </li>
