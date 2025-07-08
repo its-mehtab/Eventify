@@ -58,6 +58,10 @@ import ContactImg from "./contact-img.jpg";
 import WishlistEventIcon from "./WishlistEventIcon";
 import BookingsIcon from "./BookingsIcon";
 import CartIcon from "./CartIcon";
+import BookingOnIcon from "./BookingOnIcon";
+import BookingIdIcon from "./BookingIdIcon";
+import AmountIcon from "./AmountIcon";
+import PaymentMethodIcon from "./PaymentMethodIcon";
 
 export const assets = {
   favicon,
@@ -120,4 +124,8 @@ export const assets = {
   WishlistEventIcon,
   BookingsIcon,
   CartIcon,
+  BookingOnIcon,
+  BookingIdIcon,
+  AmountIcon,
+  PaymentMethodIcon,
 };

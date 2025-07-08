@@ -12,19 +12,20 @@
   margin-bottom: 25px;
 }
 
+.summery-item svg {
+  background-color: #ff0a54;
+  border-radius: 8px;
+  padding: 12px;
+}
+
 .summery-item h4 {
   font-size: 22px;
   font-weight: 500;
-  margin-top: 20px;
 }
 
 .summery-item p {
   font-size: 26px;
   font-weight: 700;
-}
-
-.booking-items {
-  /* margin-top: 25px; */
 }
 
 .ticket-item .booking-details-img {
@@ -42,7 +43,24 @@
 
 .booking-items .ticket-item p {
   font-size: 20px;
-  margin-bottom: 8px;
+}
+
+.booking-items .ticket-item p + p {
+  margin-top: 8px;
+}
+
+@media screen and (max-width: 991px) {
+  .ticket-item .booking-details-img {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .booking-items .ticket-item p {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
 }
 
 .ship-details p {

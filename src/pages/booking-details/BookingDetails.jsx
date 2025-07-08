@@ -7,9 +7,11 @@ import "./booking-details.css";
 import {
   convertDate,
   convertTo12HourFormat,
+  formatDateTime,
   formatNumber,
 } from "../../components/DateTimeFormatter";
 import { useParams } from "react-router-dom";
+import { assets } from "../../assets/assets";
 
 const BookingDetails = () => {
   const { bookingId } = useParams();
@@ -34,8 +36,6 @@ const BookingDetails = () => {
     fetchBooking();
   }, [bookingId]);
 
-  // console.log("Booking Details: ", booking);
-
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
   return (
@@ -46,27 +46,55 @@ const BookingDetails = () => {
             <div className="col-md-8">
               <div className="summery-item">
                 <h3>Booking Summery</h3>
-                <h4>Booked On</h4>
-                <p>{booking.createdAt}</p>
-                <h4>Total Amount</h4>
-                <p>{formatNumber(booking.totalAmount)}</p>
-                <h4>Payment Method</h4>
-                <p>{booking.paymentMethod.toUpperCase()}</p>
-                <h4>Booking ID</h4>
-                <p>{booking.orderId}</p>
+                <div className="d-flex align-items-center gap-3 mt-4">
+                  <assets.BookingOnIcon size={74} />
+                  <div>
+                    <h4>Booked On</h4>
+                    <p>{formatDateTime(booking.createdAt)}</p>
+                  </div>
+                </div>
+                <div className="d-flex align-items-center gap-3 mt-4">
+                  <assets.AmountIcon size={74} />
+                  <div>
+                    <h4>Total Amount</h4>
+                    <p>{formatNumber(booking.totalAmount)}</p>
+                  </div>
+                </div>
+                <div className="d-flex align-items-center gap-3 mt-4">
+                  <assets.PaymentMethodIcon size={74} />
+                  <div>
+                    <h4>Payment Method</h4>
+                    <p>{booking.paymentMethod.toUpperCase()}</p>
+                  </div>
+                </div>
+                <div className="d-flex align-items-center gap-3 mt-4">
+                  <assets.BookingIdIcon size={74} />
+                  <div>
+                    <h4>Booking ID</h4>
+                    <p>{booking.orderId}</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="col-md-4">
-              <div className="summery-item text-md-end">
+              <div className="summery-item text-md-end mt-4 mt-md-0">
                 <h3>Order Summery</h3>
-                <h4>SubTotal</h4>
-                <p>₹{formatNumber(booking.totalAmount - 99)}</p>
-                <h4>Incl. Vat</h4>
-                <p>₹{99}</p>
-                <h4>Discount</h4>
-                <p>₹{0}</p>
-                <h4>Grand Total</h4>
-                <p>₹{formatNumber(booking.totalAmount)}</p>
+                <div className="mt-4">
+                  <h4>SubTotal</h4>
+                  <p>₹{formatNumber(booking.totalAmount - 99)}</p>
+                </div>
+                <div className="mt-4">
+                  <h4>Incl. Vat</h4>
+                  <p>₹{99}</p>
+                </div>
+                <div className="mt-4">
+                  <h4>Discount</h4>
+                  <p>₹{0}</p>
+                </div>
+                <div className="mt-4">
+                  <h4>Grand Total</h4>
+                  <p>₹{formatNumber(booking.totalAmount)}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -101,7 +129,7 @@ const BookingDetails = () => {
                   >
                     <div className="ticket-item w-100">
                       <h3>{currTicket.event.heading}</h3>
-                      <div className="d-flex gap-4 align-items-center">
+                      <div className="d-lg-flex gap-4 align-items-center">
                         <div className="booking-details-img">
                           <img
                             src={currTicket.event.image}
@@ -109,7 +137,7 @@ const BookingDetails = () => {
                             className="w-100"
                           />
                         </div>
-                        <div>
+                        <div className="mt-3 mt-lg-0">
                           <p>{convertDate(currTicket.event.date)}</p>
                           <p>
                             {convertTo12HourFormat(

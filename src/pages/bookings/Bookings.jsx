@@ -7,7 +7,10 @@ import Button from "../../components/button/Button";
 import { useBookings } from "../../hooks/useBooking";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
-import { formatNumber } from "../../components/DateTimeFormatter";
+import {
+  formatDateTime,
+  formatNumber,
+} from "../../components/DateTimeFormatter";
 
 const Bookings = () => {
   const { bookings, loading, error, cancelUserBooking } = useBookings();
@@ -89,7 +92,7 @@ const Bookings = () => {
                         Payment Method:{" "}
                         {currBooking.paymentMethod.toUpperCase()}
                       </p>
-                      <p>Date: {currBooking.createdAt}</p>
+                      <p>Date: {formatDateTime(currBooking.createdAt)}</p>
                       <div className="d-flex flex-wrap justify-content-end">
                         <Button
                           href={`/booking/${currBooking.id}`}
