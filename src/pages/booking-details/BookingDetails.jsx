@@ -38,6 +38,7 @@ const BookingDetails = () => {
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
+
   return (
     <BannerSection className="sp-t">
       <div className="booking-details-content pt-5">

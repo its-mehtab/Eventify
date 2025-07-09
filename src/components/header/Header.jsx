@@ -3,8 +3,13 @@ import "./header.css";
 import { assets } from "../../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import Button from "../button/Button";
+import { useCartEvent } from "../../hooks/useCart";
+import { useEventInterest } from "../../hooks/useInterestedEvents";
 
 function Header() {
+  const { cartEvents } = useCartEvent();
+  const { interestedEvents } = useEventInterest();
+
   const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
   const headerRef = useRef(null);
 
@@ -122,13 +127,15 @@ function Header() {
             <div className="d-flex align-items-center ms-auto ms-lg-0 me-4 me-lg-0">
               <ul className="header-icons d-none d-sm-flex align-items-center gap-3 me-4">
                 <li>
-                  <Link to="interested">
+                  <Link to="interested" className="pe-2">
                     <assets.WishlistEventIcon />
+                    <span>{interestedEvents.length}</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="cart">
+                  <Link to="cart" className="pe-2">
                     <assets.CartIcon />
+                    <span>{cartEvents.length}</span>
                   </Link>
                 </li>
                 <li>

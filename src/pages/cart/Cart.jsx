@@ -25,6 +25,7 @@ const Cart = () => {
     actionError,
     removeCart,
     updateCart,
+    fetchCartEvents,
   } = useCartEvent();
 
   const { cartTotal, setCartTotal } = useCartTotal();
@@ -41,7 +42,8 @@ const Cart = () => {
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
-  if (cartEvents.length === 0) return <EmptyState />;
+  if (cartEvents.length === 0)
+    return <EmptyState heading="Your Cart is Empty" />;
   // if (actionLoading) return <LoadingSpinner />;
   // if (actionError) return <ErrorMessage message={error} />;
 

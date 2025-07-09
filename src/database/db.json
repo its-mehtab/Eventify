@@ -651,17 +651,24 @@
   ],
   "interested": [
     {
-      "id": "2",
-      "eventId": "5",
+      "id": "4c9b",
+      "eventId": "22",
       "userId": "guest"
     },
     {
-      "id": "4",
-      "eventId": "12",
+      "id": "2ad1",
+      "eventId": "3",
       "userId": "guest"
     }
   ],
-  "carts": [],
+  "carts": [
+    {
+      "id": "0a80",
+      "eventId": "1",
+      "userId": "guest",
+      "quantity": 1
+    }
+  ],
   "bookings": [
     {
       "id": "1",
@@ -796,6 +803,41 @@
       "paymentMethod": "cod",
       "cancelled": false,
       "createdAt": "2025-07-08T13:03:56.494Z"
+    },
+    {
+      "id": "e223",
+      "userId": "guest",
+      "tickets": [
+        {
+          "id": "d1d56394-b27d-4b7c-9459-cfcf19933a30",
+          "eventId": "2",
+          "price": 2999,
+          "quantity": 4
+        },
+        {
+          "id": "05d7d40b-b649-405e-8666-daad79577388",
+          "eventId": "11",
+          "price": 1199,
+          "quantity": 2
+        }
+      ],
+      "billingDetails": {
+        "firstName": "test",
+        "lastName": "test",
+        "phoneNumber": "1234567890",
+        "email": "test@test.com",
+        "address": "test",
+        "country": "test",
+        "state": "test",
+        "city": "test",
+        "zipCode": "123456"
+      },
+      "orderId": "3f14d06c-7adf-4e56-8076-49f9d36273ac",
+      "totalAmount": 14493,
+      "paymentStatus": "pending",
+      "paymentMethod": "cod",
+      "cancelled": false,
+      "createdAt": "2025-07-09T12:52:42.768Z"
     }
   ]
 }

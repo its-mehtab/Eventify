@@ -11,12 +11,15 @@ import {
   formatDateTime,
   formatNumber,
 } from "../../components/DateTimeFormatter";
+import EmptyState from "../../components/empty-state/EmptyState";
 
 const Bookings = () => {
   const { bookings, loading, error, cancelUserBooking } = useBookings();
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
+  if (bookings.length === 0)
+    return <EmptyState name="You Haven’t Booked Anything Yet" />;
 
   return (
     <>

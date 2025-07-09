@@ -16,6 +16,7 @@ import {
   formatNumber,
 } from "../../components/DateTimeFormatter";
 import RemoveIcon from "../../assets/RemoveIcon";
+import EmptyState from "../../components/empty-state/EmptyState";
 
 const InterestedEvents = () => {
   const {
@@ -30,6 +31,8 @@ const InterestedEvents = () => {
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
+  if (interestedEvents.length === 0)
+    return <EmptyState name="No Events Added to Your List Yet" />;
 
   return (
     <>

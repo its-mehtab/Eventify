@@ -33,9 +33,25 @@ header .nav-link {
 .header-icons li a {
   color: #333;
   transition: all ease-in-out 0.3s;
+  position: relative;
 }
 .header-icons li a:hover {
   color: #ff0a54;
+}
+
+.header-icons li a span {
+  background-color: #ff0a54;
+  color: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  font-size: 14px;
 }
 
 header.fixed-header {
