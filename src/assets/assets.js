@@ -62,6 +62,8 @@ import BookingOnIcon from "./BookingOnIcon";
 import BookingIdIcon from "./BookingIdIcon";
 import AmountIcon from "./AmountIcon";
 import PaymentMethodIcon from "./PaymentMethodIcon";
+import EmptyImg from "./empty-img.jpg";
+import EmptyBoxIcon from "./EmptyBoxIcon";
 
 export const assets = {
   favicon,
@@ -128,4 +130,6 @@ export const assets = {
   BookingIdIcon,
   AmountIcon,
   PaymentMethodIcon,
+  EmptyImg,
+  EmptyBoxIcon,
 };

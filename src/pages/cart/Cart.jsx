@@ -12,6 +12,7 @@ import TicketsQuantity from "../../components/tickets-quantity/TicketsQuantity";
 import RemoveIcon from "../../assets/RemoveIcon";
 import Button from "../../components/button/Button";
 import { useCartTotal } from "../../context/cartTotal";
+import EmptyState from "../../components/empty-state/EmptyState";
 
 const Cart = () => {
   const {
@@ -40,6 +41,7 @@ const Cart = () => {
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
+  if (cartEvents.length === 0) return <EmptyState />;
   // if (actionLoading) return <LoadingSpinner />;
   // if (actionError) return <ErrorMessage message={error} />;
 

@@ -661,38 +661,7 @@
       "userId": "guest"
     }
   ],
-  "carts": [
-    {
-      "id": "cb53",
-      "eventId": "19",
-      "userId": "guest",
-      "quantity": 6
-    },
-    {
-      "id": "639d",
-      "eventId": "11",
-      "userId": "guest",
-      "quantity": 6
-    },
-    {
-      "id": "7213",
-      "eventId": "1",
-      "userId": "guest",
-      "quantity": 3
-    },
-    {
-      "id": "328f",
-      "eventId": "15",
-      "userId": "guest",
-      "quantity": 2
-    },
-    {
-      "id": "effe",
-      "eventId": "14",
-      "userId": "guest",
-      "quantity": 2
-    }
-  ],
+  "carts": [],
   "bookings": [
     {
       "id": "1",
