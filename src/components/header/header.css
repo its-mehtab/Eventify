@@ -30,6 +30,13 @@ header .nav-link {
   text-transform: capitalize;
 }
 
+@media (max-width: 1100px) {
+  header .nav-link {
+    font-size: 16px;
+    padding: 8px 8px !important;
+  }
+}
+
 .header-icons li a {
   color: #333;
   transition: all ease-in-out 0.3s;

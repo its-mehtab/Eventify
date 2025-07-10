@@ -71,7 +71,7 @@ export const useEventInterest = () => {
 
       await deleteInterestedEvent(interestId);
       setActionSuccess(true);
-      await fetchInterestedEvents(); // Refresh the list
+      // await fetchInterestedEvents(); // Refresh the list
       return true;
     } catch (err) {
       setActionError(err.message);

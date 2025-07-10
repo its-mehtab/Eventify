@@ -6,9 +6,12 @@ import {
 import { assets } from "../../../assets/assets";
 import Button from "../../../components/button/Button";
 import { useEventInterest } from "../../../hooks/useInterestedEvents";
+import { useInterestedItems } from "../../../context/InterestedItems";
 
 const UpcomingEvent = ({ upcomingEvent }) => {
   const [isInterested, setIsInterested] = useState(null);
+
+  const { interestedItems, setInterestedItems } = useInterestedItems();
 
   const { checkInterestStatus, toggleInterest } = useEventInterest();
 
@@ -21,10 +24,20 @@ const UpcomingEvent = ({ upcomingEvent }) => {
   }, [checkInterestStatus, upcomingEvent.id]);
 
   const handleIsInterested = async () => {
-    toggleInterest(upcomingEvent.id);
+    const wasInterested = isInterested;
+    const success = await toggleInterest(upcomingEvent.id);
     const checkStatus = await checkInterestStatus(upcomingEvent.id);
-
     setIsInterested(checkStatus);
+
+    if (success) {
+      setInterestedItems((prev) => {
+        if (wasInterested) {
+          return prev.filter((item) => item.id !== upcomingEvent.id);
+        } else {
+          return [...prev, upcomingEvent];
+        }
+      });
+    }
   };
 
   return (

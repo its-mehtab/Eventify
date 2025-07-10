@@ -3,31 +3,25 @@ import BannerSection from "../home/components/banner-section/BannerSection";
 import { Link } from "react-router-dom";
 import "../bookings/bookings.css";
 import StandUpSection from "../home/components/stand-up-section/StandUpSection";
-// import {
-//   useDeleteInterestedEvent,
-//   useInterestedEvents,
-// } from "../../hooks/useInterestedEvents";
 import { useEventInterest } from "../../hooks/useInterestedEvents";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
-import {
-  convertDate,
-  convertTo12HourFormat,
-  formatNumber,
-} from "../../components/DateTimeFormatter";
+import { formatNumber } from "../../components/DateTimeFormatter";
 import RemoveIcon from "../../assets/RemoveIcon";
 import EmptyState from "../../components/empty-state/EmptyState";
+import { useInterestedItems } from "../../context/InterestedItems";
 
 const InterestedEvents = () => {
   const {
     interestedEvents,
     loading,
     error,
-    toggleInterest,
     actionLoading,
     actionError,
     removeInterest,
   } = useEventInterest();
+
+  const { interestedItems, setInterestedItems } = useInterestedItems();
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
@@ -60,7 +54,7 @@ const InterestedEvents = () => {
           <h1>Interested Events</h1>
         </div>
         <ul className="bookings-wrap">
-          {interestedEvents.map((currData) => {
+          {interestedItems.map((currData) => {
             return (
               <li key={currData.id}>
                 <div className="text-white">
@@ -78,20 +72,19 @@ const InterestedEvents = () => {
                       >
                         <h3>{currData.heading}</h3>
                       </Link>
-                      {/* <p>{currData.location.split(",")[0]}</p>
-                        <p>{convertDate(currData.date)}</p>
-                        <p>
-                          {convertTo12HourFormat(
-                            `${currData.timing.start} - ${currData.timing.end}`
-                          )}
-                        </p> */}
-                      {/* <p>{currData.artist}</p> */}
                       <p>Amount: ₹{formatNumber(currData.price)}</p>
                     </div>
                     <div
                       className="remove-btn ms-auto"
-                      onClick={() => {
-                        removeInterest(currData.interestId);
+                      onClick={async () => {
+                        const success = await removeInterest(
+                          currData.interestId
+                        );
+                        if (success) {
+                          setInterestedItems((prev) =>
+                            prev.filter((item) => item.id !== currData.id)
+                          );
+                        }
                       }}
                     >
                       <RemoveIcon />

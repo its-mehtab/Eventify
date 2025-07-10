@@ -13,11 +13,11 @@ import RemoveIcon from "../../assets/RemoveIcon";
 import Button from "../../components/button/Button";
 import { useCartTotal } from "../../context/cartTotal";
 import EmptyState from "../../components/empty-state/EmptyState";
+import { useCartItems } from "../../context/CartItems";
 
 const Cart = () => {
   const {
     cartEvents,
-    setCartEvents,
     checkCartStatus,
     loading,
     error,
@@ -27,6 +27,8 @@ const Cart = () => {
     updateCart,
     fetchCartEvents,
   } = useCartEvent();
+
+  const { cartItems, setCartItems } = useCartItems();
 
   const { cartTotal, setCartTotal } = useCartTotal();
 
@@ -69,7 +71,7 @@ const Cart = () => {
       </BannerSection>
       <EventsSection className="inner-page">
         <ul className="cart-list">
-          {cartEvents.map((currData) => {
+          {cartItems.map((currData) => {
             const formattedDate = convertDate(currData.date);
 
             const updateCartHandle = async function (newQty) {
@@ -77,7 +79,7 @@ const Cart = () => {
 
               updateCart(isInCart.id, newQty);
 
-              setCartEvents((prev) =>
+              setCartItems((prev) =>
                 prev.map((item) =>
                   item.id === currData.id ? { ...item, quantity: newQty } : item
                 )
@@ -104,14 +106,18 @@ const Cart = () => {
                 <div className="d-flex gap-5 ms-auto">
                   <TicketsQuantity
                     initialQuantity={currData.quantity}
-                    // onChange={setTicketQuantity}
                     handleUpdateQuantity={updateCartHandle}
                   />
                   <button
                     className="remove-btn"
                     onClick={async () => {
                       const isInCart = await checkCartStatus(currData.id);
-                      removeCart(isInCart.id);
+                      const success = await removeCart(isInCart.id);
+                      if (success) {
+                        setCartItems((prev) =>
+                          prev.filter((item) => item.id !== currData.id)
+                        );
+                      }
                     }}
                   >
                     <RemoveIcon />

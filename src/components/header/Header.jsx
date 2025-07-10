@@ -3,12 +3,12 @@ import "./header.css";
 import { assets } from "../../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import Button from "../button/Button";
-import { useCartEvent } from "../../hooks/useCart";
-import { useEventInterest } from "../../hooks/useInterestedEvents";
+import { useCartItems } from "../../context/CartItems";
+import { useInterestedItems } from "../../context/InterestedItems";
 
 function Header() {
-  const { cartEvents } = useCartEvent();
-  const { interestedEvents } = useEventInterest();
+  const { cartItems } = useCartItems();
+  const { interestedItems } = useInterestedItems();
 
   const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
   const headerRef = useRef(null);
@@ -109,7 +109,17 @@ function Header() {
                       `nav-link ${isActive ? "active" : ""}`
                     }
                   >
-                    interested
+                    interested list
+                  </NavLink>
+                </li>
+                <li className="nav-item d-block d-sm-none">
+                  <NavLink
+                    to="cart"
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
+                  >
+                    cart
                   </NavLink>
                 </li>
                 <li className="nav-item d-block d-sm-none">
@@ -129,13 +139,13 @@ function Header() {
                 <li>
                   <Link to="interested" className="pe-2">
                     <assets.WishlistEventIcon />
-                    <span>{interestedEvents.length}</span>
+                    <span>{interestedItems.length}</span>
                   </Link>
                 </li>
                 <li>
                   <Link to="cart" className="pe-2">
                     <assets.CartIcon />
-                    <span>{cartEvents.length}</span>
+                    <span>{cartItems.length}</span>
                   </Link>
                 </li>
                 <li>

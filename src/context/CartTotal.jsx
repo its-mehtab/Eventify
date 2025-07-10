@@ -1,22 +1,22 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { useCartEvent } from "../hooks/useCart";
+import { useCartItems } from "./CartItems";
 
 const CartTotalContext = createContext();
 
 export const CartTotalProvider = ({ children }) => {
   const [cartTotal, setCartTotal] = useState(0);
 
-  const { cartEvents } = useCartEvent();
+  const { cartItems } = useCartItems();
 
   useEffect(() => {
-    const cartAllPrice = cartEvents.reduce((acc, currCart) => {
+    const cartAllPrice = cartItems.reduce((acc, currCart) => {
       const cartFullPrice =
         parseInt(currCart.price) * parseInt(currCart.quantity);
       return parseInt(acc) + cartFullPrice;
     }, 0);
 
     setCartTotal(cartAllPrice);
-  }, [cartEvents]);
+  }, [cartItems]);
 
   return (
     <CartTotalContext.Provider value={{ cartTotal, setCartTotal }}>

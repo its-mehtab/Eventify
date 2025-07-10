@@ -20,6 +20,9 @@ import ThankYou from "./pages/thank-you/ThankYou.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 import { CartTotalProvider } from "./context/cartTotal.jsx";
 import BookingDetails from "./pages/booking-details/BookingDetails.jsx";
+import NotFound from "./components/NotFound.jsx";
+import { CartItemsProvider } from "./context/CartItems.jsx";
+import { InterestedItemsProvider } from "./context/InterestedItems.jsx";
 
 const router = createBrowserRouter([
   {
@@ -78,16 +81,24 @@ const router = createBrowserRouter([
         path: "privacy",
         element: <PrivacyPolicy />,
       },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <CartTotalProvider>
-      <TicketQuantityProvider>
-        <RouterProvider router={router} />
-      </TicketQuantityProvider>
-    </CartTotalProvider>
+    <InterestedItemsProvider>
+      <CartItemsProvider>
+        <CartTotalProvider>
+          <TicketQuantityProvider>
+            <RouterProvider router={router} />
+          </TicketQuantityProvider>
+        </CartTotalProvider>
+      </CartItemsProvider>
+    </InterestedItemsProvider>
   </StrictMode>
 );

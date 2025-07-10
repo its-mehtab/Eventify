@@ -20,6 +20,8 @@ import { useEventInterest } from "../../hooks/useInterestedEvents";
 import { useCartEvent } from "../../hooks/useCart";
 import { updateCartQuantity } from "../../api/cartService";
 import { useNavigate } from "react-router-dom";
+import { useCartItems } from "../../context/CartItems";
+import { useInterestedItems } from "../../context/InterestedItems";
 
 const EventDetails = () => {
   const { eventId } = useParams();
@@ -30,6 +32,9 @@ const EventDetails = () => {
     toggleInterest,
     checkInterestStatus,
   } = useEventInterest();
+
+  const { setCartItems } = useCartItems();
+  const { setInterestedItems } = useInterestedItems();
 
   const navigate = useNavigate();
 
@@ -69,21 +74,51 @@ const EventDetails = () => {
   );
 
   const handleIsInterested = async () => {
-    toggleInterest(event.id);
+    await toggleInterest(event.id);
     const checkStatus = await checkInterestStatus(eventId);
-
     setIsInterested(checkStatus);
+
+    setInterestedItems((prev) => {
+      if (checkStatus) {
+        const alreadyExists = prev.find((item) => item.id === event.id);
+        if (!alreadyExists) {
+          return [...prev, event];
+        }
+        return prev;
+      } else {
+        return prev.filter((item) => item.id !== event.id);
+      }
+    });
   };
 
   const handleAddToCart = async () => {
     const isInCart = await checkCartStatus(eventId);
-    if (!isInCart) {
-      await addCart(eventId, ticketQuantity);
-    } else {
-      const currentCartResponse = isInCart.quantity;
-      const newQty = parseInt(currentCartResponse) + parseInt(ticketQuantity);
 
-      updateCartQuantity(isInCart.id, newQty);
+    if (!isInCart) {
+      const success = await addCart(eventId, ticketQuantity);
+
+      if (success) {
+        const newItem = {
+          ...event,
+          quantity: ticketQuantity,
+          id: event.id,
+        };
+
+        setCartItems((prev) => [...prev, newItem]);
+      }
+    } else {
+      const currentQty = isInCart.quantity;
+      const newQty = parseInt(currentQty) + parseInt(ticketQuantity);
+
+      const success = await updateCartQuantity(isInCart.id, newQty);
+
+      if (success) {
+        setCartItems((prev) =>
+          prev.map((item) =>
+            item.id === event.id ? { ...item, quantity: newQty } : item
+          )
+        );
+      }
     }
   };
 

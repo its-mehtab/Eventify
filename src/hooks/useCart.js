@@ -85,7 +85,7 @@ export const useCartEvent = () => {
 
       await deleteCartEvent(CartId);
       setActionSuccess(true);
-      await fetchCartEvents(); // Refresh the list
+      // await fetchCartEvents(); // Refresh the list
       return true;
     } catch (err) {
       setActionError(err.message);
