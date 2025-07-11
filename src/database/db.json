@@ -651,71 +651,13 @@
   ],
   "interested": [
     {
-      "id": "a19f",
-      "eventId": "1",
-      "userId": "guest"
-    },
-    {
       "id": "2042",
       "eventId": "20",
       "userId": "guest"
     }
   ],
-  "carts": [
-    {
-      "id": "658f",
-      "eventId": "2",
-      "userId": "guest",
-      "quantity": 1
-    },
-    {
-      "id": "3cde",
-      "eventId": "19",
-      "userId": "guest",
-      "quantity": 4
-    }
-  ],
+  "carts": [],
   "bookings": [
-    {
-      "id": "1",
-      "userId": "guest",
-      "tickets": [
-        {
-          "id": "1",
-          "eventId": "8",
-          "price": 4999,
-          "quantity": 3
-        },
-        {
-          "id": "2",
-          "eventId": "9",
-          "price": 3499,
-          "quantity": 3
-        }
-      ],
-      "totalAmount": 8498,
-      "paymentStatus": "cancelled",
-      "paymentMethod": "card",
-      "createdAt": "2025-06-25T10:30:00Z",
-      "cancelled": true
-    },
-    {
-      "id": "2",
-      "userId": "guest",
-      "tickets": [
-        {
-          "id": "3",
-          "eventId": "5",
-          "price": 4999,
-          "quantity": 3
-        }
-      ],
-      "totalAmount": 4999,
-      "paymentStatus": "success",
-      "paymentMethod": "upi",
-      "createdAt": "2025-06-26T11:00:00Z",
-      "cancelled": false
-    },
     {
       "id": "9085",
       "userId": "guest",
@@ -844,6 +786,117 @@
       "paymentMethod": "cod",
       "cancelled": false,
       "createdAt": "2025-07-09T12:52:42.768Z"
+    },
+    {
+      "id": "15cd",
+      "userId": "guest",
+      "tickets": [
+        {
+          "id": "709a4b6c-86e9-42f8-8656-366d490828d6",
+          "eventId": "2",
+          "price": 2999,
+          "quantity": 1
+        },
+        {
+          "id": "d695e4cf-7b88-43a8-8b83-1ccd660eeb95",
+          "eventId": "19",
+          "price": 1999,
+          "quantity": 6
+        }
+      ],
+      "billingDetails": {
+        "state": "test",
+        "firstName": "test",
+        "lastName": "test",
+        "phoneNumber": "01234567890",
+        "email": "test@test.com",
+        "address": "test",
+        "country": "India",
+        "city": "test",
+        "zipCode": "123456"
+      },
+      "orderId": "fc5433bd-ce03-4f35-9091-f813e070d095",
+      "totalAmount": 15092,
+      "paymentStatus": "pending",
+      "paymentMethod": "cod",
+      "cancelled": false,
+      "createdAt": "2025-07-11T05:48:19.207Z"
+    },
+    {
+      "id": "ae67",
+      "userId": "guest",
+      "tickets": [
+        {
+          "id": "2be9de79-7167-43ff-bf7a-cfd040cd22af",
+          "eventId": "10",
+          "price": 1499,
+          "quantity": 1
+        },
+        {
+          "id": "05c9fe25-6208-4349-a9f1-9e019c5b0df4",
+          "eventId": "1",
+          "price": 2499,
+          "quantity": 1
+        },
+        {
+          "id": "92d7dbc6-39c4-484c-b848-84ce69667c32",
+          "eventId": "11",
+          "price": 1199,
+          "quantity": 1
+        }
+      ],
+      "billingDetails": {
+        "lastName": "test",
+        "firstName": "test",
+        "phoneNumber": "01234567890",
+        "email": "test@test.com",
+        "address": "test",
+        "country": "India",
+        "state": "test",
+        "city": "test",
+        "zipCode": "123456"
+      },
+      "orderId": "7396a9b0-af80-4068-b2d4-4762c02c5cd4",
+      "totalAmount": 5296,
+      "paymentStatus": "pending",
+      "paymentMethod": "cod",
+      "cancelled": false,
+      "createdAt": "2025-07-11T05:52:01.383Z"
+    },
+    {
+      "id": "dd16",
+      "userId": "guest",
+      "tickets": [
+        {
+          "id": "37d8536b-2420-4eba-87d6-15f1346e75dd",
+          "eventId": "1",
+          "price": 2499,
+          "quantity": 1
+        },
+        {
+          "id": "b18c71fe-93d0-4841-a1e6-a434591821dd",
+          "eventId": "21",
+          "price": 999,
+          "quantity": 2
+        }
+      ],
+      "billingDetails": {
+        "lastName": "test",
+        "firstName": "test",
+        "phoneNumber": "01234567890",
+        "email": "test@test.com",
+        "address": "test",
+        "country": "India",
+        "state": "test",
+        "city": "test",
+        "zipCode": "123456"
+      },
+      "orderId": "1c77282f-c907-4eba-b047-165d5e7919a0",
+      "totalAmount": 4596,
+      "paymentStatus": "pending",
+      "paymentMethod": "cod",
+      "cancelled": false,
+      "createdAt": "2025-07-11T05:52:30.090Z"
     }
   ]
 }

@@ -12,9 +12,17 @@ import { useBookings } from "../../hooks/useBooking";
 import { v4 as uuidv4 } from "uuid";
 import { useCartTotal } from "../../context/cartTotal";
 import { formatNumber } from "../../components/DateTimeFormatter";
+import { useCartItems } from "../../context/CartItems";
 
 const Checkout = () => {
-  const { cartEvents, loading, error: cartError, getCartById } = useCartEvent();
+  const {
+    cartEvents,
+    loading,
+    error: cartError,
+    getCartById,
+    checkCartStatus,
+    removeCart,
+  } = useCartEvent();
   const { state } = useLocation();
   const [events, setEvents] = useState([]);
   const [formData, setFormData] = useState({});
@@ -22,9 +30,9 @@ const Checkout = () => {
   const { createBooking, error } = useBookings();
   const navigate = useNavigate();
 
-  const { cartTotal, setCartTotal } = useCartTotal();
+  const { cartItems, setCartItems } = useCartItems();
 
-  console.log(events);
+  const { cartTotal, setCartTotal } = useCartTotal();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,8 +43,6 @@ const Checkout = () => {
 
         setCartTotal(parseInt(item[0].price) * parseInt(item[0].quantity));
       } else {
-        console.log(cartEvents);
-
         setEvents(cartEvents);
       }
     };
@@ -74,6 +80,15 @@ const Checkout = () => {
     };
 
     const success = await createBooking(checkoutData);
+
+    if (success) {
+      cartEvents.map(async (currCart) => {
+        const isInCart = await checkCartStatus(currCart.id);
+        const success = await removeCart(isInCart.id);
+
+        if (success) setCartItems([]);
+      });
+    }
 
     navigate("/thankyou", {
       state: {
