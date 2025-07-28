@@ -7,6 +7,7 @@ import { assets } from "../../../assets/assets";
 import Button from "../../../components/button/Button";
 import { useEventInterest } from "../../../hooks/useInterestedEvents";
 import { useInterestedItems } from "../../../context/InterestedItems";
+import { checkIfInterested } from "../../../api/interestService";
 
 const UpcomingEvent = ({ upcomingEvent }) => {
   const [isInterested, setIsInterested] = useState(null);
@@ -30,13 +31,18 @@ const UpcomingEvent = ({ upcomingEvent }) => {
     setIsInterested(checkStatus);
 
     if (success) {
-      setInterestedItems((prev) => {
-        if (wasInterested) {
-          return prev.filter((item) => item.id !== upcomingEvent.id);
-        } else {
-          return [...prev, upcomingEvent];
-        }
-      });
+      if (wasInterested) {
+        setInterestedItems((prev) =>
+          prev.filter((item) => item.id !== upcomingEvent.id)
+        );
+      } else {
+        const interestRecord = await checkIfInterested(upcomingEvent.id);
+
+        setInterestedItems((prev) => [
+          ...prev,
+          { ...upcomingEvent, interestId: interestRecord.id },
+        ]);
+      }
     }
   };
 

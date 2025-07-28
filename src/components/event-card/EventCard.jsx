@@ -27,7 +27,7 @@ const EventCard = ({ currConcert, orientation = "col-md-12" }) => {
             <div className="concert-details">
               <p>
                 <span>
-                  <assets.PersonIcon />
+                  <assets.PersonIcon color="#170072" />
                 </span>
                 {currConcert.artist} – {currConcert.heading}
               </p>

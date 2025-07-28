@@ -23,6 +23,9 @@ import BookingDetails from "./pages/booking-details/BookingDetails.jsx";
 import NotFound from "./components/NotFound.jsx";
 import { CartItemsProvider } from "./context/CartItems.jsx";
 import { InterestedItemsProvider } from "./context/InterestedItems.jsx";
+import Login from "./pages/login/Login.jsx";
+import SignUp from "./pages/login/SignUp.jsx";
+import RessetPassword from "./pages/login/ResetPassword.jsx";
 
 const router = createBrowserRouter([
   {
@@ -80,6 +83,18 @@ const router = createBrowserRouter([
       {
         path: "privacy",
         element: <PrivacyPolicy />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <SignUp />,
+      },
+      {
+        path: "forgot",
+        element: <RessetPassword />,
       },
       {
         path: "*",

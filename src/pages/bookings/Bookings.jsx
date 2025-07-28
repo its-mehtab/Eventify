@@ -19,7 +19,7 @@ const Bookings = () => {
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
   if (bookings.length === 0)
-    return <EmptyState name="You Haven’t Booked Anything Yet" />;
+    return <EmptyState heading="You Haven’t Booked Anything Yet" />;
 
   return (
     <>

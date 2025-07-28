@@ -1,0 +1,13 @@
+.login-wrap svg {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(calc(-50% + 8px));
+  width: 28px;
+  height: 28px;
+}
+
+.login-wrap input {
+  padding: 18px 20px 18px 62px;
+  color: #0f0f0f;
+}

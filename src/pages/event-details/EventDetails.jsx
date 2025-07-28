@@ -22,6 +22,7 @@ import { updateCartQuantity } from "../../api/cartService";
 import { useNavigate } from "react-router-dom";
 import { useCartItems } from "../../context/CartItems";
 import { useInterestedItems } from "../../context/InterestedItems";
+import { checkIfInterested } from "../../api/interestService";
 
 const EventDetails = () => {
   const { eventId } = useParams();
@@ -34,7 +35,7 @@ const EventDetails = () => {
   } = useEventInterest();
 
   const { setCartItems } = useCartItems();
-  const { setInterestedItems } = useInterestedItems();
+  const { interestedItems, setInterestedItems } = useInterestedItems();
 
   const navigate = useNavigate();
 
@@ -75,20 +76,24 @@ const EventDetails = () => {
 
   const handleIsInterested = async () => {
     await toggleInterest(event.id);
-    const checkStatus = await checkInterestStatus(eventId);
+    const checkStatus = await checkInterestStatus(event.id);
     setIsInterested(checkStatus);
 
-    setInterestedItems((prev) => {
-      if (checkStatus) {
-        const alreadyExists = prev.find((item) => item.id === event.id);
-        if (!alreadyExists) {
-          return [...prev, event];
-        }
-        return prev;
-      } else {
-        return prev.filter((item) => item.id !== event.id);
+    if (checkStatus) {
+      const alreadyExists = interestedItems.find(
+        (item) => item.id === event.id
+      );
+      if (!alreadyExists) {
+        const interestRecord = await checkIfInterested(event.id);
+
+        setInterestedItems((prev) => [
+          ...prev,
+          { ...event, interestId: interestRecord.id },
+        ]);
       }
-    });
+    } else {
+      setInterestedItems((prev) => prev.filter((item) => item.id !== event.id));
+    }
   };
 
   const handleAddToCart = async () => {

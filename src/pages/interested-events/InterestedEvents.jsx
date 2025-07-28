@@ -26,7 +26,7 @@ const InterestedEvents = () => {
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
   if (interestedEvents.length === 0)
-    return <EmptyState name="No Events Added to Your List Yet" />;
+    return <EmptyState heading="No Events Added to Your List Yet" />;
 
   return (
     <>
@@ -77,6 +77,8 @@ const InterestedEvents = () => {
                     <div
                       className="remove-btn ms-auto"
                       onClick={async () => {
+                        console.log(currData);
+
                         const success = await removeInterest(
                           currData.interestId
                         );

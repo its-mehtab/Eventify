@@ -64,6 +64,7 @@ import AmountIcon from "./AmountIcon";
 import PaymentMethodIcon from "./PaymentMethodIcon";
 import EmptyImg from "./empty-img.jpg";
 import EmptyBoxIcon from "./EmptyBoxIcon";
+import PasswordIcon from "./PasswordIcon";
 
 export const assets = {
   favicon,
@@ -132,4 +133,5 @@ export const assets = {
   PaymentMethodIcon,
   EmptyImg,
   EmptyBoxIcon,
+  PasswordIcon,
 };

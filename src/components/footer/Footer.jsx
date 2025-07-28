@@ -14,9 +14,9 @@ const Footer = () => {
             REGISTER <br />
             <div className="d-flex align-items-center gap-4 gap-md-5">
               <span>TODAY</span>
-              <a href="#" className="arrow-sign-up">
+              <Link to="/register" className="arrow-sign-up">
                 <assets.ArrowIcon />
-              </a>
+              </Link>
             </div>
           </h4>
         </div>
