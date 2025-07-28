@@ -10,7 +10,7 @@ import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useBookings } from "../../hooks/useBooking";
 import { v4 as uuidv4 } from "uuid";
-import { useCartTotal } from "../../context/cartTotal";
+import { useCartTotal } from "../../context/CartTotal";
 import { formatNumber } from "../../components/DateTimeFormatter";
 import { useCartItems } from "../../context/CartItems";
 
