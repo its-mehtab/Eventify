@@ -18,7 +18,7 @@ import { TicketQuantityProvider } from "./context/TicketQuantityContext.jsx";
 import Checkout from "./pages/checkout/Checkout.jsx";
 import ThankYou from "./pages/thank-you/ThankYou.jsx";
 import Cart from "./pages/cart/Cart.jsx";
-import { CartTotalProvider } from "./context/cartTotal.jsx";
+import { CartTotalProvider } from "./context/CartTotal.jsx";
 import BookingDetails from "./pages/booking-details/BookingDetails.jsx";
 import NotFound from "./components/NotFound.jsx";
 import { CartItemsProvider } from "./context/CartItems.jsx";

@@ -650,14 +650,7 @@
     }
   ],
   "interested": [],
-  "carts": [
-    {
-      "id": "5289",
-      "eventId": "1",
-      "userId": "guest",
-      "quantity": 1
-    }
-  ],
+  "carts": [],
   "bookings": [
     {
       "id": "7c9b",
