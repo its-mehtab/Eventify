@@ -54,7 +54,9 @@ function Home() {
               </p>
               <div className="d-flex justify-content-center flex-wrap">
                 <Button btnClass="mt-4">Grab Your Ticket</Button>
-                <Button btnClass={"btn-white ms-3  mt-4"}>Join Now</Button>
+                <Button href="/register" btnClass={"btn-white ms-3  mt-4"}>
+                  Join Now
+                </Button>
               </div>
             </div>
           </div>
