@@ -687,5 +687,12 @@
       "cancelled": false,
       "createdAt": "2025-07-08T13:03:56.494Z"
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "email": "test@gmail.com",
+      "password": "test"
+    }
   ]
 }

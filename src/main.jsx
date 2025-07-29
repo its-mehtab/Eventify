@@ -26,6 +26,7 @@ import { InterestedItemsProvider } from "./context/InterestedItems.jsx";
 import Login from "./pages/login/Login.jsx";
 import SignUp from "./pages/login/SignUp.jsx";
 import RessetPassword from "./pages/login/ResetPassword.jsx";
+import { UserProvider } from "./context/User.jsx";
 
 const router = createBrowserRouter([
   {
@@ -106,14 +107,16 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <InterestedItemsProvider>
-      <CartItemsProvider>
-        <CartTotalProvider>
-          <TicketQuantityProvider>
-            <RouterProvider router={router} />
-          </TicketQuantityProvider>
-        </CartTotalProvider>
-      </CartItemsProvider>
-    </InterestedItemsProvider>
+    <UserProvider>
+      <InterestedItemsProvider>
+        <CartItemsProvider>
+          <CartTotalProvider>
+            <TicketQuantityProvider>
+              <RouterProvider router={router} />
+            </TicketQuantityProvider>
+          </CartTotalProvider>
+        </CartItemsProvider>
+      </InterestedItemsProvider>
+    </UserProvider>
   </StrictMode>
 );

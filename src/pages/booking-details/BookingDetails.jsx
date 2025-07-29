@@ -146,7 +146,7 @@ const BookingDetails = () => {
                             )}
                           </p>
                           <p>Guests: {currTicket.quantity}</p>
-                          <p>{formatNumber(currTicket.event.price)}</p>
+                          <p>₹{formatNumber(currTicket.event.price)}</p>
                         </div>
                       </div>
                     </div>
