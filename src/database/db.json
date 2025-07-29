@@ -691,6 +691,7 @@
   "users": [
     {
       "id": "1",
+      "name": "mehtab alam",
       "email": "test@gmail.com",
       "password": "test"
     }

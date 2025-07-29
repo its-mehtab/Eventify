@@ -17,6 +17,11 @@ const SignUp = () => {
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(signUpData);
+  };
+
   return (
     <BannerSection className="sp-tb">
       <div className="row justify-content-center mt-4 pt-5 pb-md-4">
@@ -64,7 +69,11 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="d-flex mt-4">
-                <Button href="" btnClass="btn-dark w-100 text-center py-3">
+                <Button
+                  onClick={handleSubmit}
+                  href=""
+                  btnClass="btn-dark w-100 text-center py-3"
+                >
                   Register Now
                 </Button>
               </div>
