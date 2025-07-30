@@ -74,7 +74,7 @@ const Checkout = () => {
       },
       orderId: uuidv4(),
       totalAmount: cartTotal + vatCharge,
-      paymentStatus: "pending",
+      paymentStatus: "confirmed",
       paymentMethod,
       cancelled: false,
     };

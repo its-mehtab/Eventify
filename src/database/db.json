@@ -649,7 +649,13 @@
       "sportType": "Boxing"
     }
   ],
-  "interested": [],
+  "interested": [
+    {
+      "id": "2036",
+      "eventId": "2",
+      "userId": "guest"
+    }
+  ],
   "carts": [],
   "bookings": [
     {
@@ -686,6 +692,35 @@
       "paymentMethod": "cod",
       "cancelled": false,
       "createdAt": "2025-07-08T13:03:56.494Z"
+    },
+    {
+      "id": "022a",
+      "userId": "guest",
+      "tickets": [
+        {
+          "id": "10d5d968-df76-46e1-9a0e-1ccb8f0fe20b",
+          "eventId": "2",
+          "price": 2999,
+          "quantity": 1
+        }
+      ],
+      "billingDetails": {
+        "email": "test@test.com",
+        "firstName": "test",
+        "lastName": "test",
+        "phoneNumber": "01234567890",
+        "address": "test",
+        "country": "India",
+        "state": "test",
+        "city": "test",
+        "zipCode": "123456"
+      },
+      "orderId": "90f1e29e-172c-44d2-bc7d-525b95de657a",
+      "totalAmount": 3098,
+      "paymentStatus": "confirmed",
+      "paymentMethod": "cod",
+      "cancelled": false,
+      "createdAt": "2025-07-30T11:35:46.491Z"
     }
   ],
   "users": [
@@ -694,6 +729,12 @@
       "name": "mehtab alam",
       "email": "test@gmail.com",
       "password": "test"
+    },
+    {
+      "id": "a9b9",
+      "name": "dsf",
+      "email": "test@test.com",
+      "password": "asdfd"
     }
   ]
 }

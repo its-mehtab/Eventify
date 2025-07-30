@@ -5,9 +5,17 @@ import { assets } from "../../assets/assets";
 import "./login.css";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
+import { useUser } from "../../hooks/useUser";
+import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
+import ErrorMessage from "../../components/ErrorMessage";
+import Home from "../home/Home";
 
 const SignUp = () => {
   const [signUpData, setSignUpData] = useState({});
+  const [isUserExist, setIsUserExist] = useState(false);
+
+  const { createUser, verifyUser, actionLoading, actionError, actionSuccess } =
+    useUser();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,10 +25,22 @@ const SignUp = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(signUpData);
+
+    const userExists = await verifyUser(signUpData.email);
+
+    if (!userExists) {
+      await createUser(signUpData.name, signUpData.email, signUpData.password);
+    } else {
+      setIsUserExist(true);
+      setSignUpData({});
+    }
   };
+
+  if (actionLoading) return <LoadingSpinner />;
+  if (actionError) return <ErrorMessage message={error} />;
+  if (actionSuccess) return <Home />;
 
   return (
     <BannerSection className="sp-tb">
@@ -43,6 +63,14 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="col-md-12 mt-1">
+                {isUserExist ? (
+                  <p className="text-danger text-start mt-2">
+                    Email already exists try logging in
+                  </p>
+                ) : (
+                  ""
+                )}
+
                 <div className="position-relative">
                   <assets.EmailIcon color="#ff0a54" />
                   <CustomInput
@@ -71,7 +99,6 @@ const SignUp = () => {
               <div className="d-flex mt-4">
                 <Button
                   onClick={handleSubmit}
-                  href=""
                   btnClass="btn-dark w-100 text-center py-3"
                 >
                   Register Now

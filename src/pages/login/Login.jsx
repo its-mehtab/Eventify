@@ -5,9 +5,12 @@ import { assets } from "../../assets/assets";
 import "./login.css";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
+import { useUser } from "../../hooks/useUser";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
+
+  const { verifyUser, actionLoading, actionError, actionSuccess } = useUser();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,6 +18,12 @@ const Login = () => {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(loginData);
   };
 
   return (
@@ -60,7 +69,10 @@ const Login = () => {
                 </Link>
               </div>
               <div className="d-flex mt-4">
-                <Button href="" btnClass="btn-dark w-100 text-center py-3">
+                <Button
+                  onClick={handleSubmit}
+                  btnClass="btn-dark w-100 text-center py-3"
+                >
                   Login
                 </Button>
               </div>

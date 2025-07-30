@@ -12,6 +12,7 @@ import {
 } from "../../components/DateTimeFormatter";
 import { useParams } from "react-router-dom";
 import { assets } from "../../assets/assets";
+import ConfirmIcon from "../../assets/ConfirmIcon";
 
 const BookingDetails = () => {
   const { bookingId } = useParams();
@@ -40,8 +41,21 @@ const BookingDetails = () => {
   if (error) return <ErrorMessage message={error} />;
 
   return (
-    <BannerSection className="sp-t">
+    <BannerSection className="sp-tb">
       <div className="booking-details-content pt-5">
+        <div className="booking-summery mt-4">
+          <div className="common-head">
+            <span className="inner-head">
+              <ConfirmIcon status={booking.paymentStatus} size="34" />
+              <p>Booking {booking.paymentStatus}</p>
+            </span>
+          </div>
+          <h4 className="mb-2 fs-1">Your Ticket Is Booked!</h4>
+          <p>
+            We're excited to welcome you to the show. Here's everything you need
+            <br /> to know about your upcoming booking.
+          </p>
+        </div>
         <div className="booking-summery mt-4">
           <div className="row">
             <div className="col-md-8">

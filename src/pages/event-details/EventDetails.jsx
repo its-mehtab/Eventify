@@ -206,7 +206,7 @@ const EventDetails = () => {
                 </div>
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.LimitIcon />
-                  <p className="ms-1">{event.ageLimit}</p>
+                  <p className="ms-1">Age Limit - {event.ageLimit}</p>
                 </div>
                 <div className="d-flex align-items-center gap-2 mt-2 pt-1">
                   <assets.LanguageIcon />

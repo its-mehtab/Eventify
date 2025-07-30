@@ -72,8 +72,7 @@ const PrivacyPolicy = () => {
           <h3>7. Your Rights</h3>
           <p>
             You have the right to access, correct, or delete your personal
-            information. To make a request, contact us at
-            privacy@youreventsite.com.
+            information. To make a request, contact us at example@eventify.com.
           </p>
 
           <h3>8. Changes to Policy</h3>

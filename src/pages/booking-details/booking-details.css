@@ -12,6 +12,11 @@
   margin-bottom: 25px;
 }
 
+.booking-summery h4 {
+  font-weight: 700;
+  font-family: "Lexend Deca", sans-serif;
+}
+
 .summery-item svg {
   background-color: #ff0a54;
   border-radius: 8px;
@@ -66,4 +71,15 @@
 .ship-details p {
   font-size: 22px;
   margin-bottom: 10px;
+}
+
+.booking-summery .common-head > span::before {
+  content: none;
+}
+
+.booking-summery .common-head > span {
+  padding: 10px 20px;
+  gap: 8px;
+  text-transform: uppercase;
+  font-family: "Lexend Deca", sans-serif;
 }
