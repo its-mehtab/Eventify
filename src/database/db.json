@@ -736,5 +736,17 @@
       "email": "test@test.com",
       "password": "asdfd"
     }
+  ],
+  "sessions": [
+    {
+      "id": "3af6",
+      "userId": "a9b9",
+      "loggedInAt": 1753982557255
+    },
+    {
+      "id": "ba7d",
+      "userId": "a9b9",
+      "loggedInAt": 1753983608027
+    }
   ]
 }

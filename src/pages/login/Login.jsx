@@ -6,11 +6,12 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
 import { useUser } from "../../hooks/useUser";
+import { useAuth } from "../../hooks/useAuth";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-
   const { verifyUser, actionLoading, actionError, actionSuccess } = useUser();
+  const { user, login, loading } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,10 +21,11 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(loginData);
+    await login(loginData.email, loginData.password);
+    console.log(user);
   };
 
   return (
