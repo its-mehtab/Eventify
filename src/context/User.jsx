@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
   };
 
   // Initialize auth when provider mounts
-  initializeAuth();
+  // initializeAuth();
 
   return (
     <UserContext.Provider value={{ user, loading, login }}>
