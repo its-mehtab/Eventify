@@ -5,13 +5,13 @@ import { assets } from "../../assets/assets";
 import "./login.css";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
-import { useUser } from "../../hooks/useUser";
 import { useAuth } from "../../hooks/useAuth";
+import { useUser } from "../../context/User";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const { verifyUser, actionLoading, actionError, actionSuccess } = useUser();
-  const { user, login, loading } = useAuth();
+  const { login } = useUser();
+  // const { user, login, loading } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,11 +21,8 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async () => {
     await login(loginData.email, loginData.password);
-    console.log(user);
   };
 
   return (
@@ -72,6 +69,7 @@ const Login = () => {
               </div>
               <div className="d-flex mt-4">
                 <Button
+                  href="/dashboard"
                   onClick={handleSubmit}
                   btnClass="btn-dark w-100 text-center py-3"
                 >

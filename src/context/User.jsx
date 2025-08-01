@@ -1,28 +1,32 @@
-import { createContext, useContext } from "react";
-import { useAuth } from "../hooks/useAuth"; // Import your custom hook
+import { createContext, useContext, useEffect } from "react";
+import { useAuth } from "../hooks/useAuth";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  // Use your existing useAuth hook
-  const { user, loading, login: handleLogin, initializeAuth } = useAuth();
+  // Extract all auth logic
+  const {
+    user,
+    loading,
+    login: handleLogin,
+    logout: handleLogout,
+    initializeAuth,
+  } = useAuth();
 
-  // Wrap your hook's functions to match context API
-  const login = async (email, password) => {
-    const success = await handleLogin(email, password);
-    return success;
-  };
+  // Call initializeAuth() ONCE when the provider mounts
+  useEffect(() => {
+    initializeAuth();
+  }, []);
 
-  // Initialize auth when provider mounts
-  // initializeAuth();
+  // Wrap login and logout for context usage (optional, for consistency)
+  const login = (email, password) => handleLogin(email, password);
+  const logout = () => handleLogout();
 
   return (
-    <UserContext.Provider value={{ user, loading, login }}>
+    <UserContext.Provider value={{ user, loading, login, logout }}>
       {children}
     </UserContext.Provider>
   );
 };
 
-export const useUser = () => {
-  return useContext(UserContext);
-};
+export const useUser = () => useContext(UserContext);

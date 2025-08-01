@@ -25,6 +25,7 @@ import { CartItemsProvider } from "./context/CartItems.jsx";
 import { InterestedItemsProvider } from "./context/InterestedItems.jsx";
 import Login from "./pages/login/Login.jsx";
 import SignUp from "./pages/login/SignUp.jsx";
+import Dashboard from "./pages/dashboard/Dashboard.jsx";
 import RessetPassword from "./pages/login/ResetPassword.jsx";
 import { UserProvider } from "./context/User.jsx";
 
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
       },
       {
         path: "register",

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BannerSection from "../home/components/banner-section/BannerSection";
 import Button from "../../components/button/Button";
+import { useAuth } from "../../hooks/useAuth";
+import { useUser } from "../../context/User";
 
 const Dashboard = () => {
+  const { user, login, logout } = useUser(); // ✅ Use your context
+
   return (
     <BannerSection>
       <div className="row justify-content-center">
@@ -10,19 +14,55 @@ const Dashboard = () => {
           <div className="banner-content text-center">
             <div className="common-head">
               <span>Live Entertainment Hub</span>
-              <h1>
-                <h1>Welcome {user.name}</h1>
-              </h1>
+              {user ? (
+                <h1>
+                  Welcome, <br /> {user.name}
+                </h1>
+              ) : (
+                <h1>Hey there!</h1>
+              )}
+              {user ? (
+                ""
+              ) : (
+                <p className="fs-4">
+                  You’re not signed in! Log in or create an account to get
+                  started.
+                </p>
+              )}
             </div>
-            <p className="mt-3">
-              Experience live entertainment with fast, easy, and secure ticket
-              booking.
-            </p>
             <div className="d-flex justify-content-center flex-wrap">
-              <Button btnClass="mt-4">Grab Your Ticket</Button>
-              <Button href="/register" btnClass={"btn-white ms-3  mt-4"}>
-                Join Now
-              </Button>
+              {user ? (
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    logout();
+                  }}
+                  btnClass="mt-4"
+                >
+                  Logout
+                </Button>
+              ) : (
+                <>
+                  <Button
+                    href="/login"
+                    onClick={() => {
+                      logout();
+                    }}
+                    btnClass="mt-4"
+                  >
+                    Login Now
+                  </Button>
+                  <Button
+                    href="/register"
+                    onClick={() => {
+                      logout();
+                    }}
+                    btnClass="mt-4 ms-3"
+                  >
+                    Register Now
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>
