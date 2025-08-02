@@ -656,7 +656,14 @@
       "userId": "1"
     }
   ],
-  "carts": [],
+  "carts": [
+    {
+      "id": "3378",
+      "eventId": "2",
+      "userId": "1",
+      "quantity": 1
+    }
+  ],
   "bookings": [
     {
       "id": "7c9b",
@@ -721,6 +728,35 @@
       "paymentMethod": "cod",
       "cancelled": false,
       "createdAt": "2025-07-30T11:35:46.491Z"
+    },
+    {
+      "id": "4022",
+      "userId": "1",
+      "tickets": [
+        {
+          "id": "5903ab8c-b2ff-43e6-895e-0f9455ce10ca",
+          "eventId": "2",
+          "price": 2999,
+          "quantity": 1
+        }
+      ],
+      "billingDetails": {
+        "lastName": "test",
+        "firstName": "test",
+        "phoneNumber": "01234567890",
+        "email": "test@gmail.com",
+        "address": "test",
+        "country": "India",
+        "state": "test",
+        "city": "test",
+        "zipCode": "123456"
+      },
+      "orderId": "01867032-c28a-4530-807e-750c5c3bde6b",
+      "totalAmount": 3098,
+      "paymentStatus": "confirmed",
+      "paymentMethod": "cod",
+      "cancelled": false,
+      "createdAt": "2025-08-02T18:10:34.380Z"
     }
   ],
   "users": [
@@ -743,5 +779,11 @@
       "password": "eventify"
     }
   ],
-  "sessions": []
+  "sessions": [
+    {
+      "id": "170f",
+      "userId": "1",
+      "loggedInAt": 1754159536426
+    }
+  ]
 }

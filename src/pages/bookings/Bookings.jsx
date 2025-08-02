@@ -12,9 +12,13 @@ import {
   formatNumber,
 } from "../../components/DateTimeFormatter";
 import EmptyState from "../../components/empty-state/EmptyState";
+import { useUser } from "../../context/User";
 
 const Bookings = () => {
-  const { bookings, loading, error, cancelUserBooking } = useBookings();
+  const { user } = useUser();
+  const { bookings, loading, error, cancelUserBooking } = useBookings(
+    user ? user.id : ""
+  );
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;

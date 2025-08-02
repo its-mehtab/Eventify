@@ -40,11 +40,11 @@ const Cart = () => {
     }, 0);
 
     setCartTotal(cartAllPrice);
-  }, [cartEvents]);
+  }, [cartEvents, setCartTotal]);
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
-  if (cartEvents.length === 0)
+  if (cartItems.length === 0)
     return <EmptyState heading="Your Cart is Empty" />;
   // if (actionLoading) return <LoadingSpinner />;
   // if (actionError) return <ErrorMessage message={error} />;

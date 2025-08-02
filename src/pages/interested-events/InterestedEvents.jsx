@@ -25,7 +25,7 @@ const InterestedEvents = () => {
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
-  if (interestedEvents.length === 0)
+  if (interestedItems.length === 0)
     return <EmptyState heading="No Events Added to Your List Yet" />;
 
   return (

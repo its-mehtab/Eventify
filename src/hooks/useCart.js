@@ -20,11 +20,11 @@ export const useCartEvent = () => {
   const [actionSuccess, setActionSuccess] = useState(false);
 
   // Fetch all Cart events
-  const fetchCartEvents = async () => {
+  const fetchCartEvents = async (userId) => {
     try {
       setLoading(true);
       setError(null);
-      const data = await getUserCartEvents();
+      const data = await getUserCartEvents(userId);
       setCartEvents(data);
     } catch (err) {
       setError(err.message);
@@ -34,9 +34,9 @@ export const useCartEvent = () => {
   };
 
   // Check if a specific event is Cart
-  const checkCartStatus = async (eventId) => {
+  const checkCartStatus = async (eventId, userId) => {
     try {
-      const result = await checkIfCart(eventId);
+      const result = await checkIfCart(eventId, userId);
 
       return result;
     } catch (err) {
@@ -58,13 +58,13 @@ export const useCartEvent = () => {
   };
 
   // Add to Cart list
-  const addCart = async (eventId, quantity) => {
+  const addCart = async (eventId, quantity, userId) => {
     try {
       setActionLoading(true);
       setActionError(null);
       setActionSuccess(false);
 
-      await addToCart(eventId, quantity);
+      await addToCart(eventId, quantity, userId);
       setActionSuccess(true);
       await fetchCartEvents(); // Refresh the list
       return true;

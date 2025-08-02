@@ -8,11 +8,13 @@ import Button from "../../../components/button/Button";
 import { useEventInterest } from "../../../hooks/useInterestedEvents";
 import { useInterestedItems } from "../../../context/InterestedItems";
 import { checkIfInterested } from "../../../api/interestService";
+import { useUser } from "../../../context/User";
 
 const UpcomingEvent = ({ upcomingEvent }) => {
   const [isInterested, setIsInterested] = useState(null);
+  const { user } = useUser();
 
-  const { interestedItems, setInterestedItems } = useInterestedItems();
+  const { setInterestedItems } = useInterestedItems();
 
   const { checkInterestStatus, toggleInterest } = useEventInterest();
 

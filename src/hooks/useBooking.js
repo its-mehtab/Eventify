@@ -5,8 +5,11 @@ import {
   getBookingById,
   cancelBooking,
 } from "../api/bookingService.js";
+import { useUser } from "../context/User.jsx";
 
-export const useBookings = (userId = "guest") => {
+export const useBookings = (userId) => {
+  const { user } = useUser();
+
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,8 +18,12 @@ export const useBookings = (userId = "guest") => {
     setLoading(true);
     setError(null);
     try {
-      const data = await getUserBookings(userId);
-      setBookings(data);
+      if (user) {
+        const data = await getUserBookings(userId);
+        setBookings(data);
+      } else {
+        setBookings([]);
+      }
     } catch (err) {
       setError(err.message);
     } finally {

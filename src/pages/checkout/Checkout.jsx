@@ -13,8 +13,10 @@ import { v4 as uuidv4 } from "uuid";
 import { useCartTotal } from "../../context/CartTotal";
 import { formatNumber } from "../../components/DateTimeFormatter";
 import { useCartItems } from "../../context/CartItems";
+import { useUser } from "../../context/User";
 
 const Checkout = () => {
+  const { user } = useUser();
   const {
     cartEvents,
     loading,
@@ -58,44 +60,46 @@ const Checkout = () => {
   const handleCheckout = async (e) => {
     e.preventDefault();
 
-    const checkoutData = {
-      userId: "guest",
-      // events,
-      tickets: events.map((currCart) => {
-        return {
-          id: uuidv4(),
-          eventId: currCart.id,
-          price: currCart.price,
-          quantity: currCart.quantity,
-        };
-      }),
-      billingDetails: {
-        ...formData,
-      },
-      orderId: uuidv4(),
-      totalAmount: cartTotal + vatCharge,
-      paymentStatus: "confirmed",
-      paymentMethod,
-      cancelled: false,
-    };
+    if (user) {
+      const checkoutData = {
+        userId: user.id,
+        // events,
+        tickets: events.map((currCart) => {
+          return {
+            id: uuidv4(),
+            eventId: currCart.id,
+            price: currCart.price,
+            quantity: currCart.quantity,
+          };
+        }),
+        billingDetails: {
+          ...formData,
+        },
+        orderId: uuidv4(),
+        totalAmount: cartTotal + vatCharge,
+        paymentStatus: "confirmed",
+        paymentMethod,
+        cancelled: false,
+      };
 
-    const success = await createBooking(checkoutData);
+      const success = await createBooking(checkoutData);
 
-    if (success) {
-      cartEvents.map(async (currCart) => {
-        const isInCart = await checkCartStatus(currCart.id);
-        const success = await removeCart(isInCart.id);
+      if (success) {
+        cartEvents.map(async (currCart) => {
+          const isInCart = await checkCartStatus(currCart.id);
+          const success = await removeCart(isInCart.id);
 
-        if (success) setCartItems([]);
+          if (success) setCartItems([]);
+        });
+      }
+
+      navigate("/thankyou", {
+        state: {
+          isSuccess: success ? true : false,
+          newOrder: checkoutData,
+        },
       });
     }
-
-    navigate("/thankyou", {
-      state: {
-        isSuccess: success ? true : false,
-        newOrder: checkoutData,
-      },
-    });
   };
 
   if (loading) return <LoadingSpinner />;

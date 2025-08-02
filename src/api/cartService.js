@@ -1,11 +1,10 @@
 import { getEventById } from "./eventService";
 import { api } from "./apiService";
 
-export const getUserCartEvents = async () => {
+export const getUserCartEvents = async (userId) => {
   try {
-    // For now using 'guest' as userId
     const response = await api.get("/carts", {
-      params: { userId: "guest" },
+      params: { userId },
     });
 
     // Get full event details for each Cart item
@@ -34,11 +33,11 @@ export const deleteCartEvent = async (id) => {
   }
 };
 
-export const addToCart = async (eventId, quantity) => {
+export const addToCart = async (eventId, quantity, userId) => {
   try {
     const response = await api.post("/carts", {
       eventId,
-      userId: "guest", // Temporary until auth
+      userId,
       quantity,
     });
     return response.data;
@@ -47,10 +46,10 @@ export const addToCart = async (eventId, quantity) => {
   }
 };
 
-export const checkIfCart = async (eventId) => {
+export const checkIfCart = async (eventId, userId) => {
   try {
     const response = await api.get("/carts", {
-      params: { eventId },
+      params: { eventId, userId },
     });
     return response.data.length > 0 ? response.data[0] : null;
   } catch (error) {

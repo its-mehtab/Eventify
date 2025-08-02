@@ -78,54 +78,60 @@ const EventDetails = () => {
   );
 
   const handleIsInterested = async () => {
-    await toggleInterest(event.id, user.id);
-    const checkStatus = await checkInterestStatus(event.id, user.id);
-    setIsInterested(checkStatus);
+    if (user) {
+      await toggleInterest(event.id, user.id);
+      const checkStatus = await checkInterestStatus(event.id, user.id);
+      setIsInterested(checkStatus);
 
-    if (checkStatus) {
-      const alreadyExists = interestedItems.find(
-        (item) => item.id === event.id
-      );
-      if (!alreadyExists) {
-        const interestRecord = await checkIfInterested(event.id);
+      if (checkStatus) {
+        const alreadyExists = interestedItems.find(
+          (item) => item.id === event.id
+        );
+        if (!alreadyExists) {
+          const interestRecord = await checkIfInterested(event.id);
 
-        setInterestedItems((prev) => [
-          ...prev,
-          { ...event, interestId: interestRecord.id },
-        ]);
+          setInterestedItems((prev) => [
+            ...prev,
+            { ...event, interestId: interestRecord.id },
+          ]);
+        }
+      } else {
+        setInterestedItems((prev) =>
+          prev.filter((item) => item.id !== event.id)
+        );
       }
-    } else {
-      setInterestedItems((prev) => prev.filter((item) => item.id !== event.id));
     }
   };
 
   const handleAddToCart = async () => {
-    const isInCart = await checkCartStatus(eventId);
+    if (user) {
+      const isInCart = await checkCartStatus(eventId, user.id);
 
-    if (!isInCart) {
-      const success = await addCart(eventId, ticketQuantity);
+      if (!isInCart) {
+        const success = await addCart(eventId, ticketQuantity, user.id);
 
-      if (success) {
-        const newItem = {
-          ...event,
-          quantity: ticketQuantity,
-          id: event.id,
-        };
+        if (success) {
+          const newItem = {
+            ...event,
+            quantity: ticketQuantity,
+            id: event.id,
+          };
 
-        setCartItems((prev) => [...prev, newItem]);
-      }
-    } else {
-      const currentQty = isInCart.quantity;
-      const newQty = parseInt(currentQty) + parseInt(ticketQuantity);
+          setCartItems((prev) => [...prev, newItem]);
+        }
+      } else {
+        const currentQty = isInCart.quantity;
+        const newQty = parseInt(currentQty) + parseInt(ticketQuantity);
 
-      const success = await updateCartQuantity(isInCart.id, newQty);
+        const success = await updateCartQuantity(isInCart.id, newQty);
 
-      if (success) {
-        setCartItems((prev) =>
-          prev.map((item) =>
-            item.id === event.id ? { ...item, quantity: newQty } : item
-          )
-        );
+        if (success) {
+          setCartItems((prev) =>
+            prev.map((item) =>
+              item.id === event.id ? { ...item, quantity: newQty } : item
+            )
+          );
+        }
       }
     }
   };
@@ -163,7 +169,7 @@ const EventDetails = () => {
                 </div>
                 <div className="interested-wrap">
                   <Button
-                    href={null}
+                    href={user ? null : "/dashboard"}
                     btnClass="py-1 px-2 d-flex gap-2 align-items-center"
                     onClick={handleIsInterested}
                   >
@@ -224,7 +230,7 @@ const EventDetails = () => {
                     <TicketsQuantity onChange={setTicketQuantity} />
                     <Button
                       onClick={handleAddToCart}
-                      href="/cart"
+                      href={user ? "/cart" : "/dashboard"}
                       btnClass="btn-white"
                     >
                       <assets.CartIcon />
@@ -236,15 +242,19 @@ const EventDetails = () => {
                       className="primary-btn"
                       type="button"
                       onClick={() => {
-                        navigate("/checkout", {
-                          state: {
-                            directCheckout: true,
-                            item: {
-                              eventId: eventId,
-                              quantity: ticketQuantity,
+                        if (user) {
+                          navigate("/checkout", {
+                            state: {
+                              directCheckout: true,
+                              item: {
+                                eventId: eventId,
+                                quantity: ticketQuantity,
+                              },
                             },
-                          },
-                        });
+                          });
+                        } else {
+                          navigate("/dashboard");
+                        }
                       }}
                     >
                       buy now
