@@ -77,8 +77,6 @@ const InterestedEvents = () => {
                     <div
                       className="remove-btn ms-auto"
                       onClick={async () => {
-                        console.log(currData);
-
                         const success = await removeInterest(
                           currData.interestId
                         );

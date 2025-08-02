@@ -651,9 +651,9 @@
   ],
   "interested": [
     {
-      "id": "2036",
-      "eventId": "2",
-      "userId": "guest"
+      "id": "650a",
+      "eventId": "10",
+      "userId": "1"
     }
   ],
   "carts": [],
@@ -743,11 +743,5 @@
       "password": "eventify"
     }
   ],
-  "sessions": [
-    {
-      "id": "61d0",
-      "userId": "1",
-      "loggedInAt": 1754071258149
-    }
-  ]
+  "sessions": []
 }

@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
 import BannerSection from "../home/components/banner-section/BannerSection";
 import Button from "../../components/button/Button";
-import { useAuth } from "../../hooks/useAuth";
 import { useUser } from "../../context/User";
 
 const Dashboard = () => {
-  const { user, login, logout } = useUser(); // ✅ Use your context
+  const { user, logout } = useUser();
 
   return (
     <BannerSection>

@@ -23,9 +23,11 @@ import { useNavigate } from "react-router-dom";
 import { useCartItems } from "../../context/CartItems";
 import { useInterestedItems } from "../../context/InterestedItems";
 import { checkIfInterested } from "../../api/interestService";
+import { useUser } from "../../context/User";
 
 const EventDetails = () => {
   const { eventId } = useParams();
+  const { user } = useUser();
   const { ticketQuantity, setTicketQuantity } = useTicketQuantity();
   const {
     setActionLoading,
@@ -46,12 +48,13 @@ const EventDetails = () => {
   const [isInterested, setIsInterested] = useState(null);
 
   useEffect(() => {
+    if (!user) return;
     const fetchIsInterested = async () => {
-      const checkStatus = await checkInterestStatus(eventId);
+      const checkStatus = await checkInterestStatus(eventId, user.id);
       setIsInterested(checkStatus);
     };
     fetchIsInterested();
-  }, [checkInterestStatus, eventId]);
+  }, [checkInterestStatus, eventId, user]);
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
@@ -75,8 +78,8 @@ const EventDetails = () => {
   );
 
   const handleIsInterested = async () => {
-    await toggleInterest(event.id);
-    const checkStatus = await checkInterestStatus(event.id);
+    await toggleInterest(event.id, user.id);
+    const checkStatus = await checkInterestStatus(event.id, user.id);
     setIsInterested(checkStatus);
 
     if (checkStatus) {

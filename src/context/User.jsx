@@ -4,7 +4,6 @@ import { useAuth } from "../hooks/useAuth";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  // Extract all auth logic
   const {
     user,
     loading,
@@ -13,12 +12,10 @@ export const UserProvider = ({ children }) => {
     initializeAuth,
   } = useAuth();
 
-  // Call initializeAuth() ONCE when the provider mounts
   useEffect(() => {
     initializeAuth();
   }, []);
 
-  // Wrap login and logout for context usage (optional, for consistency)
   const login = (email, password) => handleLogin(email, password);
   const logout = () => handleLogout();
 

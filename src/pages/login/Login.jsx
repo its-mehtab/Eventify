@@ -5,13 +5,11 @@ import { assets } from "../../assets/assets";
 import "./login.css";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
-import { useAuth } from "../../hooks/useAuth";
 import { useUser } from "../../context/User";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
   const { login } = useUser();
-  // const { user, login, loading } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;

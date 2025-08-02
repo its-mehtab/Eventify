@@ -1,11 +1,11 @@
 import { getEventById } from "./eventService";
 import { api } from "./apiService";
 
-export const getUserInterestedEvents = async () => {
+export const getUserInterestedEvents = async (userId) => {
   try {
     // For now using 'guest' as userId
     const response = await api.get("/interested", {
-      params: { userId: "guest" },
+      params: { userId: userId },
     });
 
     // Get full event details for each interested item
@@ -34,12 +34,13 @@ export const deleteInterestedEvent = async (id) => {
   }
 };
 
-export const addToInterested = async (eventId) => {
+export const addToInterested = async (eventId, userId) => {
   try {
     const response = await api.post("/interested", {
       eventId,
-      userId: "guest", // Temporary until auth
+      userId,
     });
+
     return response.data;
   } catch (error) {
     throw new Error(
@@ -48,10 +49,10 @@ export const addToInterested = async (eventId) => {
   }
 };
 
-export const checkIfInterested = async (eventId) => {
+export const checkIfInterested = async (eventId, userId) => {
   try {
     const response = await api.get("/interested", {
-      params: { eventId },
+      params: { eventId, userId },
     });
     return response.data.length > 0 ? response.data[0] : null;
   } catch (error) {
@@ -61,11 +62,11 @@ export const checkIfInterested = async (eventId) => {
   }
 };
 
-export const toggleInterest = async (eventId) => {
-  const existingInterest = await checkIfInterested(eventId);
+export const toggleInterest = async (eventId, userId) => {
+  const existingInterest = await checkIfInterested(eventId, userId);
   if (existingInterest) {
     return await deleteInterestedEvent(existingInterest.id);
   } else {
-    return await addToInterested(eventId);
+    return await addToInterested(eventId, userId);
   }
 };

@@ -1,16 +1,23 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useEventInterest } from "../hooks/useInterestedEvents";
+import { useUser } from "./User";
 
 const InterestedItemsContext = createContext();
 
 export const InterestedItemsProvider = ({ children }) => {
+  const { user } = useUser();
+
   const { interestedEvents } = useEventInterest();
 
   const [interestedItems, setInterestedItems] = useState([]);
 
   useEffect(() => {
-    setInterestedItems(interestedEvents);
-  }, [interestedEvents]);
+    if (user) {
+      setInterestedItems(interestedEvents);
+    } else {
+      setInterestedItems([]);
+    }
+  }, [interestedEvents, user]);
 
   return (
     <InterestedItemsContext.Provider

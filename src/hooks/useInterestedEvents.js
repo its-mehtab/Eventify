@@ -19,11 +19,11 @@ export const useEventInterest = () => {
   const [actionSuccess, setActionSuccess] = useState(false);
 
   // Fetch all interested events
-  const fetchInterestedEvents = async () => {
+  const fetchInterestedEvents = async (userId) => {
     try {
       setLoading(true);
       setError(null);
-      const data = await getUserInterestedEvents();
+      const data = await getUserInterestedEvents(userId);
       setInterestedEvents(data);
     } catch (err) {
       setError(err.message);
@@ -33,9 +33,9 @@ export const useEventInterest = () => {
   };
 
   // Check if a specific event is interested
-  const checkInterestStatus = async (eventId) => {
+  const checkInterestStatus = async (eventId, userId) => {
     try {
-      const result = await checkIfInterested(eventId);
+      const result = await checkIfInterested(eventId, userId);
       return !!result;
     } catch (err) {
       setError(err.message);
@@ -44,15 +44,15 @@ export const useEventInterest = () => {
   };
 
   // Add to interested list
-  const addInterest = async (eventId) => {
+  const addInterest = async (eventId, userId) => {
     try {
       setActionLoading(true);
       setActionError(null);
       setActionSuccess(false);
 
-      await addToInterested(eventId);
+      await addToInterested(eventId, userId);
       setActionSuccess(true);
-      await fetchInterestedEvents(); // Refresh the list
+      await fetchInterestedEvents(userId); // Refresh the list
       return true;
     } catch (err) {
       setActionError(err.message);
@@ -82,11 +82,11 @@ export const useEventInterest = () => {
   };
 
   // Toggle interest status
-  const handleToggleInterest = async (eventId) => {
+  const handleToggleInterest = async (eventId, userId) => {
     try {
       setActionLoading(true);
-      await toggleInterest(eventId);
-      await fetchInterestedEvents(); // Refresh the list
+      await toggleInterest(eventId, userId);
+      await fetchInterestedEvents(userId); // Refresh the list
       return true;
     } catch (err) {
       setActionError(err.message);
