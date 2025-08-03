@@ -779,11 +779,5 @@
       "password": "eventify"
     }
   ],
-  "sessions": [
-    {
-      "id": "170f",
-      "userId": "1",
-      "loggedInAt": 1754159536426
-    }
-  ]
+  "sessions": []
 }

@@ -154,9 +154,6 @@ function Header() {
                   </Link>
                 </li>
               </ul>
-              {/* <Button href="login" btnClass="btn-dark px-3 py-1">
-                login
-              </Button> */}
               <Link to="dashboard" className="profile-btn">
                 <assets.UserIcon size={40} />
               </Link>

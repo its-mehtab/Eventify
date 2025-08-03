@@ -22,7 +22,6 @@ import {
 } from "../../components/DateTimeFormatter";
 import SportsContent from "../../components/sports-content/SportsContent";
 import UpcomingEvent from "./components/UpcomingEvent";
-import { useAuth } from "../../hooks/useAuth";
 
 function Home() {
   const { events, loading, error } = useEvents();

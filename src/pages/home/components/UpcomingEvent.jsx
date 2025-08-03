@@ -27,24 +27,28 @@ const UpcomingEvent = ({ upcomingEvent }) => {
   }, [checkInterestStatus, upcomingEvent.id]);
 
   const handleIsInterested = async () => {
-    const wasInterested = isInterested;
-    const success = await toggleInterest(upcomingEvent.id);
-    const checkStatus = await checkInterestStatus(upcomingEvent.id);
-    setIsInterested(checkStatus);
+    if (user) {
+      const wasInterested = isInterested;
+      const success = await toggleInterest(upcomingEvent.id, user.id);
+      const checkStatus = await checkInterestStatus(upcomingEvent.id, user.id);
+      setIsInterested(checkStatus);
 
-    if (success) {
-      if (wasInterested) {
-        setInterestedItems((prev) =>
-          prev.filter((item) => item.id !== upcomingEvent.id)
-        );
-      } else {
-        const interestRecord = await checkIfInterested(upcomingEvent.id);
+      if (success) {
+        if (wasInterested) {
+          setInterestedItems((prev) =>
+            prev.filter((item) => item.id !== upcomingEvent.id)
+          );
+        } else {
+          const interestRecord = await checkIfInterested(upcomingEvent.id);
 
-        setInterestedItems((prev) => [
-          ...prev,
-          { ...upcomingEvent, interestId: interestRecord.id },
-        ]);
+          setInterestedItems((prev) => [
+            ...prev,
+            { ...upcomingEvent, interestId: interestRecord.id },
+          ]);
+        }
       }
+    } else {
+      setInterestedItems([]);
     }
   };
 
@@ -77,7 +81,7 @@ const UpcomingEvent = ({ upcomingEvent }) => {
             </div>
             <Button
               btnClass="d-flex align-items-center gap-2"
-              href={null}
+              href={user ? null : "dashboard"}
               onClick={handleIsInterested}
             >
               {isInterested ? (
