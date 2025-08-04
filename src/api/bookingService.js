@@ -1,6 +1,18 @@
 import { getEventById } from "./eventService";
 import { api } from "./apiService";
 
+export const getAllBookings = async () => {
+  try {
+    const response = await api.get("/bookings");
+
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || "Failed to fetch bookings"
+    );
+  }
+};
+
 export const getUserBookings = async (userId = "guest") => {
   try {
     const response = await api.get("/bookings", {

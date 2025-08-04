@@ -15,28 +15,9 @@ const SportsContent = ({ events }) => {
 
   const { allBookings, allBookingsLoading, allBookingsError, getAllBookings } =
     useBookings();
-  // console.log(allBookings);
+  console.log(allBookings);
 
   const navigate = useNavigate();
-
-  const availableSeatsCalc = async () => {
-    const tickets = await allBookings.tickets;
-    const availableSeats =
-      tickets &&
-      tickets.reduce((total, currTicket) => {
-        if (currTicket.eventId === selectedEvent) {
-          return currTicket.quantity + total;
-        }
-
-        return total;
-      }, 0);
-
-    console.log(availableSeats);
-  };
-
-  useEffect(() => {
-    availableSeatsCalc();
-  }, [allBookings, selectedEvent]);
 
   return (
     <div className="row mt-5 justify-content-center">

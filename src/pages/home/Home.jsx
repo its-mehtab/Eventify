@@ -16,10 +16,6 @@ import StandUpSection from "./components/stand-up-section/StandUpSection";
 import { useEvents } from "../../hooks/useEvents";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
-import {
-  convertDate,
-  convertTo12HourFormat,
-} from "../../components/DateTimeFormatter";
 import SportsContent from "../../components/sports-content/SportsContent";
 import UpcomingEvent from "./components/UpcomingEvent";
 

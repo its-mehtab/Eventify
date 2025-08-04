@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import {
+  getAllBookings,
   getUserBookings,
   addBooking,
   getBookingById,
@@ -10,9 +11,30 @@ import { useUser } from "../context/User.jsx";
 export const useBookings = (userId) => {
   const { user } = useUser();
 
+  const [allBookings, setAllBookings] = useState([]);
+  const [allBookingsLoading, setAllBookingsLoading] = useState(true);
+  const [allBookingsError, setAllBookingsError] = useState(false);
+
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const fetchAllBookings = useCallback(async () => {
+    setAllBookingsLoading(true);
+    setAllBookingsError(null);
+    try {
+      const data = await getAllBookings();
+      setAllBookings(data);
+    } catch (err) {
+      setAllBookingsError(err.message);
+    } finally {
+      setAllBookingsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchAllBookings();
+  }, [fetchAllBookings]);
 
   const fetchBookings = useCallback(async () => {
     setLoading(true);
@@ -67,6 +89,9 @@ export const useBookings = (userId) => {
   };
 
   return {
+    allBookings,
+    allBookingsLoading,
+    allBookingsError,
     bookings,
     loading,
     error,

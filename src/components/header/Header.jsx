@@ -47,11 +47,46 @@ function Header() {
             <Link to="/" className="navbar-brand">
               <img src={assets.logo} alt="Eventify Logo" width={180} />
             </Link>
+            <div className="d-flex align-items-center ms-auto ms-lg-0 me-4 me-lg-0 order-lg-2">
+              <ul className="header-icons d-none d-sm-flex align-items-center gap-3 me-4">
+                <li>
+                  <Link to="interested" className="pe-2">
+                    <assets.WishlistEventIcon />
+                    <span>{interestedItems.length}</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="cart" className="pe-2">
+                    <assets.CartIcon />
+                    <span>{cartItems.length}</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="bookings">
+                    <assets.BookingsIcon />
+                  </Link>
+                </li>
+              </ul>
+              <Link to="dashboard" className="profile-btn">
+                <assets.UserIcon size={40} />
+              </Link>
+            </div>
+            <button
+              className="navbar-toggler order-lg-3"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
             <div
-              className="collapse navbar-collapse"
+              className="collapse navbar-collapse order-lg-1"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+              <ul className="navbar-nav mx-auto my-2 my-lg-0">
                 <li className="nav-item">
                   <NavLink
                     to="/"
@@ -134,41 +169,6 @@ function Header() {
                 </li>
               </ul>
             </div>
-            <div className="d-flex align-items-center ms-auto ms-lg-0 me-4 me-lg-0">
-              <ul className="header-icons d-none d-sm-flex align-items-center gap-3 me-4">
-                <li>
-                  <Link to="interested" className="pe-2">
-                    <assets.WishlistEventIcon />
-                    <span>{interestedItems.length}</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="cart" className="pe-2">
-                    <assets.CartIcon />
-                    <span>{cartItems.length}</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="bookings">
-                    <assets.BookingsIcon />
-                  </Link>
-                </li>
-              </ul>
-              <Link to="dashboard" className="profile-btn">
-                <assets.UserIcon size={40} />
-              </Link>
-            </div>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
           </div>
         </nav>
       </div>

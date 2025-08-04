@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { addUser, checkIfUser, getUser, updateUser } from "../api/userService";
 
-export const useUser = () => {
+export const useUserService = () => {
   // State for user data
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);

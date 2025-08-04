@@ -4,8 +4,6 @@ import BannerSection from "../home/components/banner-section/BannerSection";
 import { Link } from "react-router-dom";
 import VerticalCard from "../../components/vertical-card/VerticalCard";
 
-import JSON from "../home/JSON";
-
 const StandUp = ({ eventData }) => {
   return (
     <>
@@ -21,7 +19,7 @@ const StandUp = ({ eventData }) => {
                 <li>
                   <Link to="/">Home</Link>
                 </li>
-                <li>Stand up</li>
+                <li>comedy</li>
               </ul>
             </div>
           </div>

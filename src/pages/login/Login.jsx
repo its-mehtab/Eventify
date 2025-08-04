@@ -3,13 +3,19 @@ import BannerSection from "../home/components/banner-section/BannerSection";
 import CustomInput from "../../components/custom-input/CustomInput";
 import { assets } from "../../assets/assets";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
 import { useUser } from "../../context/User";
+import { useUserService } from "../../hooks/useUserService";
 
 const Login = () => {
+  const [userExists, setUserExists] = useState(true);
+  const [isPasswordCorrect, setIsPasswordCorrect] = useState(true);
   const [loginData, setLoginData] = useState({});
   const { login } = useUser();
+  const { verifyUser } = useUserService();
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,8 +25,25 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = async () => {
-    await login(loginData.email, loginData.password);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = await verifyUser(loginData.email);
+
+    if (user) {
+      setUserExists(true);
+
+      if (user.password === loginData.password) {
+        await login(loginData.email, loginData.password);
+
+        navigate("/dashboard");
+      } else {
+        setIsPasswordCorrect(false);
+      }
+    } else {
+      setUserExists(false);
+      setIsPasswordCorrect(true);
+    }
+    setLoginData({});
   };
 
   return (
@@ -32,6 +55,13 @@ const Login = () => {
             <p className="text-secondary">Login with your eventify account</p>
             <div className="row">
               <div className="col-md-12 mt-1">
+                {!userExists ? (
+                  <p className="text-danger text-start mt-2">
+                    Email does not exists, Please try again!
+                  </p>
+                ) : (
+                  ""
+                )}
                 <div className="position-relative">
                   <assets.EmailIcon color="#ff0a54" />
                   <CustomInput
@@ -45,6 +75,13 @@ const Login = () => {
                 </div>
               </div>
               <div className="col-md-12 mt-1">
+                {!isPasswordCorrect ? (
+                  <p className="text-danger text-start mt-2">
+                    Password does not match, Please try again!
+                  </p>
+                ) : (
+                  ""
+                )}
                 <div className="position-relative">
                   <assets.PasswordIcon color="#ff0a54" />
                   <CustomInput
@@ -67,7 +104,6 @@ const Login = () => {
               </div>
               <div className="d-flex mt-4">
                 <Button
-                  href="/dashboard"
                   onClick={handleSubmit}
                   btnClass="btn-dark w-100 text-center py-3"
                 >

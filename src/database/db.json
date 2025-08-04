@@ -661,7 +661,13 @@
       "id": "3378",
       "eventId": "2",
       "userId": "1",
-      "quantity": 1
+      "quantity": 2
+    },
+    {
+      "id": "40d1",
+      "eventId": "1",
+      "userId": "1",
+      "quantity": 2
     }
   ],
   "bookings": [
@@ -770,7 +776,7 @@
       "id": "a9b9",
       "name": "dsf",
       "email": "test@test.com",
-      "password": "asdfd"
+      "password": "aa"
     },
     {
       "id": "8dc5",
@@ -779,5 +785,11 @@
       "password": "eventify"
     }
   ],
-  "sessions": []
+  "sessions": [
+    {
+      "id": "d9ab",
+      "userId": "1",
+      "loggedInAt": 1754303823330
+    }
+  ]
 }

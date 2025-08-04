@@ -5,7 +5,7 @@ import { assets } from "../../assets/assets";
 import "./login.css";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
-import { useUser } from "../../hooks/useUser";
+import { useUserService } from "../../hooks/useUserService";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 import Home from "../home/Home";
@@ -15,7 +15,7 @@ const SignUp = () => {
   const [isUserExist, setIsUserExist] = useState(false);
 
   const { createUser, verifyUser, actionLoading, actionError, actionSuccess } =
-    useUser();
+    useUserService();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
