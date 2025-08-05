@@ -5,38 +5,45 @@ import { assets } from "../../assets/assets";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { useTicketQuantity } from "../../context/TicketQuantityContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { formatNumber } from "../DateTimeFormatter";
 import { useBookings } from "../../hooks/useBooking";
 
 const SportsContent = ({ events }) => {
   const [selectedEvent, setSelectedEvent] = useState("19");
+  const [usedSeats, setUsedSeats] = useState(0);
+  const [totalSeats, setTotalSeats] = useState(0);
+  const [event, setEvent] = useState({});
   const { ticketQuantity, setTicketQuantity } = useTicketQuantity();
 
   const { allBookings, allBookingsLoading, allBookingsError, getAllBookings } =
     useBookings();
-  // console.log(allBookings);
 
   const navigate = useNavigate();
 
-  const availableSeatsCalc = async () => {
-    const tickets = await allBookings.tickets;
-    const availableSeats =
-      tickets &&
-      tickets.reduce((total, currTicket) => {
-        if (currTicket.eventId === selectedEvent) {
-          return currTicket.quantity + total;
-        }
+  useEffect(() => {
+    if (!allBookings || allBookings.length === 0) {
+      setUsedSeats(0);
+      return;
+    }
 
-        return total;
-      }, 0);
+    const allTickets = allBookings.flatMap((booking) => booking.tickets);
 
-    console.log(availableSeats);
-  };
+    const totalUsed = allTickets.reduce((total, ticket) => {
+      if (String(ticket.eventId) === String(selectedEvent)) {
+        return total + Number(ticket.quantity);
+      }
+      return total;
+    }, 0);
+
+    setUsedSeats(totalUsed);
+  }, [allBookings, selectedEvent]);
 
   useEffect(() => {
-    availableSeatsCalc();
-  }, [allBookings, selectedEvent]);
+    const event = events.find((e) => String(e.id) === String(selectedEvent));
+    setEvent(event);
+    setTotalSeats(event ? event.totalSeats : 0);
+  }, [selectedEvent, events, usedSeats]);
 
   return (
     <div className="row mt-5 justify-content-center">
@@ -104,7 +111,9 @@ const SportsContent = ({ events }) => {
             <SwiperSlide>
               <div className="sports-details-item">
                 <div className="d-sm-flex gap-3 align-items-center">
-                  <h4>248</h4>
+                  <h4>
+                    {formatNumber(parseInt(totalSeats) - parseInt(usedSeats))}
+                  </h4>
                   <span>
                     Seats <br /> Available
                   </span>
@@ -118,13 +127,23 @@ const SportsContent = ({ events }) => {
                     aria-valuemin="0"
                     aria-valuemax="100"
                   >
-                    <div className="progress-bar" style={{ width: "75%" }}>
-                      78% filled
+                    <div
+                      className="progress-bar"
+                      style={{
+                        width: `${Math.floor(
+                          (parseInt(usedSeats) * 100) / parseInt(totalSeats)
+                        )}%`,
+                      }}
+                    >
+                      {Math.floor(
+                        (parseInt(usedSeats) * 100) / parseInt(totalSeats)
+                      )}
+                      % filled
                     </div>
                   </div>
-                  <a href="#" className="arrow-btn">
+                  <Link to={`events/${event.id}`} className="arrow-btn">
                     <assets.ArrowIcon />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </SwiperSlide>
@@ -132,12 +151,12 @@ const SportsContent = ({ events }) => {
               <div className="sports-details-item">
                 <div className="d-sm-flex gap-3 align-items-center">
                   <div>
-                    <span>537+ attending</span>
+                    <span>{formatNumber(usedSeats)}+ attending</span>
                     <h5>Secure your spot now</h5>
                   </div>
-                  <a href="#" className="arrow-btn">
+                  <Link to={`events/${event.id}`} className="arrow-btn">
                     <assets.ArrowIcon />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </SwiperSlide>
