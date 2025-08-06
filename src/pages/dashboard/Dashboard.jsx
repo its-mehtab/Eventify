@@ -30,15 +30,20 @@ const Dashboard = () => {
             </div>
             <div className="d-flex justify-content-center flex-wrap">
               {user ? (
-                <Button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    logout();
-                  }}
-                  btnClass="mt-4"
-                >
-                  Logout
-                </Button>
+                <>
+                  <Button href="/" btnClass="mt-4">
+                    Home
+                  </Button>
+                  <Button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      logout();
+                    }}
+                    btnClass="primary-btn btn-white ms-3  mt-4"
+                  >
+                    Logout
+                  </Button>
+                </>
               ) : (
                 <>
                   <Button
