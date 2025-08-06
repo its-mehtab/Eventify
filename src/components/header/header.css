@@ -19,6 +19,12 @@ header {
   }
 }
 
+@media (max-width: 350px) {
+  .navbar-brand img {
+    width: 110px;
+  }
+}
+
 @media (max-width: 767px) {
   header {
     padding: 10px 5px;

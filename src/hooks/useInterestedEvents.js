@@ -5,9 +5,12 @@ import {
   deleteInterestedEvent,
   toggleInterest,
   checkIfInterested,
+  getAllInterestedEvents,
 } from "../api/interestService.js";
 
 export const useEventInterest = () => {
+  const [allInterested, setAllInterested] = useState([]);
+
   // State for interested events list
   const [interestedEvents, setInterestedEvents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +21,19 @@ export const useEventInterest = () => {
   const [actionError, setActionError] = useState(null);
   const [actionSuccess, setActionSuccess] = useState(false);
 
-  // Fetch all interested events
+  const fetchAllInterestedEvents = async (eventId) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await getAllInterestedEvents(eventId);
+      setAllInterested(data.length);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const fetchInterestedEvents = async (userId) => {
     try {
       setLoading(true);
@@ -103,10 +118,12 @@ export const useEventInterest = () => {
 
   return {
     // List related
+    allInterested,
     interestedEvents,
     loading,
     error,
     fetchInterestedEvents,
+    fetchAllInterestedEvents,
 
     // Individual action related
     addInterest,

@@ -16,15 +16,30 @@ const UpcomingEvent = ({ upcomingEvent }) => {
 
   const { setInterestedItems } = useInterestedItems();
 
-  const { checkInterestStatus, toggleInterest } = useEventInterest();
+  const {
+    allInterested,
+    interestedEvents,
+    checkInterestStatus,
+    toggleInterest,
+    fetchAllInterestedEvents,
+  } = useEventInterest();
 
   useEffect(() => {
-    const fetchIsInterested = async () => {
-      const checkStatus = await checkInterestStatus(upcomingEvent.id);
-      setIsInterested(checkStatus);
-    };
-    fetchIsInterested();
-  }, [checkInterestStatus, upcomingEvent.id]);
+    fetchAllInterestedEvents(upcomingEvent.id);
+  }, [interestedEvents]);
+
+  useEffect(() => {
+    if (user) {
+      const fetchIsInterested = async () => {
+        const checkStatus = await checkInterestStatus(
+          upcomingEvent.id,
+          user.id
+        );
+        setIsInterested(checkStatus);
+      };
+      fetchIsInterested();
+    }
+  }, [checkInterestStatus, upcomingEvent.id, user]);
 
   const handleIsInterested = async () => {
     if (user) {
@@ -76,8 +91,8 @@ const UpcomingEvent = ({ upcomingEvent }) => {
         <div className="col-lg-4 col-md-12">
           <div className="upcoming-event-item d-flex gap-3 align-items-center justify-content-between flex-wrap">
             <div>
-              <h3>353</h3>
-              <p>Attending</p>
+              <h3>{parseInt(allInterested) + 356}</h3>
+              <p>Engaged</p>
             </div>
             <Button
               btnClass="d-flex align-items-center gap-2"

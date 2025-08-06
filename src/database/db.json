@@ -476,11 +476,13 @@
       "players": [
         {
           "name": "PV Sindhu",
+          "logo": "/assets/teams/india-logo.png",
           "country": "India",
           "playerType": "Badminton Player"
         },
         {
           "name": "Kento Momota",
+          "logo": "/assets/teams/japan-logo.png",
           "country": "Japan",
           "playerType": "Badminton Player"
         }
@@ -506,11 +508,13 @@
       "players": [
         {
           "name": "Rafael Nadal",
+          "logo": "/assets/teams/spain-logo.png",
           "country": "Spain",
           "playerType": "Tennis Player"
         },
         {
           "name": "Serena Williams",
+          "logo": "/assets/teams/usa-logo.png",
           "country": "USA",
           "playerType": "Tennis Player"
         }
@@ -626,11 +630,13 @@
       "players": [
         {
           "name": "Mary Kom",
+          "logo": "/assets/teams/india-logo.png",
           "country": "India",
           "playerType": "Boxer"
         },
         {
           "name": "Claressa Shields",
+          "logo": "/assets/teams/usa-logo.png",
           "country": "USA",
           "playerType": "Boxer"
         }
@@ -651,8 +657,13 @@
   ],
   "interested": [
     {
-      "id": "650a",
-      "eventId": "10",
+      "id": "1f19",
+      "eventId": "11",
+      "userId": "1"
+    },
+    {
+      "id": "8b6f",
+      "eventId": "19",
       "userId": "1"
     }
   ],
@@ -661,7 +672,7 @@
       "id": "3378",
       "eventId": "2",
       "userId": "1",
-      "quantity": 2
+      "quantity": 1
     },
     {
       "id": "40d1",
@@ -797,11 +808,5 @@
       "password": "eventify"
     }
   ],
-  "sessions": [
-    {
-      "id": "d9ab",
-      "userId": "1",
-      "loggedInAt": 1754303823330
-    }
-  ]
+  "sessions": []
 }

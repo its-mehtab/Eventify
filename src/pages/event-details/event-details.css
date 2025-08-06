@@ -19,9 +19,19 @@
 }
 
 .event-host-details img {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   border-radius: 20px;
   margin: 32px 0 10px;
+}
+
+.teams-wrap .event-host-details img {
+  max-width: 180px;
+  margin: 32px 0 10px;
+}
+
+.teams-wrap .event-host-details h5 {
+  font-size: 24px;
 }
 
 .event-host-details h5 {

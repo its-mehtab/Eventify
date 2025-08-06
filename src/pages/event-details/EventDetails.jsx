@@ -30,10 +30,13 @@ const EventDetails = () => {
   const { user } = useUser();
   const { ticketQuantity, setTicketQuantity } = useTicketQuantity();
   const {
+    interestedEvents,
     setActionLoading,
     setActionError,
     toggleInterest,
     checkInterestStatus,
+    allInterested,
+    fetchAllInterestedEvents,
   } = useEventInterest();
 
   const { setCartItems } = useCartItems();
@@ -46,6 +49,10 @@ const EventDetails = () => {
   const { event, loading, error } = useEventDetails(eventId);
 
   const [isInterested, setIsInterested] = useState(null);
+
+  useEffect(() => {
+    fetchAllInterestedEvents(eventId);
+  }, [interestedEvents]);
 
   useEffect(() => {
     if (!user) return;
@@ -180,16 +187,52 @@ const EventDetails = () => {
                     )}
                     {isInterested ? "Not Interested" : "Interested"}
                   </Button>
-                  <p>868 People are interested</p>
+                  <p>{868 + parseInt(allInterested)} People are interested</p>
                 </div>
                 <h4>About The Event</h4>
                 <p>{event.description}</p>
-                <div className="event-host-details">
-                  <img src={event.image} alt="" />
-                  <h5>{event.artist}</h5>
-                  <p>{event.artistType}</p>
-                  <p>{event.artistBio}</p>
-                </div>
+                {event.type !== "sports" ? (
+                  <div className="event-host-details">
+                    <img src={event.artistImage} alt="" />
+                    <h5>{event.artist}</h5>
+                    <p>{event.artistType}</p>
+                    <p>{event.artistBio}</p>
+                  </div>
+                ) : (
+                  <div className="teams-wrap d-flex flex-md-row gap-4 align-items-center">
+                    {event?.teams && event.teams.length >= 2 ? (
+                      <>
+                        <div className="event-host-details">
+                          <img src={event.teams[0]?.logo} alt="" />
+                          <h5>{event.teams[0]?.name}</h5>
+                          <p>{event.teams[0]?.playerType}</p>
+                        </div>
+                        <div className="fs-2 fw-bold">VS</div>
+                        <div className="event-host-details">
+                          <img src={event.teams[1]?.logo} alt="" />
+                          <h5>{event.teams[1]?.name}</h5>
+                          <p>{event.teams[1]?.playerType}</p>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="event-host-details">
+                          <img src={event.players[0]?.logo} alt="" />
+                          <h5>{event.players[0]?.country}</h5>
+                          <h5>{event.players[0]?.name}</h5>
+                          <p>{event.players[0]?.playerType}</p>
+                        </div>
+                        <div className="fs-2 fw-bold">VS</div>
+                        <div className="event-host-details">
+                          <img src={event.players[1]?.logo} alt="" />
+                          <h5>{event.players[1]?.country}</h5>
+                          <h5>{event.players[1]?.name}</h5>
+                          <p>{event.players[1]?.playerType}</p>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
             <div className="col-md-6">

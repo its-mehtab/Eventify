@@ -1,6 +1,20 @@
 import { getEventById } from "./eventService";
 import { api } from "./apiService";
 
+export const getAllInterestedEvents = async (eventId) => {
+  try {
+    const response = await api.get("/interested", {
+      params: { eventId },
+    });
+
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || "Failed to get interested events"
+    );
+  }
+};
+
 export const getUserInterestedEvents = async (userId) => {
   try {
     // For now using 'guest' as userId
