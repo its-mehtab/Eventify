@@ -8,8 +8,10 @@ import { useTicketQuantity } from "../../context/TicketQuantityContext";
 import { Link, useNavigate } from "react-router-dom";
 import { formatNumber } from "../DateTimeFormatter";
 import { useBookings } from "../../hooks/useBooking";
+import { useUser } from "../../context/User";
 
 const SportsContent = ({ events }) => {
+  const { user } = useUser();
   const [selectedEvent, setSelectedEvent] = useState("19");
   const [usedSeats, setUsedSeats] = useState(0);
   const [totalSeats, setTotalSeats] = useState(0);
@@ -83,15 +85,19 @@ const SportsContent = ({ events }) => {
               className="primary-btn"
               type="button"
               onClick={() => {
-                navigate("/checkout", {
-                  state: {
-                    directCheckout: true,
-                    item: {
-                      eventId: selectedEvent,
-                      quantity: ticketQuantity,
+                if (user) {
+                  navigate("/checkout", {
+                    state: {
+                      directCheckout: true,
+                      item: {
+                        eventId: selectedEvent,
+                        quantity: ticketQuantity,
+                      },
                     },
-                  },
-                });
+                  });
+                } else {
+                  navigate("/dashboard");
+                }
               }}
             >
               <assets.TicketIcon />
