@@ -9,6 +9,7 @@ footer {
 .common-head h4 {
   font-size: 120px;
   font-weight: 700;
+  margin-bottom: 60px;
 }
 
 .common-head h4 span {
@@ -40,7 +41,9 @@ footer {
 @media (max-width: 767px) {
   .common-head h4 {
     font-size: 80px;
+    margin-bottom: 40px;
   }
+
   .arrow-sign-up {
     width: 90px;
     height: 90px;
@@ -96,7 +99,6 @@ footer {
 }
 
 .footer-main-content {
-  margin-top: 60px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 30px;
   padding: 60px 30px 0;

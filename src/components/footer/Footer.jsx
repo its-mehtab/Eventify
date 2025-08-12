@@ -3,23 +3,31 @@ import "./footer.css";
 import AnimatedArrow from "../animated-arrow/AnimatedArrow";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
+import { useUser } from "../../context/User";
 
 const Footer = () => {
+  const { user } = useUser();
+
   return (
     <footer className="sp-t">
       <div className="container">
-        <div className="common-head">
-          <span className="inner-head">Let’s Make Memories Together</span>
-          <h4>
-            REGISTER <br />
-            <div className="d-flex align-items-center gap-4 gap-md-5">
-              <span>TODAY</span>
-              <Link to="/register" className="arrow-sign-up">
-                <assets.ArrowIcon />
-              </Link>
-            </div>
-          </h4>
-        </div>
+        {!user ? (
+          <div className="common-head">
+            <span className="inner-head">Let’s Make Memories Together</span>
+            <h4>
+              REGISTER <br />
+              <div className="d-flex align-items-center gap-4 gap-md-5">
+                <span>TODAY</span>
+                <Link to="/register" className="arrow-sign-up">
+                  <assets.ArrowIcon />
+                </Link>
+              </div>
+            </h4>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div className="footer-main-content">
           <div className="row">
             <div className="col-md-4">
