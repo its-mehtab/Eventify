@@ -1,7 +1,6 @@
 # 🎟️ Eventify
 
-Live Demo: Eventify on Vercel
-Backend API: Eventify JSON Server
+Live Demo: https://book-eventify.vercel.app
 
 A modern event ticketing platform for concerts, comedy shows, and sports events.
 Built with React (frontend) & JSON Server (backend), supporting full CRUD, authentication, cart and interest management, booking, and session handling.
@@ -69,20 +68,24 @@ http://localhost:5173
 
 ### 📁 Project Structure
 
-bash
+```bash
 Eventify/
 ├── public/ # Static assets
 ├── src/ # React components, pages, hooks, contexts
 ├── server.js (optional) # If using Express instead of JSON Server
 ├── package.json
 └── README.md
+```
 
 ### 🔗 Main API Endpoints
 
 Resource Methods Example Usage
+
+```bash
 /events GET, POST, PATCH, PUT, DELETE /events?type=concert
 /users GET, POST, PATCH, PUT, DELETE /users?email=test@gmail.com
 /interested GET, POST, PATCH, PUT, DELETE /interested?userId=1
 /carts GET, POST, PATCH, PUT, DELETE /carts?userId=1
 /bookings GET, POST, PATCH, PUT, DELETE /bookings?userId=1
 /sessions GET, POST, DELETE /sessions?userId=1
+```
