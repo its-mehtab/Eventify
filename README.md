@@ -1,13 +1,88 @@
-# React + Vite
+# 🎟️ Eventify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Demo: Eventify on Vercel
+Backend API: Eventify JSON Server
 
-Currently, two official plugins are available:
+A modern event ticketing platform for concerts, comedy shows, and sports events.
+Built with React (frontend) & JSON Server (backend), supporting full CRUD, authentication, cart and interest management, booking, and session handling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+🎭 Event Categories – Browse Concerts, Comedy, Sports & more
+🔍 Advanced Filtering – Filter by type
+🛒 Cart Management – Add, update, and remove tickets from cart
+⭐ Wishlist (Interested) – Save events you love
+📅 Bookings – View and manage your bookings
+🔑 User Login / Logout – Simple session system
+⚡ Full CRUD API – For Events, Users, Carts, Interested, Bookings, Sessions
+🎨 Responsive UI – Built with modern React, Bootstrap & Swiper
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Eventify
+## 🛠️ Tech Stack
+
+### Frontend
+
+⚛️ React 19+
+🛠️ Axios for API calls
+🔀 React Router
+🗂️ Context API & Hooks
+🎨 Bootstrap 5, Swiper.js
+
+### Backend
+
+📦 JSON Server for RESTful API
+🗄️ db.json as database
+🔍 Query filters, search, sorting
+
+## 🚀 Getting Started (Local Development)
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/yourusername/Eventify.git
+cd Eventify
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### ▶️ Start JSON Server (Backend)
+
+```bash
+npm start
+```
+
+Your backend API will be available at:
+http://localhost:3000
+All CRUD operations (GET/POST/PATCH/DELETE) will update db.json.
+
+### ▶️ Start React Frontend
+
+```bash
+npm run dev
+```
+
+Your frontend will run on:
+http://localhost:5173
+
+### 📁 Project Structure
+
+bash
+Eventify/
+├── public/ # Static assets
+├── src/ # React components, pages, hooks, contexts
+├── server.js (optional) # If using Express instead of JSON Server
+├── package.json
+└── README.md
+
+### 🔗 Main API Endpoints
+
+Resource Methods Example Usage
+/events GET, POST, PATCH, PUT, DELETE /events?type=concert
+/users GET, POST, PATCH, PUT, DELETE /users?email=test@gmail.com
+/interested GET, POST, PATCH, PUT, DELETE /interested?userId=1
+/carts GET, POST, PATCH, PUT, DELETE /carts?userId=1
+/bookings GET, POST, PATCH, PUT, DELETE /bookings?userId=1
+/sessions GET, POST, DELETE /sessions?userId=1
