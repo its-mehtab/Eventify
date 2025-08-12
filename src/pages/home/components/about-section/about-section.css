@@ -17,6 +17,11 @@
     padding-top: 280px;
   }
 }
+@media (max-width: 400px) {
+  .about-sec {
+    padding-top: 430px;
+  }
+}
 
 .about-item img {
   border-radius: 300px 30px 30px 30px;

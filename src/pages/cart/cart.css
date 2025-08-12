@@ -19,6 +19,7 @@
   min-width: 250px;
   border-radius: 10px;
   overflow: hidden;
+  display: inline-block;
 }
 
 .cart-list-item .cart-img img {
@@ -45,4 +46,14 @@
   font-size: 34px;
   font-weight: 700;
   font-family: "Lexend Deca", sans-serif;
+}
+
+@media (max-width: 767px) {
+  .cart-list-item {
+    display: block;
+  }
+  .cart-list-item .cart-img {
+    width: 100%;
+    max-width: 450px;
+  }
 }

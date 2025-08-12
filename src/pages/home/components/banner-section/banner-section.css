@@ -78,7 +78,7 @@
 
 @media (max-width: 410px) {
   .banner-sec {
-    padding: 160px 0 200px;
+    padding: 160px 0 130px;
   }
 }
 
@@ -143,6 +143,12 @@
 @media (max-width: 767px) {
   .upcoming-event {
     bottom: -240px;
+  }
+}
+
+@media (max-width: 400px) {
+  .upcoming-event {
+    bottom: -400px;
   }
 }
 

@@ -1,7 +1,7 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./header.css";
 import { assets } from "../../assets/assets";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Button from "../button/Button";
 import { useCartItems } from "../../context/CartItems";
 import { useInterestedItems } from "../../context/InterestedItems";
@@ -9,6 +9,8 @@ import { useInterestedItems } from "../../context/InterestedItems";
 function Header() {
   const { cartItems } = useCartItems();
   const { interestedItems } = useInterestedItems();
+  const location = useLocation();
+  const navRef = useRef(null);
 
   const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
   const headerRef = useRef(null);
@@ -35,6 +37,13 @@ function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const navHide = () => {
+      navRef.current.classList.remove("show");
+    };
+    navHide();
+  }, [location.pathname]);
 
   return (
     <header
@@ -85,6 +94,7 @@ function Header() {
             <div
               className="collapse navbar-collapse order-lg-1"
               id="navbarSupportedContent"
+              ref={navRef}
             >
               <ul className="navbar-nav mx-auto my-2 my-lg-0">
                 <li className="nav-item">

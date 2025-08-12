@@ -58,7 +58,7 @@ const InterestedEvents = () => {
             return (
               <li key={currData.id}>
                 <div className="text-white">
-                  <div className="d-md-flex align-items-center">
+                  <div className="d-sm-flex align-items-center">
                     <Link
                       to={`/events/${currData.id}`}
                       className="booking-img-wrap"

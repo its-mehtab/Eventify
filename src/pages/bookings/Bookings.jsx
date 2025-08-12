@@ -62,7 +62,7 @@ const Bookings = () => {
                       return (
                         <div
                           key={currTicket.id}
-                          className="booking-event-item d-flex gap-4"
+                          className="booking-event-item d-sm-flex gap-4"
                         >
                           <div className="left-side">
                             <div className="booking-img-wrap">
@@ -85,7 +85,7 @@ const Bookings = () => {
                     })}
                   </div>
                   <div className="col-md-5">
-                    <div className="booking-details text-end">
+                    <div className="booking-details mt-4 mt-md-0 text-md-end">
                       <div className="common-head">
                         <span className="inner-head mb-2">
                           {currBooking.paymentStatus}
@@ -100,7 +100,7 @@ const Bookings = () => {
                         {currBooking.paymentMethod.toUpperCase()}
                       </p>
                       <p>Date: {formatDateTime(currBooking.createdAt)}</p>
-                      <div className="d-flex flex-wrap justify-content-end">
+                      <div className="d-flex flex-wrap justify-content-md-end">
                         <Button
                           href={`/booking/${currBooking.id}`}
                           btnClass="mt-4"

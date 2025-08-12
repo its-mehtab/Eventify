@@ -103,7 +103,7 @@ const Cart = () => {
                     )}
                   </h3>
                 </div>
-                <div className="d-flex gap-5 ms-auto">
+                <div className="d-flex gap-4 gap-md-5 ms-auto align-content-center">
                   <TicketsQuantity
                     initialQuantity={currData.quantity}
                     handleUpdateQuantity={updateCartHandle}
