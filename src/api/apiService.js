@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:3001/";
+const API_BASE_URL = "https://eventify-api.up.railway.app/";
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
