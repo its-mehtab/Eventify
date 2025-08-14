@@ -8,7 +8,7 @@ import Button from "../../components/button/Button";
 import { useUserService } from "../../hooks/useUserService";
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
-import Home from "../home/Home";
+import Login from "./Login";
 
 const SignUp = () => {
   const [signUpData, setSignUpData] = useState({});
@@ -40,7 +40,7 @@ const SignUp = () => {
 
   if (actionLoading) return <LoadingSpinner />;
   if (actionError) return <ErrorMessage message={error} />;
-  if (actionSuccess) return <Home />;
+  if (actionSuccess) return <Login />;
 
   return (
     <BannerSection className="sp-tb">
